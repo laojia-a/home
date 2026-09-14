@@ -2,7 +2,7 @@ name: Check S10 modules
 on:
   push:
     branches: [main]
-    paths: ['src/**', 'scripts/**', 'tests/**', 'package.json', 'docs/**', 'reference/**', 'baseline/**', 'archive/**']
+    paths: ['src/**', 'scripts/**', 'tests/**', 'package.json', 'docs/**', 'reference/**', 'archive/**']
   pull_request:
 permissions:
   contents: read
@@ -15,11 +15,14 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Unit tests, build, hashes and syntax
+      - name: Unit tests, build, boundaries and hashes
         run: npm run check
       - name: Install browser test tooling
         run: |
           python -m pip install playwright==1.56.0
           python -m playwright install --with-deps chromium
-      - name: Pixel and interaction regressions
-        run: python tests/browser.py --content --artifacts /tmp/jclaw-home-qa
+      - name: Interaction, fixed frames and portable collection
+        run: |
+          python tests/browser.py --content --artifacts /tmp/jclaw-home-qa
+          python tests/parity.py --artifacts /tmp/jclaw-home-qa
+          python tests/collection.py --artifacts /tmp/jclaw-home-qa
