@@ -8,19 +8,28 @@ permissions:
 jobs:
   import:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - name: Checkout exact triggering commit
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - name: Verify and extract source payload
         run: python3 .bootstrap/import.py
       - name: Validate imported project
+        run: npm run check
+      - name: Install browser test tooling
         run: |
-          npm test
-          python3 scripts/build.py
-          python3 scripts/verify.py
+          python -m pip install playwright==1.56.0
+          python -m playwright install --with-deps chromium
+      - name: Validate actual pages and animation equivalence
+        run: |
+          python tests/browser.py --content --artifacts /tmp/jclaw-home-qa
+          python tests/parity.py --artifacts /tmp/jclaw-home-qa
+          python tests/collection.py --artifacts /tmp/jclaw-home-qa
       - name: Commit verified source without overwriting concurrent changes
         env:
           EXPECTED_PARENT: ${{ github.sha }}
@@ -30,5 +39,5 @@ jobs:
           git fetch origin main
           test "$(git rev-parse origin/main)" = "$EXPECTED_PARENT"
           git add -A
-          git commit -m "feat: import S10 programme baseline and modular animation/settings architecture"
+          git commit -m "feat: import S10 baseline with modular animation and settings"
           git push origin HEAD:main
