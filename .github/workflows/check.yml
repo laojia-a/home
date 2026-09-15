@@ -2,7 +2,7 @@ name: Check S10 modules
 on:
   push:
     branches: [main]
-    paths: ['src/**', 'scripts/**', 'tests/**', 'package.json', 'docs/**', 'reference/**', 'archive/**']
+    paths: ['src/**', 'scripts/**', 'tests/**', 'package.json', 'docs/**', 'reference/**', 'archive/**', '.github/workflows/check.yml']
   pull_request:
 permissions:
   contents: read
@@ -17,12 +17,24 @@ jobs:
           node-version: '22'
       - name: Unit tests, build, boundaries and hashes
         run: npm run check
+      - name: Reproduce historical SVGs without changing archived bytes
+        run: |
+          python3 scripts/restore_cinematic.py
+          git diff --exit-code -- archive/reuse/cinematic-original
       - name: Install browser test tooling
         run: |
           python -m pip install playwright==1.56.0
           python -m playwright install --with-deps chromium
-      - name: Interaction, fixed frames and portable collection
+      - name: Interaction, fixed frames, original SVGs and portable collection
         run: |
           python tests/browser.py --content --artifacts /tmp/jclaw-home-qa
           python tests/parity.py --artifacts /tmp/jclaw-home-qa
+          python tests/archived_svg.py --artifacts /tmp/jclaw-home-qa
           python tests/collection.py --artifacts /tmp/jclaw-home-qa
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: s10-check-evidence
+          path: /tmp/jclaw-home-qa
+          retention-days: 7
+          if-no-files-found: ignore

@@ -1,0 +1,1157 @@
+{
+  "frames": [
+    {
+      "viewport": 1440,
+      "channel": 1,
+      "scene": 0,
+      "phase": 0.05,
+      "baseline": 3446059608,
+      "modular": 3446059608,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 1,
+      "scene": 0,
+      "phase": 0.25,
+      "baseline": 2897458285,
+      "modular": 2897458285,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 1,
+      "scene": 0,
+      "phase": 0.55,
+      "baseline": 4102340934,
+      "modular": 4102340934,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 1,
+      "scene": 0,
+      "phase": 0.9,
+      "baseline": 3266612461,
+      "modular": 3266612461,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 1,
+      "scene": 1,
+      "phase": 0.05,
+      "baseline": 2914532896,
+      "modular": 2914532896,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 1,
+      "scene": 1,
+      "phase": 0.25,
+      "baseline": 1465072765,
+      "modular": 1465072765,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 1,
+      "scene": 1,
+      "phase": 0.55,
+      "baseline": 1622796754,
+      "modular": 1622796754,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 1,
+      "scene": 1,
+      "phase": 0.9,
+      "baseline": 4055038643,
+      "modular": 4055038643,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 1,
+      "scene": 2,
+      "phase": 0.05,
+      "baseline": 3638877412,
+      "modular": 3638877412,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 1,
+      "scene": 2,
+      "phase": 0.25,
+      "baseline": 2173750207,
+      "modular": 2173750207,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 1,
+      "scene": 2,
+      "phase": 0.55,
+      "baseline": 951057607,
+      "modular": 951057607,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 1,
+      "scene": 2,
+      "phase": 0.9,
+      "baseline": 593633036,
+      "modular": 593633036,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 1,
+      "scene": 3,
+      "phase": 0.05,
+      "baseline": 769927238,
+      "modular": 769927238,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 1,
+      "scene": 3,
+      "phase": 0.25,
+      "baseline": 1152882335,
+      "modular": 1152882335,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 1,
+      "scene": 3,
+      "phase": 0.55,
+      "baseline": 2815815697,
+      "modular": 2815815697,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 1,
+      "scene": 3,
+      "phase": 0.9,
+      "baseline": 1714766423,
+      "modular": 1714766423,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 1,
+      "scene": 4,
+      "phase": 0.05,
+      "baseline": 1486498417,
+      "modular": 1486498417,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 1,
+      "scene": 4,
+      "phase": 0.25,
+      "baseline": 4058853404,
+      "modular": 4058853404,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 1,
+      "scene": 4,
+      "phase": 0.55,
+      "baseline": 3170551212,
+      "modular": 3170551212,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 1,
+      "scene": 4,
+      "phase": 0.9,
+      "baseline": 471330114,
+      "modular": 471330114,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 1,
+      "scene": 5,
+      "phase": 0.05,
+      "baseline": 3322343779,
+      "modular": 3322343779,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 1,
+      "scene": 5,
+      "phase": 0.25,
+      "baseline": 4011675993,
+      "modular": 4011675993,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 1,
+      "scene": 5,
+      "phase": 0.55,
+      "baseline": 4022674697,
+      "modular": 4022674697,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 1,
+      "scene": 5,
+      "phase": 0.9,
+      "baseline": 2132826568,
+      "modular": 2132826568,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 2,
+      "scene": 0,
+      "phase": 0.05,
+      "baseline": 1429220868,
+      "modular": 1429220868,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 2,
+      "scene": 0,
+      "phase": 0.25,
+      "baseline": 4037111490,
+      "modular": 4037111490,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 2,
+      "scene": 0,
+      "phase": 0.55,
+      "baseline": 3185701331,
+      "modular": 3185701331,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 2,
+      "scene": 0,
+      "phase": 0.9,
+      "baseline": 1476615162,
+      "modular": 1476615162,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 2,
+      "scene": 1,
+      "phase": 0.05,
+      "baseline": 209090901,
+      "modular": 209090901,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 2,
+      "scene": 1,
+      "phase": 0.25,
+      "baseline": 2309460821,
+      "modular": 2309460821,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 2,
+      "scene": 1,
+      "phase": 0.55,
+      "baseline": 3753149779,
+      "modular": 3753149779,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 2,
+      "scene": 1,
+      "phase": 0.9,
+      "baseline": 4225566837,
+      "modular": 4225566837,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 2,
+      "scene": 2,
+      "phase": 0.05,
+      "baseline": 561137171,
+      "modular": 561137171,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 2,
+      "scene": 2,
+      "phase": 0.25,
+      "baseline": 1929113275,
+      "modular": 1929113275,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 2,
+      "scene": 2,
+      "phase": 0.55,
+      "baseline": 689725727,
+      "modular": 689725727,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 2,
+      "scene": 2,
+      "phase": 0.9,
+      "baseline": 2654000358,
+      "modular": 2654000358,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 3,
+      "scene": 0,
+      "phase": 0.05,
+      "baseline": 1379802113,
+      "modular": 1379802113,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 3,
+      "scene": 0,
+      "phase": 0.25,
+      "baseline": 113203758,
+      "modular": 113203758,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 3,
+      "scene": 0,
+      "phase": 0.55,
+      "baseline": 541668101,
+      "modular": 541668101,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 3,
+      "scene": 0,
+      "phase": 0.9,
+      "baseline": 617522613,
+      "modular": 617522613,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 3,
+      "scene": 1,
+      "phase": 0.05,
+      "baseline": 2230906165,
+      "modular": 2230906165,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 3,
+      "scene": 1,
+      "phase": 0.25,
+      "baseline": 4163247547,
+      "modular": 4163247547,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 3,
+      "scene": 1,
+      "phase": 0.55,
+      "baseline": 2888269305,
+      "modular": 2888269305,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 3,
+      "scene": 1,
+      "phase": 0.9,
+      "baseline": 3375805813,
+      "modular": 3375805813,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 3,
+      "scene": 2,
+      "phase": 0.05,
+      "baseline": 810873546,
+      "modular": 810873546,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 3,
+      "scene": 2,
+      "phase": 0.25,
+      "baseline": 2314541590,
+      "modular": 2314541590,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 3,
+      "scene": 2,
+      "phase": 0.55,
+      "baseline": 4054166481,
+      "modular": 4054166481,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 3,
+      "scene": 2,
+      "phase": 0.9,
+      "baseline": 3308921932,
+      "modular": 3308921932,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 4,
+      "scene": 0,
+      "phase": 0.05,
+      "baseline": 3844867327,
+      "modular": 3844867327,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 4,
+      "scene": 0,
+      "phase": 0.25,
+      "baseline": 4108348596,
+      "modular": 4108348596,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 4,
+      "scene": 0,
+      "phase": 0.55,
+      "baseline": 987922503,
+      "modular": 987922503,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 4,
+      "scene": 0,
+      "phase": 0.9,
+      "baseline": 568009277,
+      "modular": 568009277,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 5,
+      "scene": 0,
+      "phase": 0.05,
+      "baseline": 2497453579,
+      "modular": 2497453579,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 5,
+      "scene": 0,
+      "phase": 0.25,
+      "baseline": 3997522857,
+      "modular": 3997522857,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 5,
+      "scene": 0,
+      "phase": 0.55,
+      "baseline": 2735580349,
+      "modular": 2735580349,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 5,
+      "scene": 0,
+      "phase": 0.9,
+      "baseline": 2006605937,
+      "modular": 2006605937,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 6,
+      "scene": 0,
+      "phase": 0.05,
+      "baseline": 2325416875,
+      "modular": 2325416875,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 6,
+      "scene": 0,
+      "phase": 0.25,
+      "baseline": 3711974274,
+      "modular": 3711974274,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 6,
+      "scene": 0,
+      "phase": 0.55,
+      "baseline": 351952640,
+      "modular": 351952640,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 6,
+      "scene": 0,
+      "phase": 0.9,
+      "baseline": 3955985076,
+      "modular": 3955985076,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 7,
+      "scene": 0,
+      "phase": 0.05,
+      "baseline": 3289761776,
+      "modular": 3289761776,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 7,
+      "scene": 0,
+      "phase": 0.25,
+      "baseline": 1372548665,
+      "modular": 1372548665,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 7,
+      "scene": 0,
+      "phase": 0.55,
+      "baseline": 3233427187,
+      "modular": 3233427187,
+      "same": true
+    },
+    {
+      "viewport": 1440,
+      "channel": 7,
+      "scene": 0,
+      "phase": 0.9,
+      "baseline": 3946980114,
+      "modular": 3946980114,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 1,
+      "scene": 0,
+      "phase": 0.05,
+      "baseline": 788333477,
+      "modular": 788333477,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 1,
+      "scene": 0,
+      "phase": 0.25,
+      "baseline": 1239807839,
+      "modular": 1239807839,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 1,
+      "scene": 0,
+      "phase": 0.55,
+      "baseline": 2478798798,
+      "modular": 2478798798,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 1,
+      "scene": 0,
+      "phase": 0.9,
+      "baseline": 3325772771,
+      "modular": 3325772771,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 1,
+      "scene": 1,
+      "phase": 0.05,
+      "baseline": 3394358385,
+      "modular": 3394358385,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 1,
+      "scene": 1,
+      "phase": 0.25,
+      "baseline": 726714965,
+      "modular": 726714965,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 1,
+      "scene": 1,
+      "phase": 0.55,
+      "baseline": 2054739518,
+      "modular": 2054739518,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 1,
+      "scene": 1,
+      "phase": 0.9,
+      "baseline": 1898392936,
+      "modular": 1898392936,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 1,
+      "scene": 2,
+      "phase": 0.05,
+      "baseline": 1038228139,
+      "modular": 1038228139,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 1,
+      "scene": 2,
+      "phase": 0.25,
+      "baseline": 3192855747,
+      "modular": 3192855747,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 1,
+      "scene": 2,
+      "phase": 0.55,
+      "baseline": 3405902180,
+      "modular": 3405902180,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 1,
+      "scene": 2,
+      "phase": 0.9,
+      "baseline": 434035931,
+      "modular": 434035931,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 1,
+      "scene": 3,
+      "phase": 0.05,
+      "baseline": 1982335795,
+      "modular": 1982335795,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 1,
+      "scene": 3,
+      "phase": 0.25,
+      "baseline": 3319152259,
+      "modular": 3319152259,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 1,
+      "scene": 3,
+      "phase": 0.55,
+      "baseline": 1585889435,
+      "modular": 1585889435,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 1,
+      "scene": 3,
+      "phase": 0.9,
+      "baseline": 4011591038,
+      "modular": 4011591038,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 1,
+      "scene": 4,
+      "phase": 0.05,
+      "baseline": 3989376681,
+      "modular": 3989376681,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 1,
+      "scene": 4,
+      "phase": 0.25,
+      "baseline": 1911542893,
+      "modular": 1911542893,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 1,
+      "scene": 4,
+      "phase": 0.55,
+      "baseline": 354831830,
+      "modular": 354831830,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 1,
+      "scene": 4,
+      "phase": 0.9,
+      "baseline": 4090930786,
+      "modular": 4090930786,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 1,
+      "scene": 5,
+      "phase": 0.05,
+      "baseline": 595925472,
+      "modular": 595925472,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 1,
+      "scene": 5,
+      "phase": 0.25,
+      "baseline": 962181529,
+      "modular": 962181529,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 1,
+      "scene": 5,
+      "phase": 0.55,
+      "baseline": 4109661886,
+      "modular": 4109661886,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 1,
+      "scene": 5,
+      "phase": 0.9,
+      "baseline": 912868476,
+      "modular": 912868476,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 2,
+      "scene": 0,
+      "phase": 0.05,
+      "baseline": 2744922799,
+      "modular": 2744922799,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 2,
+      "scene": 0,
+      "phase": 0.25,
+      "baseline": 957461459,
+      "modular": 957461459,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 2,
+      "scene": 0,
+      "phase": 0.55,
+      "baseline": 1366164286,
+      "modular": 1366164286,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 2,
+      "scene": 0,
+      "phase": 0.9,
+      "baseline": 1385888402,
+      "modular": 1385888402,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 2,
+      "scene": 1,
+      "phase": 0.05,
+      "baseline": 2966044389,
+      "modular": 2966044389,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 2,
+      "scene": 1,
+      "phase": 0.25,
+      "baseline": 1350834193,
+      "modular": 1350834193,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 2,
+      "scene": 1,
+      "phase": 0.55,
+      "baseline": 871047025,
+      "modular": 871047025,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 2,
+      "scene": 1,
+      "phase": 0.9,
+      "baseline": 963344794,
+      "modular": 963344794,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 2,
+      "scene": 2,
+      "phase": 0.05,
+      "baseline": 3770871122,
+      "modular": 3770871122,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 2,
+      "scene": 2,
+      "phase": 0.25,
+      "baseline": 2361208387,
+      "modular": 2361208387,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 2,
+      "scene": 2,
+      "phase": 0.55,
+      "baseline": 3943021897,
+      "modular": 3943021897,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 2,
+      "scene": 2,
+      "phase": 0.9,
+      "baseline": 1130483636,
+      "modular": 1130483636,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 3,
+      "scene": 0,
+      "phase": 0.05,
+      "baseline": 953925288,
+      "modular": 953925288,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 3,
+      "scene": 0,
+      "phase": 0.25,
+      "baseline": 2644726492,
+      "modular": 2644726492,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 3,
+      "scene": 0,
+      "phase": 0.55,
+      "baseline": 1839488474,
+      "modular": 1839488474,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 3,
+      "scene": 0,
+      "phase": 0.9,
+      "baseline": 349951164,
+      "modular": 349951164,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 3,
+      "scene": 1,
+      "phase": 0.05,
+      "baseline": 1234057243,
+      "modular": 1234057243,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 3,
+      "scene": 1,
+      "phase": 0.25,
+      "baseline": 279125956,
+      "modular": 279125956,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 3,
+      "scene": 1,
+      "phase": 0.55,
+      "baseline": 4255903409,
+      "modular": 4255903409,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 3,
+      "scene": 1,
+      "phase": 0.9,
+      "baseline": 2910994506,
+      "modular": 2910994506,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 3,
+      "scene": 2,
+      "phase": 0.05,
+      "baseline": 2337555132,
+      "modular": 2337555132,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 3,
+      "scene": 2,
+      "phase": 0.25,
+      "baseline": 661399195,
+      "modular": 661399195,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 3,
+      "scene": 2,
+      "phase": 0.55,
+      "baseline": 3684736444,
+      "modular": 3684736444,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 3,
+      "scene": 2,
+      "phase": 0.9,
+      "baseline": 3058754798,
+      "modular": 3058754798,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 4,
+      "scene": 0,
+      "phase": 0.05,
+      "baseline": 3638155016,
+      "modular": 3638155016,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 4,
+      "scene": 0,
+      "phase": 0.25,
+      "baseline": 3567056298,
+      "modular": 3567056298,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 4,
+      "scene": 0,
+      "phase": 0.55,
+      "baseline": 2324798618,
+      "modular": 2324798618,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 4,
+      "scene": 0,
+      "phase": 0.9,
+      "baseline": 3491256643,
+      "modular": 3491256643,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 5,
+      "scene": 0,
+      "phase": 0.05,
+      "baseline": 1033690640,
+      "modular": 1033690640,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 5,
+      "scene": 0,
+      "phase": 0.25,
+      "baseline": 2295235905,
+      "modular": 2295235905,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 5,
+      "scene": 0,
+      "phase": 0.55,
+      "baseline": 4183862198,
+      "modular": 4183862198,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 5,
+      "scene": 0,
+      "phase": 0.9,
+      "baseline": 2036736571,
+      "modular": 2036736571,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 6,
+      "scene": 0,
+      "phase": 0.05,
+      "baseline": 2510626101,
+      "modular": 2510626101,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 6,
+      "scene": 0,
+      "phase": 0.25,
+      "baseline": 1053351522,
+      "modular": 1053351522,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 6,
+      "scene": 0,
+      "phase": 0.55,
+      "baseline": 2102241089,
+      "modular": 2102241089,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 6,
+      "scene": 0,
+      "phase": 0.9,
+      "baseline": 3918577114,
+      "modular": 3918577114,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 7,
+      "scene": 0,
+      "phase": 0.05,
+      "baseline": 2291019420,
+      "modular": 2291019420,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 7,
+      "scene": 0,
+      "phase": 0.25,
+      "baseline": 2079815499,
+      "modular": 2079815499,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 7,
+      "scene": 0,
+      "phase": 0.55,
+      "baseline": 905544774,
+      "modular": 905544774,
+      "same": true
+    },
+    {
+      "viewport": 390,
+      "channel": 7,
+      "scene": 0,
+      "phase": 0.9,
+      "baseline": 523847527,
+      "modular": 523847527,
+      "same": true
+    }
+  ],
+  "errors": []
+}

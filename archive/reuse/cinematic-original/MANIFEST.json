@@ -1,0 +1,154 @@
+{
+  "schema": 1,
+  "status": "byte-identical-historical-svg-recovered-not-production-integrated",
+  "source_archive": "JCLAW-TV-动态分镜与源码.zip",
+  "source_archive_sha256": "b8cc56e33897b39841d5d37109b1f4207f21439f48ee30ba95c17a824888929f",
+  "generated_programs_sha256": "1890a835e1d9d5d528450b4bf21dee13d62ce4931a7629f37858022b79d7fdab",
+  "sources": [
+    {
+      "path": "archive/reuse/cinematic-original/src/art/make_programs.py",
+      "bytes": 33497,
+      "sha256": "6a018bbd1d0ca2b7cbb9d5fadd9cf2621a4487f4f2732500666c6431bc600f48"
+    },
+    {
+      "path": "archive/reuse/cinematic-original/src/programme-metadata.js",
+      "bytes": 3530,
+      "sha256": "eaa7e82dcea1d78850e7c0b2d9662e0d0d8c50eb725528fbb14df8415d4d768d"
+    }
+  ],
+  "assets": [
+    {
+      "path": "archive/reuse/cinematic-original/assets/programmes/cth-contract.svg",
+      "bytes": 29323,
+      "sha256": "0a2a54df7ee2a9cbabe916167985bc40de9ab5bf66079ad502052303a0347795",
+      "channel": "cth",
+      "id": "contract",
+      "kind": "receipt"
+    },
+    {
+      "path": "archive/reuse/cinematic-original/assets/programmes/cth-supplies.svg",
+      "bytes": 56445,
+      "sha256": "38a9085efd7a24149ac7ee90b71dea3933d885b49713aec70ed1fc7edeb74aea",
+      "channel": "cth",
+      "id": "supplies",
+      "kind": "tubes"
+    },
+    {
+      "path": "archive/reuse/cinematic-original/assets/programmes/cth-size.svg",
+      "bytes": 47741,
+      "sha256": "c134ea58d50d377817e4ab4b92729f721dff74a8a50d7acf0fa4ec4b16d3cc82",
+      "channel": "cth",
+      "id": "size",
+      "kind": "sample"
+    },
+    {
+      "path": "archive/reuse/cinematic-original/assets/programmes/cth-ctcae.svg",
+      "bytes": 31862,
+      "sha256": "924be61fcc93c2798accb8dfb26e8bc14afff5f1c113dc2cddc562a184b76c18",
+      "channel": "cth",
+      "id": "ctcae",
+      "kind": "grade"
+    },
+    {
+      "path": "archive/reuse/cinematic-original/assets/programmes/cth-meddra.svg",
+      "bytes": 35194,
+      "sha256": "32ef4ca7a21c02f3d55165ca3d20c93607f83203c407d4753d35246fcd59476c",
+      "channel": "cth",
+      "id": "meddra",
+      "kind": "terms"
+    },
+    {
+      "path": "archive/reuse/cinematic-original/assets/programmes/cth-meal.svg",
+      "bytes": 36042,
+      "sha256": "2660d8b4dbec753444147a159aea8ca2203b7cde13cc3481498d37dc89221c46",
+      "channel": "cth",
+      "id": "meal",
+      "kind": "meal"
+    },
+    {
+      "path": "archive/reuse/cinematic-original/assets/programmes/learn-design.svg",
+      "bytes": 26644,
+      "sha256": "9a11572d224f6af793db8974ae1c6089e6b1416c08a0c80e6440ebda5c83a7ef",
+      "channel": "learn",
+      "id": "design",
+      "kind": "lesson"
+    },
+    {
+      "path": "archive/reuse/cinematic-original/assets/programmes/learn-guidance.svg",
+      "bytes": 27742,
+      "sha256": "87f49ad086f2e0a1801f7f47ed0415530075090c54e9bbb2def339962a68cb3a",
+      "channel": "learn",
+      "id": "guidance",
+      "kind": "reading"
+    },
+    {
+      "path": "archive/reuse/cinematic-original/assets/programmes/learn-practice.svg",
+      "bytes": 27186,
+      "sha256": "21c694d6bb91827b24430b6197306a64854a4b6cba0810a20620536773fa43e3",
+      "channel": "learn",
+      "id": "practice",
+      "kind": "practice"
+    },
+    {
+      "path": "archive/reuse/cinematic-original/assets/programmes/workbench-nca.svg",
+      "bytes": 32916,
+      "sha256": "5551410d36292fa07519be7a111f55074d68bc69594b03734f8e9386b911d6e8",
+      "channel": "workbench",
+      "id": "nca",
+      "kind": "curve"
+    },
+    {
+      "path": "archive/reuse/cinematic-original/assets/programmes/workbench-be.svg",
+      "bytes": 25759,
+      "sha256": "858865e9bc113df59327e707f86de9553bc69e16ef5e48d80c627c4692d42823",
+      "channel": "workbench",
+      "id": "be",
+      "kind": "compare"
+    },
+    {
+      "path": "archive/reuse/cinematic-original/assets/programmes/workbench-explore.svg",
+      "bytes": 34128,
+      "sha256": "e0d1bc4110c967a107a9873f53274f74aae750dce0420540f3afd22d298b18c4",
+      "channel": "workbench",
+      "id": "explore",
+      "kind": "explore"
+    },
+    {
+      "path": "archive/reuse/cinematic-original/assets/programmes/ezctd-pdf.svg",
+      "bytes": 31979,
+      "sha256": "6c063abda9679b50dfa416dd41d2841a7b385ff8a9c48d67c3095e5e8e162174",
+      "channel": "ezctd",
+      "id": "pdf",
+      "kind": "pdf"
+    },
+    {
+      "path": "archive/reuse/cinematic-original/assets/programmes/solo-project.svg",
+      "bytes": 31899,
+      "sha256": "a0b682e8a96cf5d924740e533ab105ecc6202a2604d40ab938554a4fd6de7b18",
+      "channel": "solo",
+      "id": "project",
+      "kind": "project"
+    },
+    {
+      "path": "archive/reuse/cinematic-original/assets/programmes/oracle-evidence.svg",
+      "bytes": 28886,
+      "sha256": "17843f3edceed79f77c43d899cf7cf5eb78322d2a0f03bbd5d9b74e539f41adc",
+      "channel": "oracle",
+      "id": "evidence",
+      "kind": "evidence"
+    },
+    {
+      "path": "archive/reuse/cinematic-original/assets/programmes/gcp-reference.svg",
+      "bytes": 27823,
+      "sha256": "0e5d8ca672f367b56147c1109e00d6f7dddd730edce9f723432f1c080b13204f",
+      "channel": "gcp",
+      "id": "reference",
+      "kind": "book"
+    }
+  ],
+  "limits": [
+    "These are historical SVGs, not the current 16 Canvas programmes.",
+    "Byte equality does not establish aesthetics approval or current host integration.",
+    "Full earlier TV collection and earlier theme/CSS3D assets remain a separate batch."
+  ]
+}

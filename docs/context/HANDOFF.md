@@ -1,27 +1,31 @@
-# 给下一个工作区
+# 给接续工作区
 
-直接连接并拉取laojia-a/home。已授权的工作区不需要用户再下载源码上传；但GitHub接续只能读取仓库实物，不能凭它访问旧聊天的sandbox附件。
+直接拉取laojia-a/home，读取AGENTS.md、PLAN.md、docs/context/STATUS.md；以当前main为准，不退回旧的“只有四文件”计划。
 
-1. 先读AGENTS.md和STATUS，核对当前HEAD和工作树。af23c76是已完成核心导入的基准，不要按旧PLAN重复导入旧src。
-2. 读DECISIONS/REJECTED/EVOLUTION，了解为什么是S10、为什么不回到OS、为什么鹈鹕不是角色。
-3. 根据STATUS补仍缺的历史实物；没有源字节不能造占位文件或声称归档成功。不要覆盖src、根index、reference或冻结基线。
-4. 每网站目录独立迭代，其内再按分幕组织。统一实例合同已用于Canvas；扩展SVG/CSS三维须真实实现验证。
-5. 先拆接入设置面板/草稿服务，再拆播放器/导航/时钟/输入。保持同时间画面和既有行为；视觉打磨另开提交。
-6. 每批实际构建、交互/固定帧及异常测试，记录环境限制。完成后回读远端commit和文件，再改STATUS/PLAN/Issue，不重复作宏大路线图。
+已落库的生产起点是af23c76七网站Canvas模块。研究和172个图标等首批194文件在d8207d8；16个后期历史SVG及原始源码在f716a43。历史SVG不是生产Canvas，也不是正式SVG宿主已经实现。
 
-默认不增加新功能、不改线上站点/DNS、不部署全部历史主题。现有包的媒体和字体能力仅作参考，不虚称当前支持。
+## 当前并行两条线
 
-## 当前命令
+- 归档线 #9：停止损坏24片流；按可重建、可校验的小批恢复八主题原资源、完整合集和旧证据，状态明确。当前无效片段已移出工作树，记录仍在历史。
+- 开发线 #10 → #11：先接入配置/草稿及独立面板，再拆播放器、导航、单时钟/暂停原因；冻结Canvas合同后验证真实SVG/CSS三维适配。归档大包缺失不阻塞这条线。
+
+网站精修 #2–#8 分别负责CTH、临研知视、Workbench、EZCTD、Solo、Oracle、2026；公共行为稳定后按网站开展。先合同、物资、课程、T/R，不再全量重画TV或加入OS功能。
+
+## 命令
 
 ```sh
 npm run check
+python3 scripts/restore_cinematic.py
 python3 tests/browser.py --content
 python3 tests/parity.py
+python3 tests/archived_svg.py
 python3 tests/collection.py
 ```
 
-核对package.json与脚本参数再运行。file://使用构建后的dist/index.html；root index为ES模块开发入口。archive/earlier-tv.html真实存在后才能构建完整portable页。
+核对package.json/脚本参数，准备Python、Node和浏览器测试环境。根index为ES模块开发入口，file://使用构建后dist/index.html。完整archive/earlier-tv.html不在时collection检查只打印NOT TESTED，不能算通过；dist/portable.html也不会产生。
 
-## 收尾必须回答
+## 不要误解证据
 
-什么实际进入了哪个commit；哪些代码/视觉没动；实际测试结果；还缺哪些资产/模块；接手是否仍依赖聊天附件。不要让用户再去追问“到底入库了吗”。
+本轮run34939772081真实执行了10单元、19浏览器、128Canvas固定帧及16SVG控制测试，证据在docs/evidence/cinematic-recovery-20260915。代表截图是此次重新渲染，不是原聊天录屏；不是用户最终视觉认可。保留s10大屏/遥控器/节目组织，鹈鹕仅借动作方法。
+
+收尾写清commit、实际变动/未动、通过/失败/未测及剩余资产。禁止替用户搬运问题提出下载请求、用占位文件通过归档检查或把构建成功说成设计已满意。
