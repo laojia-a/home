@@ -1,38 +1,14 @@
 {
-  "schema": 1,
+  "schema": 2,
   "audited_on": "2026-09-15",
-  "status": "verified-conversation-assets-not-imported-to-main",
   "repository": "laojia-a/home",
-  "audited_main": "4ce24a3f1312770793d9616ee3fde73e4ba2de9c",
-  "visual_reference": {
-    "file": "s10-tv.html",
-    "bytes": 42712,
-    "sha256": "e9443d3edf7a1b68292ec44863ef60b47a986589c45529af76673ebdca62803c",
-    "matches_zip_reference": true
-  },
-  "source_archive": {
-    "file": "JCLAW-TV-S10-节目与源码.zip",
-    "bytes": 1613086,
-    "sha256": "cdb7de0dbb6fcb7dedb8138b2fc5a51bf44b20411b820e44af887cccdac6e04a",
-    "file_count": 11,
-    "members": [
-      {"path":"index.html","bytes":6720752,"sha256":"fe83910519bd0fd260a77b7844ccde34c184422b28d65e4750f709a0369b1595"},
-      {"path":"S10-节目精修.html","bytes":84954,"sha256":"84fbe9aa8bdf955b0e14f5fe4d5b32dc1a583f76015c360b17266d5b4f4dae1b"},
-      {"path":"README.md","bytes":8622,"sha256":"1cad431cc45cd090dc988f7d4af2212966f2de7ece097570ff05f40d4933f15d"},
-      {"path":"PROVENANCE.json","bytes":376,"sha256":"ed9da99560cf5c26216b11207d300c60db6ddfff26954f371c47c5ac133257a5"},
-      {"path":"build.py","bytes":6874,"sha256":"089ac812498039543a908078a88d47c97a3bf3d8cfcc3f62ef8393b3716c0fc4"},
-      {"path":"reference/s10-tv.html","bytes":42712,"sha256":"e9443d3edf7a1b68292ec44863ef60b47a986589c45529af76673ebdca62803c"},
-      {"path":"archive/earlier-tv.html","bytes":5399449,"sha256":"6239529db9efa575ba186153d807331d71b6b078fe9c922dd25b5b0b8e7c1f1c"},
-      {"path":"src/draw.js","bytes":6079,"sha256":"7c11e1371bb1358169a757a36d2f122875e393e86a9da71d6f104358347bff8c"},
-      {"path":"src/programmes.js","bytes":24654,"sha256":"579131724bd02bbd105fd9e2d626d2fa34872790dbc7dfe4c47b3ee46e6ac5b4"},
-      {"path":"src/runtime.js","bytes":26850,"sha256":"eaa3394bb8788dd01366a48dfcc4e60c546aab1b0e861b8089436f4c054b4d78"},
-      {"path":"src/refinements.css","bytes":12505,"sha256":"32ba7ec985cc171f38a0ecc51ed8ccd2f5ef8cbe3d86ca21dcf535bab7440000"}
-    ]
-  },
-  "notes": [
-    "Hashes are computed from mounted conversation files, not from GitHub source files.",
-    "The root index.html inside the ZIP matches the delivered all-in-one HTML.",
-    "Historical test reports are not current CI results.",
-    "No source import or browser test was performed by this planning update."
-  ]
+  "core_source_commit": "af23c7664f85107d353937a691ebd3fe43fc46d6",
+  "status": "core-imported-history-incomplete",
+  "core_intake": "docs/development/CORE-SOURCE-INTAKE.json",
+  "import_manifest": "docs/development/IMPORT-MANIFEST.json",
+  "baseline_checksums": "baseline/checksums.json",
+  "previous_intake_snapshot": "docs/history/SOURCE_INTAKE-before-import.json",
+  "current_status": "docs/context/STATUS.md",
+  "scope": "Visible conversation decisions and verified available artifacts; not an unabridged conversation transcript",
+  "notes": ["The core source is already imported; do not re-import old src over it.", "Historical file manifests do not by themselves prove asset bytes are in this repository.", "Final visual approval and source import are separate states."]
 }

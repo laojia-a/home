@@ -1,99 +1,50 @@
-# S10 模块划分与开发边界
+# 模块结构：实际实现与待拆分部分
 
-2026-09-15 / 目标设计 v0.1，尚未全部实现。当前真实源码形态见 SOURCE_INTAKE.json，不能把以下目录当作已入库代码。
+核验基准：af23c7664f85107d353937a691ebd3fe43fc46d6。此前目标目录保存在[0.1设计草案](docs/history/ARCHITECTURE-0.1-target.md)，不能误当作已全部实现。
 
-## 1. 保持轻量
-
-延续已有原生 HTML/CSS/JavaScript 和 Canvas，不为拆分引入桌面内核、微前端、插件市场、业务后端或统一账号。采用原生模块组织开发源码，构建时产生浏览器可打开的单文件版本；构建工具选择以能保留现有画面、可复现和少依赖为准。
-
-关键关系：界面发动作 → 播放器/设置服务更新状态 → 动画宿主提供时间和尺寸 → 当前节目绘制。动画不反向操作界面和存储。
-
-## 2. 目标目录
+## 当前已存在
 
 ```text
-README.md / PLAN.md / DESIGN.md / ANIMATION_API.md
-SOURCE_INTAKE.json
-reference/s10-tv.html          原始上传，固定哈希
-baseline/s10-programme/        最新交付基线，保留原源码及来源
-archive/                      历史页面/动画与清单，按需打开
-src/
-  app/                        入口装配，不堆所有业务
-  shell/                      大屏、遥控器、台标、手机控件
-  player/                     播放状态、单时钟、换台、电源、转场
-  navigation/                 频道注册、地址解析、真实跳转
-  animations/
-    contract/                 接口校验与实例协议
-    host/                     当前实例、生命周期、异常降级
-    adapters/                 canvas2d / svg2d / css3d
-    shared/                   绘制原语、缓动、材质工具
-    channels/cth/             六幕各自文件
-    channels/learning/        三幕课程
-    channels/workbench/       三幕曲线
-    channels/previews/        文档、项目、证据、资料
-    registry.js               元数据注册；没有菜单/存储逻辑
-  settings/
-    host/                     面板切换、焦点、关闭确认
-    panels/                   guide / links / picture / archive
-    schema.js                 配置字段、默认值、校验
-  services/                   preferences / url-policy / assets
-  styles/                     tokens / shell / settings / responsive
-  dev/                        独立动画预览与测试入口
-scripts/                      构建、来源校验、边界检查
-tests/                        单元、接口、交互、固定帧、档案往返
-dist/                         托管输出（生成）
-release/                      单文件与完整便携包（生成）
+src/animations/
+  contract/canvas-scene.js   Canvas实例合同
+  shared/draw.js             公共绘制
+  registry.js                网站模块组合
+  sites/
+    cth/                    临床工具集6幕
+    clinical-vision/        临研知视3幕
+    be-workbench/           BE Workbench3幕
+    ezctd/                  文档预告
+    be-solo/                项目预告
+    be-oracle/              证据预告
+    study-2026/             学习资料预告
+    manifest.json
+src/dev/                    独立网站动画预览
+src/styles/                 原S10外观与局部修正
+src/runtime.js              TV操作逻辑；尚需进一步拆分
+src/shell.template.html     构建模板
+scripts/build.py            本地ES模块打包、七预览、可选整合页
+reference/                  用户原始参考，不修改
+baseline/                   最新交付核心基线，不当作开发目录
 ```
 
-场景文件数量由真实职责决定，不为了显得模块化拆大量只有一行的文件。通用函数只有被多个场景稳定使用时才抽到shared。
+每网站目录的index.js负责本网站/分幕/主题元数据，renderers.js负责本网站画面，manifest.json/README提供身份和说明。网站内部再划分场景，不把所有网站聚成一个programme文件，也不把“一个网站一个模块”误解为“一网站只有一个动画”。
 
-## 3. 模块职责
+## 未完成部分
 
-| 模块 | 负责 | 不允许承担 |
-|---|---|---|
-| shell | 机身、控件、焦点和交互反馈 | 内置16幕绘制或URL保存 |
-| player | 当前频道/分幕、时间、暂停原因、转场状态 | 设置表单DOM和业务数据 |
-| navigation | 一个频道目录，校验后打开真实工具 | 推断网站在线率，替原应用计算 |
-| animation host | 挂载/更新/卸载一个活动节目，尺寸和异常 | 修改偏好、跳转网站、创建菜单 |
-| programme | 指定时间帧的视觉与局部物理动作 | 自设全局定时器或访问研究数据 |
-| settings host | 面板导航、焦点恢复、未保存关闭处理 | 把所有字段和表单塞进一个renderMenu |
-| panel | 自己的视图、草稿展示、错误定位 | 直接写localStorage、直接改播放器全局变量 |
-| services | 地址策略、存储、读取清单和资源释放 | 大屏布局、具体动画构图 |
-| styles | token、比例、排版、层级 | 用CSS隐藏错误来冒充交互完成 |
+runtime.js尚未完全拆成播放器、设置、导航、存储和输入服务。Canvas合同已经实际使用，SVG/CSS3D适配仍是目标；独立预览不等于跨渲染器宿主已经验证。
 
-## 4. 时间、状态与错误
+下一拆分的职责：shell只显示状态和发动作；player拥有唯一节目时钟、当前频道/分幕和暂停原因；navigation拥有校验后的真实跳转；settings拥有面板会话及草稿；services负责偏好和URL策略；animation instance只绘制。
 
-播放器只保留导航需要的状态：channelId、sceneId、elapsedMs、播放意图、pauseReasons、转场版本和显示模式。暂停原因独立记为user/menu/hidden/power；关闭菜单只移除menu，不能覆盖用户之前手动暂停。
+菜单/hidden/power/user暂停原因需独立。关闭菜单只消除menu，不把手动暂停改为播放。不同渲染器的时间均由宿主提供；迟到的异步实例不能覆盖当前频道；异常动画不能阻断菜单和导航。
 
-动画进度、曲线端点、液面/书签余动都来自同一个elapsedMs，不能同时使用Date.now、私有interval和播放器时间。绝对时间帧可重放；具有累积物理状态的场景需要确定性重建，不可靠地seek时不得标成接口通过。
+## 设置面板开发目标
 
-换台立即更新目标频道，取消旧转场，旧实例dispose，最后选择生效；不通过短时锁输入丢弃按键。动画加载失败显示本地错误/静态预览，导航、菜单和目标链接继续工作。未接入可以看预告，但打开动作转到配置，不伪装在线。
+guide、links、picture、archive分别维护。拟定mount/update/focusInitial/canClose/dispose统一面板生命周期，实际接口在试拆后固定。存储和URL校验不要放在各按钮里；表单卸载不丢草稿。
 
-## 5. 设置面板接口（拟定）
+## 归档与生产分开
 
-每个面板暴露：
+archive只保存旧资源和出处，不进入默认首屏；历史网页本身保留原文字和限制，归档说明在旁边，不把它们伪装为当前功能。缺失档案文件不能用占位空HTML通过测试。老代码中的LIVE/统计数值不成为新生产内容。
 
-```text
-id / label
-mount({ container, settingsService, navigationService, onDirtyChange, signal })
-→ { update(snapshot), focusInitial(), canClose(), dispose() }
-```
+## 结构验收
 
-宿主控制面板切换和焦点，panel的事件监听属于自身生命周期。guide和archive通常无编辑草稿；links草稿保存在settings session，不随面板DOM销毁。picture的即时预览状态与持久配置分开，明确应用/取消语义，不偷偷保存。
-
-设置服务负责createDraft、patchDraft、validate、apply、discard、persist和迁移。保存成功返回persisted；仅内存成功但本地存储失败返回session-only并显示原因；校验失败返回字段级错误。不能catch后仍提示已保存。
-
-URL策略统一：HTTPS或明确的loopback HTTP，禁止javascript/data等协议和带用户名密码的URL；外链使用noopener noreferrer。空地址不能启用。导入旧配置如要支持，必须主动确认和校验，不能靠存储键碰巧兼容。
-
-## 6. 模块化的实际验收
-
-演示三次真实修改，而不只检查目录：
-
-1. 新增一幕节目并注册：无需改shell、navigation和settings。
-2. 把一个设置字段加入既有面板：改schema、panel和使用该值的模块，无需改其他动画。
-3. 替换外观token：不改工具地址、当前频道、配置数据或播放器时钟。
-
-CSS/SVG三维图形不能假称WebGL场景，动画预览也不等于工具实机画面。生产页与开发预览复用接口，旧档案单独运行，不给旧脚本直接修改新播放器的全局权限。
-
-## 7. 提交与并行
-
-先由同一条工作线完成基线、接口和一个垂直试拆。HOME-03后再并行分配不同频道、不同设置面板，接口变更单独评审。每个模块的说明写清职责、依赖、入口、销毁和验证命令，不再复制整个HTML来开发一个动画。
+分别做一次新增网站场景、替换场景渲染器、增加设置字段、调整主题token的真实修改。每次应只触及它负责的模块及注册/消费方。重构不得重画外壳；固定帧、暂停/恢复、快速换台及菜单草稿需回归。

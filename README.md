@@ -1,16 +1,20 @@
-# JCLAW Home · S10 网站独立动画模块
+# JCLAW Home · S10 节目式导航
 
-本期导入 S10 节目精修核心源码，并按网站拆分七个动画模块；本轮不更换配色、构图和动作，不重新设计桌面系统。
+一个可以每天使用的TV工具导航。保留S10的大屏节目、薄奶油包边、实体遥控器、七频道与屏内菜单；动画和设置分别开发，不再扩成浏览器操作系统。
 
-## 运行与检查
+## 新工作区从这里接手
 
-Node.js 22、Python 3。`npm run check` 完成10项单元检查、构建、JavaScript语法和基线哈希检查。`python tests/browser.py --content` 检查19个浏览器流程；`python tests/parity.py` 将16幕在桌面和手机下的128个固定帧与原始交付基线比较。浏览器测试需要 Playwright 与 Chromium。
+**先读 [AGENTS.md](AGENTS.md) 和 [当前状态](docs/context/STATUS.md)**，再读[对话决策](docs/context/DECISIONS.md)、[被否定的方案](docs/context/REJECTED.md)及[执行计划](PLAN.md)。连接并拉取仓库即可接续已入库部分，不需人工下载再上传源码。
 
-`npm run build` 后用浏览器打开 `dist/index.html`；各网站独立预览在 `dist/previews/`。部署源码目录时也可直接使用根目录index.html；file://请使用构建后的单文件，不直接双击ES模块开发入口。
+- [对话成果总索引](docs/context/README.md)：原始目标、方案演进、可复用资产、历史证据和缺口。
+- [模块边界](ARCHITECTURE.md)、[已实现的Canvas接口与后续合同](ANIMATION_API.md)、[美学规范](DESIGN.md)。
+- [历史规划](docs/history/)只记录当时状态，不作为重复导入源码的理由。
 
-## 一个网站一个目录
+## 已入库的生产源码
 
-| 网站 | 动画模块 | 现有分幕 |
+核心源码导入提交：`af23c7664f85107d353937a691ebd3fe43fc46d6`。七网站共16幕，每目录含index.js、renderers.js、manifest.json、README.md。
+
+| 网站 | 模块目录 | 分幕 |
 |---|---|---|
 | 临床工具集 | src/animations/sites/cth | 6 |
 | 临研知视 | src/animations/sites/clinical-vision | 3 |
@@ -18,18 +22,29 @@ Node.js 22、Python 3。`npm run check` 完成10项单元检查、构建、JavaS
 | EZCTD | src/animations/sites/ezctd | 1 |
 | BE Solo | src/animations/sites/be-solo | 1 |
 | BE Oracle | src/animations/sites/be-oracle | 1 |
-| 2026 学习资料 | src/animations/sites/study-2026 | 1 |
+| 2026学习资料 | src/animations/sites/study-2026 | 1 |
 
-每个目录有 index.js（网站/分幕/主题注册）、renderers.js（本网站的画面）、manifest.json 和 README.md。不是七个空目录，也不通过七个包装文件继续调用一个中央programme巨函数。
+共同绘制在shared，实例合同在contract，registry只组合网站模块。TV和独立预览共用场景实例接口。src/runtime.js仍集中了播放器、设置等逻辑，进一步解耦尚未完成。
 
-通用绘制在shared；Canvas实例合同在contract；registry只组合模块。生产TV与七个预览使用相同的场景definition.create/render/resize/updateTheme/dispose。只有播放器/预览宿主推进时间，动画不访问存储、跳转网站或自行开定时器。
+## 构建与验证
 
-## 来源与范围
+Node.js 22、Python 3；当前生产源码没有第三方运行依赖安装步骤。
 
-原始 s10 位于reference/s10-tv.html；最新交付的核心文件原样保存在baseline/s10-programme，哈希见baseline/checksums.json。没有把被否定的简化vNext作为开发基线。原参考的大屏、七频道和屏内菜单继续保留。
+```sh
+npm run check
+python3 tests/browser.py --content
+python3 tests/parity.py
+python3 tests/collection.py
+```
 
-本批次是核心源码与七网站拆分。此前约5.4MB的完整旧合集及约6.7MB的基线整合页属于单独的大文件归档批次；未实际传入前，不宣称完整历史档案已落库。交付ZIP中的旧资产在本地保留不删除。
+浏览器测试另需Playwright和Chromium。build/test/check是现有npm脚本，没有dev脚本。Windows需确认python3命令可用。
 
-当前Canvas接口已用于16幕和独立预览；SVG/CSS三维适配仍是后续任务。设置面板及播放器服务的进一步拆分尚未完成，src/runtime.js保留原操作逻辑；不要把本轮说成所有关键功能已经完全解耦。
+构建后：dist/index.html是独立TV；dist/previews/是七网站独立预览；只有历史合集真实补齐后才生成dist/portable.html。根index.html是ES模块开发入口，不把双击它等同于可用的file://单文件版。
 
-美学规范见DESIGN.md，后续计划见PLAN.md；原文件中的“源码未导入”是此前核验快照，本次实际导入以Git树和提交为准。单元/浏览器检查均不能替代视觉验收，亦不代表外部网站在线或统计计算已验证。
+2026-09-15回读确认导入workflow成功，run 34917156186。但本次文档整理没有重跑应用测试；历史19流程/128固定帧的说明与当前执行记录分开看。所有验证均不代表外部站点在线、临床计算正确或最终视觉已获认可。
+
+## 资产完整性
+
+原始reference/s10-tv.html和最新核心基线baseline/s10-programme已在仓库。完整旧合集、历史独立动画/图标、研究说明与验证材料正在分批归档；以[状态表](docs/context/STATUS.md)记载的实物路径为准。**文档沉淀完成不等于所有二进制和历史网页已入库。**
+
+本次不修改线上业务、域名或部署；未确认地址不猜测。历史包中的演示文字也不自动成为产品承诺。
