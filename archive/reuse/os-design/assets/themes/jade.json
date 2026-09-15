@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "version": "5.1.0",
+  "id": "jade",
+  "name": "松烟",
+  "en": "Ink & Jade",
+  "desc": "纸色、宋体与克制的墨绿。",
+  "pack": "mono",
+  "wall": "jade",
+  "swatches": [
+    "#e9e5d8",
+    "#335c4e",
+    "#a74836"
+  ],
+  "dark": false,
+  "tokens": {
+    "--font": "-apple-system,BlinkMacSystemFont,'Inter','Segoe UI','PingFang SC','Microsoft YaHei','Noto Sans CJK SC',sans-serif",
+    "--serif": "Georgia,'Songti SC','Noto Serif CJK SC',SimSun,serif",
+    "--mono": "'SFMono-Regular',Consolas,monospace",
+    "--ink": "#35443e",
+    "--muted": "#7e897d",
+    "--panel": "#f8f6ee",
+    "--surface": "#f6f3e8e8",
+    "--sidebar": "#eeeee4",
+    "--line": "#4d64411c",
+    "--accent": "#547367",
+    "--accent-tint": "#e3e9df",
+    "--on-accent": "#fff",
+    "--bar": "#eeeee1bf",
+    "--shadow": "0 25px 70px -20px #283c4240,0 0 0 1px #556f5520",
+    "--radius": "6px",
+    "--control-radius": "4px",
+    "--blur": "28px",
+    "--desktop-ink": "#344c3e",
+    "--paper-shadow": "0 8px 20px #6776510f",
+    "--dock-size": "48px",
+    "--wall-contrast": "1",
+    "--motion-fast": "140ms",
+    "--motion-base": "220ms",
+    "--ease-out": "cubic-bezier(.2,.8,.2,1)"
+  },
+  "implementation": "source/design.css + source/refinement.css; media- and component-specific rules remain in CSS."
+}

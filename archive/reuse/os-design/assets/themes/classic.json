@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "version": "5.1.0",
+  "id": "classic",
+  "name": "经典",
+  "en": "Classic",
+  "desc": "明确的边框、低装饰与复古桌面。",
+  "pack": "pixel",
+  "wall": "classic",
+  "swatches": [
+    "#157b7e",
+    "#dadbd5",
+    "#254d89"
+  ],
+  "dark": false,
+  "tokens": {
+    "--font": "'Segoe UI','Microsoft YaHei','Noto Sans CJK SC',sans-serif",
+    "--serif": "Georgia,'Songti SC','Noto Serif CJK SC',SimSun,serif",
+    "--mono": "'SFMono-Regular',Consolas,monospace",
+    "--ink": "#253126",
+    "--muted": "#76816f",
+    "--panel": "#f6f6f2",
+    "--surface": "#dedfd4",
+    "--sidebar": "#e7e8e2",
+    "--line": "#858f8142",
+    "--accent": "#27578f",
+    "--accent-tint": "#dfe9f3",
+    "--on-accent": "#fff",
+    "--bar": "#e7e8e3",
+    "--shadow": "4px 5px 0 #1025213c",
+    "--radius": "3px",
+    "--control-radius": "2px",
+    "--blur": "0px",
+    "--desktop-ink": "#eef7ec",
+    "--paper-shadow": "3px 3px 0 #123a3333",
+    "--dock-size": "48px",
+    "--wall-contrast": "1",
+    "--motion-fast": "140ms",
+    "--motion-base": "220ms",
+    "--ease-out": "cubic-bezier(.2,.8,.2,1)"
+  },
+  "implementation": "source/design.css + source/refinement.css; media- and component-specific rules remain in CSS."
+}

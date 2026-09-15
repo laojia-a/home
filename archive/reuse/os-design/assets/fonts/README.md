@@ -1,0 +1,1 @@
+本目录仅用于文档，不包含字体文件。字体来源与加载方式见 source/typography-registry.js 和 README.md。

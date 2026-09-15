@@ -1,0 +1,181 @@
+{
+  "date": "2026-09-13",
+  "scope": "公开资料与既有产物只读审查；非新网页测试报告",
+  "sources": [
+    {
+      "id": "S01",
+      "title": "Apple — Open apps on Mac",
+      "url": "https://support.apple.com/guide/mac-help/open-apps-mchlp1014/mac",
+      "use": "主入口应直接打开应用；不是照搬完整桌面系统。",
+      "asset_permission": "research_reference_only_not_cleared_for_redistribution"
+    },
+    {
+      "id": "S02",
+      "title": "NASA — Eyes",
+      "url": "https://science.nasa.gov/eyes/",
+      "use": "空间对象与选择、聚焦相联系；本项目不借用其真实科学数据含义。",
+      "asset_permission": "research_reference_only_not_cleared_for_redistribution"
+    },
+    {
+      "id": "S03",
+      "title": "Bruno Simon — interactive portfolio",
+      "url": "https://bruno-simon.com/",
+      "use": "探索式空间作品参考；不复制驾驶或移动角色作为导航前提。",
+      "asset_permission": "research_reference_only_not_cleared_for_redistribution"
+    },
+    {
+      "id": "S04",
+      "title": "Lusion — studio portfolio",
+      "url": "https://lusion.co/",
+      "use": "材质、镜头与空间表现参考；没有声称完成该站全部交互的浏览器测试。",
+      "asset_permission": "research_reference_only_not_cleared_for_redistribution"
+    },
+    {
+      "id": "S05",
+      "title": "Rough.js",
+      "url": "https://roughjs.com/",
+      "use": "SVG/Canvas 手绘路径能力参考，不等于整页手绘设计或真实手写字体。",
+      "asset_permission": "research_reference_only_not_cleared_for_redistribution"
+    },
+    {
+      "id": "S06",
+      "title": "LXGW — 霞鹜漫黑",
+      "url": "https://github.com/lxgw/LxgwMarkerGothic",
+      "use": "标题马克笔风格；作者提示不适合大面积正文或系统界面。",
+      "asset_permission": "research_reference_only_not_cleared_for_redistribution"
+    },
+    {
+      "id": "S07",
+      "title": "LXGW — 霞鹜文楷",
+      "url": "https://github.com/lxgw/LxgwWenKai",
+      "use": "中文手写感的候选字形，需要实际加载和实机比对。",
+      "asset_permission": "research_reference_only_not_cleared_for_redistribution"
+    },
+    {
+      "id": "S08",
+      "title": "Dragon Ball Official — Stand-Out Dragon Ball Accessories",
+      "url": "https://en.dragon-ball-official.com/news/01_3167.html",
+      "use": "核对龙珠雷达、筋斗云、神龙等辨识元素。",
+      "asset_permission": "research_reference_only_not_cleared_for_redistribution"
+    },
+    {
+      "id": "S09",
+      "title": "Dragon Ball Official — DRAGON BALL × Flowering",
+      "url": "https://en.dragon-ball-official.com/news/01_1063.html",
+      "use": "早期冒险、悟空/布尔玛、胶囊屋等视觉语汇参考。",
+      "asset_permission": "research_reference_only_not_cleared_for_redistribution"
+    },
+    {
+      "id": "S10",
+      "title": "南京市文化和旅游局 — 南京城墙保护管理中心专题",
+      "url": "https://wlj.nanjing.gov.cn/ztzl/mcq/gzqk/202109/t20210914_3131563.html",
+      "use": "山水城林、城墙砖石形态和中华门历史形态；不把2021规划当作2026状态。",
+      "asset_permission": "research_reference_only_not_cleared_for_redistribution"
+    },
+    {
+      "id": "S11",
+      "title": "南京地方志 — 千年后湖润金陵",
+      "url": "https://dfz.nanjing.gov.cn/gzdt/202503/t20250303_5086475.html",
+      "use": "玄武湖、台城与城市山水关系。",
+      "asset_permission": "research_reference_only_not_cleared_for_redistribution"
+    },
+    {
+      "id": "S12",
+      "title": "南京市规划和自然资源局 — 中山林荫轴",
+      "url": "https://ghj.nanjing.gov.cn/xwzx/tpxw/202606/t20260609_5854331.html",
+      "use": "梧桐林荫和中山轴线的城市辨识。",
+      "asset_permission": "research_reference_only_not_cleared_for_redistribution"
+    },
+    {
+      "id": "S13",
+      "title": "南京市交通运输局 — 南京长江大桥资料",
+      "url": "https://jtj.nanjing.gov.cn/bmdt/202308/t20230811_3985223.html",
+      "use": "公铁两用、双层桥形与桁架，不用通用斜拉桥替代。",
+      "asset_permission": "research_reference_only_not_cleared_for_redistribution"
+    },
+    {
+      "id": "S14",
+      "title": "Swiper — Official demos",
+      "url": "https://swiperjs.com/demos",
+      "use": "Coverflow、Cards、Creative、缩略导航交互参照；不直接套默认示例样式。",
+      "asset_permission": "research_reference_only_not_cleared_for_redistribution"
+    },
+    {
+      "id": "S15",
+      "title": "MDN — transform-style",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/transform-style",
+      "use": "DOM/CSS 三维空间，供清晰文本卡片实现选型。",
+      "asset_permission": "research_reference_only_not_cleared_for_redistribution"
+    },
+    {
+      "id": "S16",
+      "title": "W3C WAI — Carousels tutorial",
+      "url": "https://www.w3.org/WAI/tutorials/carousels/",
+      "use": "可停止运动、键盘操作、焦点与变化通知；轮播的内容发现成本。",
+      "asset_permission": "research_reference_only_not_cleared_for_redistribution"
+    },
+    {
+      "id": "S17",
+      "title": "Nintendo — Tears of the Kingdom official introduction",
+      "url": "https://www.nintendo.com/us/whatsnew/an-epic-adventure-awaits-in-the-legend-of-zelda-tears-of-the-kingdom/",
+      "use": "变动的海拉鲁、天空群岛、古代遗迹方向；本设计选定这一套视觉语汇。",
+      "asset_permission": "research_reference_only_not_cleared_for_redistribution"
+    },
+    {
+      "id": "S18",
+      "title": "Samsung Developer — TV Input Methods",
+      "url": "https://developer.samsung.com/smarttv/design/input-methods.html",
+      "use": "方向、确认、返回、频道切换及清晰焦点；不把电视系统能力当作网页权限。",
+      "asset_permission": "research_reference_only_not_cleared_for_redistribution"
+    },
+    {
+      "id": "S19",
+      "title": "Samsung Developer — TV Design Principles",
+      "url": "https://developer.samsung.com/smarttv/design/design-principles.html",
+      "use": "大屏辨识与观看距离的界面设计参考。",
+      "asset_permission": "research_reference_only_not_cleared_for_redistribution"
+    },
+    {
+      "id": "S20",
+      "title": "MDN — Autoplay guide",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Autoplay",
+      "use": "有声自动播放限制、用户手势与播放拒绝处理。",
+      "asset_permission": "research_reference_only_not_cleared_for_redistribution"
+    },
+    {
+      "id": "S21",
+      "title": "HLS.js — Official project",
+      "url": "https://github.com/video-dev/hls.js",
+      "use": "HLS 浏览器播放的实现选项；实际媒体地址、授权、跨域和兼容需逐源验证。",
+      "asset_permission": "research_reference_only_not_cleared_for_redistribution"
+    },
+    {
+      "id": "S22",
+      "title": "MDN — X-Frame-Options",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/X-Frame-Options",
+      "use": "外部应用可能禁止嵌入，不能用一个任意 iframe 代替产品接入。",
+      "asset_permission": "research_reference_only_not_cleared_for_redistribution"
+    },
+    {
+      "id": "S23",
+      "title": "W3C — WCAG 2.2",
+      "url": "https://www.w3.org/TR/WCAG22/",
+      "use": "键盘、焦点、拖动替代与目标尺寸参考；本方案44px触控目标是项目约束，不混称AA最低要求。",
+      "asset_permission": "research_reference_only_not_cleared_for_redistribution"
+    },
+    {
+      "id": "S24",
+      "title": "W3C — Animation from interactions",
+      "url": "https://www.w3.org/WAI/WCAG22/Understanding/animation-from-interactions.html",
+      "use": "降低非必要交互运动；此项属于AAA，不宣称它是AA条款。",
+      "asset_permission": "research_reference_only_not_cleared_for_redistribution"
+    },
+    {
+      "id": "S25",
+      "title": "MDN — CSS Font Loading API",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/API/CSS_Font_Loading_API",
+      "use": "真正加载、解码和识别回退状态；CSS家族名称不等于已显示指定字形。",
+      "asset_permission": "research_reference_only_not_cleared_for_redistribution"
+    }
+  ]
+}

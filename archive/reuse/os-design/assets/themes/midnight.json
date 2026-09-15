@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "version": "5.1.0",
+  "id": "midnight",
+  "name": "夜航",
+  "en": "Midnight",
+  "desc": "深海蓝与低亮度工作界面。",
+  "pack": "mono",
+  "wall": "midnight",
+  "swatches": [
+    "#152335",
+    "#77b7df",
+    "#364964"
+  ],
+  "dark": true,
+  "tokens": {
+    "--font": "-apple-system,BlinkMacSystemFont,'Inter','Segoe UI','PingFang SC','Microsoft YaHei','Noto Sans CJK SC',sans-serif",
+    "--serif": "Georgia,'Songti SC','Noto Serif CJK SC',SimSun,serif",
+    "--mono": "'SFMono-Regular',Consolas,monospace",
+    "--ink": "#e4eaf2",
+    "--muted": "#93a0b2",
+    "--panel": "#1e2836",
+    "--surface": "#253344e3",
+    "--sidebar": "#243142",
+    "--line": "#a3c1e91a",
+    "--accent": "#7cafd9",
+    "--accent-tint": "#30455d",
+    "--on-accent": "#102130",
+    "--bar": "#172231b8",
+    "--shadow": "0 32px 85px -22px #000b,0 0 0 1px #b7cce62a,0 1px 0 #ffffff12 inset",
+    "--radius": "14px",
+    "--control-radius": "7px",
+    "--blur": "28px",
+    "--desktop-ink": "#b6cede",
+    "--paper-shadow": "0 14px 32px -12px #0005",
+    "--dock-size": "48px",
+    "--wall-contrast": "1",
+    "--motion-fast": "140ms",
+    "--motion-base": "220ms",
+    "--ease-out": "cubic-bezier(.2,.8,.2,1)"
+  },
+  "implementation": "source/design.css + source/refinement.css; media- and component-specific rules remain in CSS."
+}

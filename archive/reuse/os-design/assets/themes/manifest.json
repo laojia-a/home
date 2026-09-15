@@ -1,0 +1,77 @@
+{
+  "schema": 1,
+  "version": "5.1.0",
+  "themes": [
+    {
+      "id": "coast",
+      "name": "晴屿",
+      "en": "Coast",
+      "desc": "冷白界面，澄蓝光线与磨砂侧栏。",
+      "pack": "prism",
+      "wall": "coast",
+      "swatches": [
+        "#547eab",
+        "#eee4d2",
+        "#f6fafb"
+      ],
+      "dark": false
+    },
+    {
+      "id": "midnight",
+      "name": "夜航",
+      "en": "Midnight",
+      "desc": "深海蓝与低亮度工作界面。",
+      "pack": "mono",
+      "wall": "midnight",
+      "swatches": [
+        "#152335",
+        "#77b7df",
+        "#364964"
+      ],
+      "dark": true
+    },
+    {
+      "id": "jade",
+      "name": "松烟",
+      "en": "Ink & Jade",
+      "desc": "纸色、宋体与克制的墨绿。",
+      "pack": "mono",
+      "wall": "jade",
+      "swatches": [
+        "#e9e5d8",
+        "#335c4e",
+        "#a74836"
+      ],
+      "dark": false
+    },
+    {
+      "id": "doodle",
+      "name": "随手画",
+      "en": "Doodle",
+      "desc": "铅笔笔触、错位描边与温润纸面。",
+      "pack": "doodle",
+      "wall": "doodle",
+      "swatches": [
+        "#fff9e9",
+        "#e5b743",
+        "#517660"
+      ],
+      "dark": false
+    },
+    {
+      "id": "classic",
+      "name": "经典",
+      "en": "Classic",
+      "desc": "明确的边框、低装饰与复古桌面。",
+      "pack": "pixel",
+      "wall": "classic",
+      "swatches": [
+        "#157b7e",
+        "#dadbd5",
+        "#254d89"
+      ],
+      "dark": false
+    }
+  ],
+  "note": "Resolved root and per-theme tokens plus wallpaper metadata; component materials remain in design.css and refinement.css."
+}

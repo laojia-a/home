@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "version": "5.1.0",
+  "id": "doodle",
+  "name": "随手画",
+  "en": "Doodle",
+  "desc": "铅笔笔触、错位描边与温润纸面。",
+  "pack": "doodle",
+  "wall": "doodle",
+  "swatches": [
+    "#fff9e9",
+    "#e5b743",
+    "#517660"
+  ],
+  "dark": false,
+  "tokens": {
+    "--font": "-apple-system,BlinkMacSystemFont,'Inter','Segoe UI','PingFang SC','Microsoft YaHei','Noto Sans CJK SC',sans-serif",
+    "--serif": "Georgia,'Songti SC','Noto Serif CJK SC',SimSun,serif",
+    "--mono": "'SFMono-Regular',Consolas,monospace",
+    "--ink": "#393d3a",
+    "--muted": "#888778",
+    "--panel": "#fffdf5",
+    "--surface": "#fffaf0ed",
+    "--sidebar": "#f6f3e7",
+    "--line": "#5a604124",
+    "--accent": "#557761",
+    "--accent-tint": "#e9eedc",
+    "--on-accent": "#fffdf4",
+    "--bar": "#f9f5e6e8",
+    "--shadow": "6px 7px 0 #414c3424,0 18px 55px -20px #3542333e",
+    "--radius": "9px 13px 10px 15px",
+    "--control-radius": "5px 7px 6px 4px",
+    "--blur": "0px",
+    "--desktop-ink": "#545c4d",
+    "--paper-shadow": "3px 4px 0 #54644526",
+    "--dock-size": "48px",
+    "--wall-contrast": "1",
+    "--motion-fast": "140ms",
+    "--motion-base": "220ms",
+    "--ease-out": "cubic-bezier(.2,.8,.2,1)"
+  },
+  "implementation": "source/design.css + source/refinement.css; media- and component-specific rules remain in CSS."
+}

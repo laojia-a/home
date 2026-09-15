@@ -1,0 +1,43 @@
+{
+  "schema": 1,
+  "version": "5.1.0",
+  "id": "coast",
+  "name": "晴屿",
+  "en": "Coast",
+  "desc": "冷白界面，澄蓝光线与磨砂侧栏。",
+  "pack": "prism",
+  "wall": "coast",
+  "swatches": [
+    "#547eab",
+    "#eee4d2",
+    "#f6fafb"
+  ],
+  "dark": false,
+  "tokens": {
+    "--font": "-apple-system,BlinkMacSystemFont,'Inter','Segoe UI','PingFang SC','Microsoft YaHei','Noto Sans CJK SC',sans-serif",
+    "--serif": "Georgia,'Songti SC','Noto Serif CJK SC',SimSun,serif",
+    "--mono": "'SFMono-Regular',Consolas,monospace",
+    "--ink": "#26323e",
+    "--muted": "#7b8590",
+    "--panel": "#fcfcfd",
+    "--surface": "#f9fafcec",
+    "--sidebar": "#eff2f5e8",
+    "--line": "#233c5414",
+    "--accent": "#3478bd",
+    "--accent-tint": "#e7f0fa",
+    "--on-accent": "#fff",
+    "--bar": "#f0f4faad",
+    "--shadow": "0 34px 85px -22px #091c435c,0 13px 34px -14px #061b3552,0 0 0 1px #0f284818,0 1px 1px #ffffffdb inset",
+    "--radius": "14px",
+    "--control-radius": "7px",
+    "--blur": "28px",
+    "--desktop-ink": "#fff",
+    "--paper-shadow": "0 10px 32px -12px #172b483e",
+    "--dock-size": "48px",
+    "--wall-contrast": "1",
+    "--motion-fast": "140ms",
+    "--motion-base": "220ms",
+    "--ease-out": "cubic-bezier(.2,.8,.2,1)"
+  },
+  "implementation": "source/design.css + source/refinement.css; media- and component-specific rules remain in CSS."
+}

@@ -1,0 +1,978 @@
+{
+  "schema": 1,
+  "batch": "original-research-and-icon-theme-library",
+  "payload_sha256": "8bc251d3ec23d5ab7d9de4426c2599c2a00b0466e1fae3a679fe77a7cdfad71a",
+  "status": "archival-bytes-restored-not-runtime-validated",
+  "files": [
+    {
+      "path": "archive/reuse/SOURCE-MANIFEST.json",
+      "bytes": 36507,
+      "sha256": "0cb937d70e838dd581a12b5bec4ea06c44928800227d0d32ff1df8dad7429d07"
+    },
+    {
+      "path": "archive/reuse/os-design/README.md",
+      "bytes": 4392,
+      "sha256": "a59fbb725d530ff5ddfa8374e8e55c00763c613b3c6ad7dba3e25f0f4c9baa4a"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/fonts/README.md",
+      "bytes": 128,
+      "sha256": "59731347af9bf13e8ecea93ab86811463b6252eb3cc5c57e9b651db46dc8b322"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle-sprite.svg",
+      "bytes": 47009,
+      "sha256": "9ecbdcab8a91048bb539f1d23973498b81aa5be66bd6596e4f44d1d4b5d28940"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/arrow.svg",
+      "bytes": 1123,
+      "sha256": "20fcd575d5a08da125ecd37cb74b11fc467cffb66bf93ef802740a3900b5687e"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/bell.svg",
+      "bytes": 1188,
+      "sha256": "96d83be262b5d25b1edc845c507bf2ef248263ec72d1d6747bf93b515327daef"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/brush.svg",
+      "bytes": 1217,
+      "sha256": "e34e91f9b927114bb5b49bcf29546d80de2e73fc5d0819e2aca2da37a6d116b3"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/calc.svg",
+      "bytes": 1198,
+      "sha256": "23a6e44fedb1d33ddea2897e71cda99812f617470fec7f7d33567cf5409982b1"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/calendar.svg",
+      "bytes": 1186,
+      "sha256": "534df322248cae623b7f510f877458a4a3856f1f28614b721c42841207a6135b"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/check.svg",
+      "bytes": 1099,
+      "sha256": "83b16cc6f154ac56f35c88b319a446fc332475c25f09ac9718ede3d4ce3d4859"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/clock.svg",
+      "bytes": 1173,
+      "sha256": "e763294c84c4e05a3e2cdf50bb4e0acbd568c887b78e8ff2170e37e3246d99d5"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/close.svg",
+      "bytes": 1113,
+      "sha256": "8c9a54b188359044e7256be42f9d289bec2bb2e3549ea6a1088ea01ba444705b"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/controls.svg",
+      "bytes": 1254,
+      "sha256": "a69626b3ecc9593d029a17984839cbf99946189dd397f9d3b69b51e19e5866b4"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/cth.svg",
+      "bytes": 1267,
+      "sha256": "0e16dc80068c46835a11ae93d008631d756b92ee5288375deed80f6d7199e78f"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/download.svg",
+      "bytes": 1174,
+      "sha256": "d622fb0abf0979107f007a4e3282a163ba582e71a612669f8c8425d7784e72df"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/external.svg",
+      "bytes": 1182,
+      "sha256": "64c3bb642f899c2a4d3d4e535c0ff02a4152d740cccaab75fdaacf32e514fc18"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/ezctd.svg",
+      "bytes": 1167,
+      "sha256": "6ce3766ce3c6691a500d6e6a99a420089c6c3817a03d6ab5b82ce8f4c4ed1a4f"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/folder.svg",
+      "bytes": 1166,
+      "sha256": "72303e0f01ae993a83579d9f275a64aed1d7cf2ed3e736ce76b9bd5ee2e95e6f"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/gcp.svg",
+      "bytes": 1293,
+      "sha256": "dda5026662bf472c15e8479d5dbcc4abf0366eaa892978f8259a56d6cb055663"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/globe.svg",
+      "bytes": 1215,
+      "sha256": "f2f33feb60d78cb6b5ffa64350b0f9c223d9b1290967673b1c553c8a32e9d006"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/grid.svg",
+      "bytes": 1286,
+      "sha256": "3d1332ec6907aee8f220d6efe1a50686e2c2d01d76a1da68f9fc305f152ae2f1"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/heart.svg",
+      "bytes": 1163,
+      "sha256": "dc3ea56e8d4dca6afe7a9c388b0ba8cd8ec116ae1536fa9fafc6596839c2bf7e"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/help.svg",
+      "bytes": 1228,
+      "sha256": "99030e9d8ff4e40cc7cc46cd312b1b476af1ba73a18acdba60b72ade03e9fda1"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/key.svg",
+      "bytes": 1199,
+      "sha256": "0953868ddefa53f0ac811a1fe4a17f8a53175dec3437ac8478fd44b61a1f07c9"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/layers.svg",
+      "bytes": 1188,
+      "sha256": "3382ff4f41a39894883a98da2a9fa9f4499cb175c14907784971709876576559"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/learn.svg",
+      "bytes": 1203,
+      "sha256": "3c046406465b8b3398110a5432f31f6b5ff4aa48552337842fc8cace3561c3eb"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/link.svg",
+      "bytes": 1252,
+      "sha256": "7eaf3aff6191c67eeed9d65f12530d76f053aeb36e2170299d131bf1978bf041"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/list.svg",
+      "bytes": 1184,
+      "sha256": "eb752e555f82df6b01440f2e9a8375ac993f96a6776fe31aad585e57d6bafb6b"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/moon.svg",
+      "bytes": 1132,
+      "sha256": "786dd89092bc21cd5eb2515d737afd408e9b7714da8f7027bf5c042f17c425d3"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/notes.svg",
+      "bytes": 1153,
+      "sha256": "5ee849f1e6e7a47782a91ec85197e7f7124021a750a3d69e378945e710700805"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/oracle.svg",
+      "bytes": 1240,
+      "sha256": "90e437e09c31837faac5ab059c8839c7a2e9af9a6c2c909c9aa6e530525aa876"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/palette.svg",
+      "bytes": 1257,
+      "sha256": "225867abb208e12e487c95b392fabae6e4d4d061e0dc9ba62b18ea77d09fcc63"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/pause.svg",
+      "bytes": 1113,
+      "sha256": "d5c9e84f7e19fceeb5dac51295e66dafd1900f3e104d47de320132fe55d213ab"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/pin.svg",
+      "bytes": 1165,
+      "sha256": "d5d39f1031bebfed73204dca0fe4ad738a13cedaff486e0ec3d59b1cc8bcdee8"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/play.svg",
+      "bytes": 1112,
+      "sha256": "9c6f36b4cf7a952784e75eb1ccd6c21eaa966a50e75414056d9bd5434781c412"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/plus.svg",
+      "bytes": 1108,
+      "sha256": "4bcaac00ad124379f8e3087f41949acc24cf3f8c910ff69320a62329782a6285"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/refresh.svg",
+      "bytes": 1179,
+      "sha256": "eaff2819611658489ebbe4c9e79735e1f1842e7e5db4058294fb078a48a5cdaa"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/search.svg",
+      "bytes": 1164,
+      "sha256": "9dbc5f58987b5217a704c4ffcaead357b038918f2e0f57c4994ed7d894e1a38c"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/settings.svg",
+      "bytes": 1334,
+      "sha256": "a989278f5903c8027c6b214c94a7df12034e5a5b02e7c4e6def07c3d9db6de79"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/solo.svg",
+      "bytes": 1160,
+      "sha256": "17a41f7e1020d6aaea764b48eb49a1cdd3fc91019c177d03e869d3df3ef43cbd"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/star.svg",
+      "bytes": 1190,
+      "sha256": "255abe7a336ed75df0b0060e762ba8120d5da66f7f86c11d647b27d5be4727a8"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/sun.svg",
+      "bytes": 1291,
+      "sha256": "0d73d054ee2cd63b7045ce41dda620de72ad2173d0ff8d441edf0baf5d33b415"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/trash.svg",
+      "bytes": 1233,
+      "sha256": "430e2bc95b7ca66cfeb873783b135db68411ca7e719b03241d8b2f27c9b22cd0"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/undo.svg",
+      "bytes": 1156,
+      "sha256": "53524f9791a744c0fd91049685a1525e6f5c7884f6140f1d766ae9c9a64987c9"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/upload.svg",
+      "bytes": 1170,
+      "sha256": "ef27e61850598925f98cd485dc82f237aae8db5d9543d674040407cf96a1b6d6"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/window.svg",
+      "bytes": 1166,
+      "sha256": "c3740258d8a680143a3ba58aa8255c88cdd5676d853611089623ebabf027c072"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/doodle/workbench.svg",
+      "bytes": 1367,
+      "sha256": "244080b435dd1c1f9721ff900db94140c9b54678d76d949476e6ba1953091c36"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/manifest.json",
+      "bytes": 1580,
+      "sha256": "dc79aeaa0566b66f925e33236e25b5ad07bcedcdd72bf774a3c0d7cf1fb6f022"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono-sprite.svg",
+      "bytes": 16336,
+      "sha256": "6a14868cedc0e49cac83af44655ac873cc9de96b2d6bdf9bc5a212829a19379f"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/arrow.svg",
+      "bytes": 441,
+      "sha256": "b790d575b54358ce216e339eec0f5c0faaeae8f057072e2b9b224e38486cff9a"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/bell.svg",
+      "bytes": 475,
+      "sha256": "ecbf07a4c694c54ef214d66b1db6d57ee259fb39026fd37a52b34efffe1e31c5"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/brush.svg",
+      "bytes": 484,
+      "sha256": "c13389d80deff78ed81dcaa6a389924f8440ba23905566154f3c89bb8d11898e"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/calc.svg",
+      "bytes": 517,
+      "sha256": "2c7efee3a5338ef5843575570cb0d5619170a3a2a497789efe00510a97bfccba"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/calendar.svg",
+      "bytes": 519,
+      "sha256": "f7fa4bd03f5af30e929442165acd668c9c2d293ec681247ec22b0a601435383f"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/check.svg",
+      "bytes": 435,
+      "sha256": "f0dc60d71f7deb13a9ae4bea40779451f164389a320089099ecd2370717fae74"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/clock.svg",
+      "bytes": 462,
+      "sha256": "ccc26bb7ae7df93f96e5da6a3b8435bd97893631891c45538f4c23f9131a36e2"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/close.svg",
+      "bytes": 440,
+      "sha256": "37831570f3c6367db32d85af1adb5393171b726f3ba14a13d6f7f036b5bcca2d"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/controls.svg",
+      "bytes": 548,
+      "sha256": "ba2982982260fca91b0b34446e68fa82d84383334ee7d313a0c734d82826c23c"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/cth.svg",
+      "bytes": 526,
+      "sha256": "a5dee8f5cf7028870c0e169bf3d80a5b65918b5540775b2d29d037efa5bb96b8"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/download.svg",
+      "bytes": 457,
+      "sha256": "514b77373e51f8d0fd0c56ac97d2ab3745251a22be5d3400b4fabe293f5fab5f"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/external.svg",
+      "bytes": 458,
+      "sha256": "8574f1d67235effc775b8fb123d16b65cb6d94ed9950cb3fc2337e9748f406e8"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/ezctd.svg",
+      "bytes": 458,
+      "sha256": "28c4370de43104d2ca72865fdf94b723e993142d70d68a16e2e24a23af052050"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/folder.svg",
+      "bytes": 506,
+      "sha256": "1db67aa2569c99e4dabb71eefcdd76f7b82d8688f44ad6d6efc8d868f15142c7"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/gcp.svg",
+      "bytes": 477,
+      "sha256": "d996d0f53f777d4c701d55f90cd30e5e0bcdb30662e63d42189446d4a11e78de"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/globe.svg",
+      "bytes": 499,
+      "sha256": "38a4321ec765cfb5f8658917406fb92f664293d431b2764d6c16a172704f0cb6"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/grid.svg",
+      "bytes": 599,
+      "sha256": "903a0302ba40419f0a51a5c2012e801fcb0571307e5fa25215dbec446161c515"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/heart.svg",
+      "bytes": 478,
+      "sha256": "fcbf3ccba35e30ed10c519857a0047b1f59cd5c69d0b6b13030a9f9fc17965d5"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/help.svg",
+      "bytes": 488,
+      "sha256": "b25d19108a24c5eb6419c5b3c5bb0e36a86b45f1f7fd28ed00d14584db672c6d"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/key.svg",
+      "bytes": 475,
+      "sha256": "a5e9b4254ba4203847809ca8285d1b44a8678c83537d9685712d996bb6648772"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/layers.svg",
+      "bytes": 473,
+      "sha256": "47165dc73c259836919fbe54839570b547ced8c59aefd6e46d4c6357d228ea2a"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/learn.svg",
+      "bytes": 472,
+      "sha256": "9580f92e08614ec796a37f4ebdde390be35059f69ef1d2fff384e8a995e297ce"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/link.svg",
+      "bytes": 550,
+      "sha256": "062927081a5090d370451e37c0a7f0627d8f59af89fa3783345ad15ab3ac61b0"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/list.svg",
+      "bytes": 462,
+      "sha256": "2e04e5642a5cf94324d729ca3a9908042880e76495e6e06a72ef68b5d0c76083"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/moon.svg",
+      "bytes": 470,
+      "sha256": "c38a66c5a6a93fae44f516aba7c4121782279a04798bb59d8a3ae31a7f4bf77c"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/notes.svg",
+      "bytes": 484,
+      "sha256": "030e18039af3af237d0818d65a1c3d2bf62a2ab4bce211cb4b09a88395f06832"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/oracle.svg",
+      "bytes": 502,
+      "sha256": "7fc6a52e10374ca579101beb70836f709cd4f6ebf0fb1c0b7399f10f54d14fca"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/palette.svg",
+      "bytes": 593,
+      "sha256": "f0f151110323f57fbd5af55b66889660dcc7c4ff1a8e215535d40a64c9d23f47"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/pause.svg",
+      "bytes": 435,
+      "sha256": "82f00cabc6686f22c4007746c70f7c02ec3736cbfa23f0fc2b52608b905099ab"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/pin.svg",
+      "bytes": 458,
+      "sha256": "d0e3e7a4d67b94b08bf9ba2f334613a4906df3c5a448bf72989bc1366d6c8947"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/play.svg",
+      "bytes": 434,
+      "sha256": "4d5c814cfefd21b124244d18df519f26160d0d3e4052aba4550490f67d06a978"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/plus.svg",
+      "bytes": 435,
+      "sha256": "2586c504d8f8dc11409356bf6106b70da5107156339454f8b00df1d68520222e"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/refresh.svg",
+      "bytes": 451,
+      "sha256": "af8f02322c7ca65c24fcd3b417d3b85109a3d1d5f8ff64d16d16e4dc0c7fd3d0"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/search.svg",
+      "bytes": 464,
+      "sha256": "abab952aadc11c26ecc4530cec3b948c0115c4cdef38f7d2fbc363c7b980889d"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/settings.svg",
+      "bytes": 533,
+      "sha256": "d6feecac6e0d029e79af7043bb1d479c3cfd615c1573648cea0f2cd9feab6e88"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/solo.svg",
+      "bytes": 502,
+      "sha256": "9b7783bb67bc6e54308c79c35bb02a819dd3e87f98d54024c3cd65e97d5975a8"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/star.svg",
+      "bytes": 461,
+      "sha256": "403cd22c71707e30b1a76556648af8835b063a978adda1b6f83801d7352db72c"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/sun.svg",
+      "bytes": 513,
+      "sha256": "330d3db4516ec50cc3fbf3e126e8c39320f1adb8185a8a9dc17a81b0c22a7c3a"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/trash.svg",
+      "bytes": 467,
+      "sha256": "dc15f45b7e73ba97888d50460bafecfd299f46c4fa79f0df0877a415e95a7e21"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/undo.svg",
+      "bytes": 454,
+      "sha256": "5b63e89f8954253a5236a36771c3713f9ab8d6e7b720d01ee2ded6543744ee4f"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/upload.svg",
+      "bytes": 455,
+      "sha256": "198171ba31ce57212a2d6108f91af326233690447f441ef742d39380c7bd400c"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/window.svg",
+      "bytes": 485,
+      "sha256": "3018788b31dda558d4dbfd8278029b06c923af5c90d98a6762fc5594b767dcac"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/mono/workbench.svg",
+      "bytes": 466,
+      "sha256": "f52451493cd3e28c93cc1a77aa39810c5098364daeb6658a20ecaa7d7bb3b5be"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel-sprite.svg",
+      "bytes": 20507,
+      "sha256": "305d2de44645ee1af10176a8f8d7d12cc890768c600e14b575bd9eafc8a1cc5a"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/arrow.svg",
+      "bytes": 538,
+      "sha256": "7dd480224d1e3049fb6b7ef567fb679105e906c4c85adfb1421468dbbc6d14e0"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/bell.svg",
+      "bytes": 572,
+      "sha256": "ec1f84a32fd3b5a2db19dbc8846de52ce41a0b0cbdfecf64b640c0caa23161cc"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/brush.svg",
+      "bytes": 581,
+      "sha256": "e8500b2218cc40d9709b3e706a147d3ff23f4d61ce63edef83bceab12fc2d906"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/calc.svg",
+      "bytes": 614,
+      "sha256": "6011e114121b5b2420c4c0ca22540b1b58ba3cee806b3b67f588a4d984d5dbeb"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/calendar.svg",
+      "bytes": 616,
+      "sha256": "242453ab9e69195b53f66156ea97d7deeab031d8afff724bb15659e728426c18"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/check.svg",
+      "bytes": 532,
+      "sha256": "7a56fe5da9fbe6425423c24b34b09ac5c41d08b8e3b3eae127d4d829f31cf5e1"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/clock.svg",
+      "bytes": 559,
+      "sha256": "027fdc30d358555b797c2ef07eb356aa84d7bd472be00ebaeddae9dfd683934c"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/close.svg",
+      "bytes": 537,
+      "sha256": "2a256264f8c2981f6c2f3f7babe6d19dcfa973f2a57ecfa6c5387aec5dafbad0"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/controls.svg",
+      "bytes": 645,
+      "sha256": "2a099575a3006e0f1799a6409a76f48e80a79d2307126d57f679019f41a07d07"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/cth.svg",
+      "bytes": 623,
+      "sha256": "dfbfdf52a82b1b58d703814972d44d507bcde82e0c994723a1737d8c2bd2cc88"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/download.svg",
+      "bytes": 554,
+      "sha256": "39d84d0b2115e7d5c963160e34cc0b53a14665b604452221562aa738251aabf8"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/external.svg",
+      "bytes": 555,
+      "sha256": "b2237d03e1fcd49e9a7c87113c095220f73785593a876a3da7cc8bbc9fd6f3d5"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/ezctd.svg",
+      "bytes": 555,
+      "sha256": "415072afb3351008a120ef87c94721602346cdaba3016cc8449f5f1be426c9c8"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/folder.svg",
+      "bytes": 603,
+      "sha256": "62b86579776734adc1f453b62e5c1ddee85df80bd41be26cc003f01b6b310669"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/gcp.svg",
+      "bytes": 574,
+      "sha256": "01bb6b0faf56a1a942480359c2879b840ca3f638c3d91e6926cec37821a2edcd"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/globe.svg",
+      "bytes": 596,
+      "sha256": "80f22e355333c6c467c3b8987041eb37d58f77fe22a537eba6f04d55677635f3"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/grid.svg",
+      "bytes": 696,
+      "sha256": "0ae6a683fe8d5865b7197465864893af5a1ef207192b1f9570a078455e466570"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/heart.svg",
+      "bytes": 575,
+      "sha256": "0d9f358ea167fb519ba9b64fc78fe097d96ed65d03d7f128625c5e1f743d0de8"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/help.svg",
+      "bytes": 585,
+      "sha256": "38a6527e9e565d40a262cff3803aa33dac6b2d8ff9dc9869acc2be8f3552f534"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/key.svg",
+      "bytes": 572,
+      "sha256": "b5985a9963aa91d800d2365977efcdba9ca24ae137e1d5b9f39f63d189d7a593"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/layers.svg",
+      "bytes": 570,
+      "sha256": "829701de657a5d1e00d667b695095e01ed195a258724581374d790e006262730"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/learn.svg",
+      "bytes": 569,
+      "sha256": "4196c6e7b1e794fa7ce91e330953267eebd1f978d2dc9db0b7eb2148ff6d1937"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/link.svg",
+      "bytes": 647,
+      "sha256": "5d954b08afbbb01ad3726e1f8d02e9a41e101a21ffd14e44b8e873393eaf2433"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/list.svg",
+      "bytes": 559,
+      "sha256": "a5b0d403e0614da19652c4b0cce1cc06cb5cae40b4dc3dcc4a609c0657d3c8ee"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/moon.svg",
+      "bytes": 567,
+      "sha256": "888767c12bbc1fa234cf529a5365733fc507e87bafbe47d9c4332043c0575dcb"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/notes.svg",
+      "bytes": 581,
+      "sha256": "e9b111815bb9cef1157138a83b0353880320c39fc39435023962c1cc96145b45"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/oracle.svg",
+      "bytes": 599,
+      "sha256": "b2e486caafbbc4a60a1d0e84d3226fd2e48a9e4e06a57d259db32d14a2d0be81"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/palette.svg",
+      "bytes": 690,
+      "sha256": "d2bcaa405115324c20eb4a7e846bc437b0c0d7f3f448539aec3e1b4dcb95ce0a"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/pause.svg",
+      "bytes": 532,
+      "sha256": "a4c5375d5e66d7b6165bb494814fb708b9d46d0141728aaca4fbb546fa1054ec"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/pin.svg",
+      "bytes": 555,
+      "sha256": "ccef44133fc5097cfbe99ad46419deb2a0fae075589736d8374d0c5225cf492b"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/play.svg",
+      "bytes": 531,
+      "sha256": "dc6d6d7e5a6448518b68b6699ea99ceb375562fb5e62e148d497fc232c130dd4"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/plus.svg",
+      "bytes": 532,
+      "sha256": "c98cc33461692e4988fdc39d85671809c116fcc2fd2009e47e93d6a340f9443a"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/refresh.svg",
+      "bytes": 548,
+      "sha256": "511c5f43431f80a13a1a6c00abe6908c944f5546fe81dcf3b6f4738bbfeeee5c"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/search.svg",
+      "bytes": 561,
+      "sha256": "c130ce932633fa5f8c3a9b3dd1af7d041882659fd90715496a1523de4d3e237c"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/settings.svg",
+      "bytes": 630,
+      "sha256": "e8f855bd5689a2d3f29f4813c69dd13a303f941b4dce1236812a2bfec02e5b20"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/solo.svg",
+      "bytes": 599,
+      "sha256": "f29bd143982b854f8ec44a2e6acfca19cdeb7634666621671d51aa8004f10110"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/star.svg",
+      "bytes": 558,
+      "sha256": "1dafdf49bd7714b16872d7c43bebe571c4eaf537b781e9c9a9ef718a377e6a5e"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/sun.svg",
+      "bytes": 610,
+      "sha256": "b57f82f7c725c6b5d830ad0e9a80372e4e06e4b38d9e74ca4d16b7bd28d4d1ff"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/trash.svg",
+      "bytes": 564,
+      "sha256": "4e2148651538d115d8ca7b94cfcbe929cbbf50bbd390c60cf9432a2c2248b454"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/undo.svg",
+      "bytes": 551,
+      "sha256": "4051a33ad288145ac91bb846bd0f5a9d5e93524c82892a050707bd6bc9094a00"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/upload.svg",
+      "bytes": 552,
+      "sha256": "f7bd08fe9ad4224260492023b688c3373521bff8d92c9edc4069097ca54de6db"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/window.svg",
+      "bytes": 582,
+      "sha256": "a3e2228bae9ca8399ef493304fd1811af42fdd9dd2d9357eed8c36868648c764"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/pixel/workbench.svg",
+      "bytes": 563,
+      "sha256": "adf28508a5903dc969dd6b3421fa06820d86572c9449de67b04a041532f53a07"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism-sprite.svg",
+      "bytes": 66326,
+      "sha256": "1a1cad6fe55bd827f2b7d8ad23841150b51e98c71fa807eb87f82647fd89117d"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/arrow.svg",
+      "bytes": 1482,
+      "sha256": "87242ac5711c02183d6e5b991a77980e88c590cb11281af11328bbfb39dfa5e4"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/bell.svg",
+      "bytes": 1516,
+      "sha256": "dd896a97c2d15879e7477d19d1aa8cad9050dcea5bcd5208b13df337f75616ad"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/brush.svg",
+      "bytes": 1838,
+      "sha256": "334074dbd55bbb4b28e7fe9c088ee77d80b4cf3221bb403d57d527bbc9340044"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/calc.svg",
+      "bytes": 2190,
+      "sha256": "173428d2a370ce7f53793a88cbd222b3ba22f1d8a26198868ec7159313618f03"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/calendar.svg",
+      "bytes": 1833,
+      "sha256": "cdb46a5a2ee00938223fadb62e1e79c483774c9023a621a92272a417f77be686"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/check.svg",
+      "bytes": 1476,
+      "sha256": "440f674025c8b69364a80c07705c0dc855feb29bc41c09d984a5c576f1866663"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/clock.svg",
+      "bytes": 1503,
+      "sha256": "b1d3eebfd08d92873ceb55d4e73b487648cd81b6c6ad3f343b343f463b5a853f"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/close.svg",
+      "bytes": 1481,
+      "sha256": "ff1a068593daf7b4e2baf7a63ee2495bd26c6b2d827bc35eacdf5fa27f85ed2a"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/controls.svg",
+      "bytes": 1589,
+      "sha256": "79142ad878d8fa8a8c2e0189e44eb80aeed1dcfa047d16ec488d0d2c0b96b666"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/cth.svg",
+      "bytes": 1930,
+      "sha256": "047c98ff036422f4e80b46d622012fa1a64865aced4ee74287a716b1d8e5bca8"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/download.svg",
+      "bytes": 1498,
+      "sha256": "908b259e6f7dfe63a83fec3d59d7b2fc81bc01a816ee2ab329d42e88bfff8433"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/external.svg",
+      "bytes": 1499,
+      "sha256": "8a0929f5a818bf3d138e5a44f82a3d362b0abbf65db731702dc8b3bc9db43822"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/ezctd.svg",
+      "bytes": 1785,
+      "sha256": "164c27adb53165e1005af74cf2e7da4db72d936575276c6b5943a52ae554e1dd"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/folder.svg",
+      "bytes": 1635,
+      "sha256": "97eef72f43a0f3813d4a741cef1243a21ccb437d71881c5741a642af76b49845"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/gcp.svg",
+      "bytes": 1778,
+      "sha256": "e1cb13b5c3be153d0bc4f71764ec59a7299ee298cf2bab147eff124ea5dc6efc"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/globe.svg",
+      "bytes": 1540,
+      "sha256": "796002c1fd90e90f8d7a9349b1feab72d87697e2ed358d44cfe7859eba9c52be"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/grid.svg",
+      "bytes": 1640,
+      "sha256": "0c233bacf468c169163c98f293e299c4d921c98887b9096d4e9ac4925bae6dcf"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/heart.svg",
+      "bytes": 1519,
+      "sha256": "d43102c753235e7c2d4f29a74cb40b1a357957f78080f96f42df4ad1bb1657c4"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/help.svg",
+      "bytes": 1529,
+      "sha256": "3405b8db68e0542bbe57cde9ece5a9470b3fd8857fd7578826015cc087577022"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/key.svg",
+      "bytes": 1516,
+      "sha256": "eb0f9581e01a3145cbd8c23bedc8a723e7e9d12c2f9ecc3726b0e4bcff087624"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/layers.svg",
+      "bytes": 1514,
+      "sha256": "ad51d40ea3642aa4a2c6a8ed7c0e75218b593ea5c8d6b27fd1a6754f58bce36c"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/learn.svg",
+      "bytes": 1713,
+      "sha256": "e494e862ab1c59b6762f061732d0de0526a357a154811aac57877919244b345f"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/link.svg",
+      "bytes": 1591,
+      "sha256": "e1bb89b3131789d37dc8737fa19c4f481b1d599b352e9dff92ab6e52a5d2a5ef"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/list.svg",
+      "bytes": 1503,
+      "sha256": "0ed57c20785fb0cb7ebe9e4b6927f0d9718eeec592a90ff29658c90a732dddde"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/moon.svg",
+      "bytes": 1511,
+      "sha256": "6e4d65ce8c4c819539b13bc245cfda3004d44b16c2a34ecf5303d64f87e73ffe"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/notes.svg",
+      "bytes": 1762,
+      "sha256": "4be2aa75c4a29c7228acc809b5843d707979e41c8a60396949cc2d61bb9c0afa"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/oracle.svg",
+      "bytes": 1872,
+      "sha256": "6973f06380c3c3074ca8eb80a54fb84aa8f24f0700ea309b3921556833f6bb16"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/palette.svg",
+      "bytes": 2058,
+      "sha256": "3d674203e04be164138674100e67538b9511f2506b3e9deb3d23b1439e307f34"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/pause.svg",
+      "bytes": 1476,
+      "sha256": "2c4f03d7cc4beddbf7c70dd723a4dd7cce075f493e2459cd664d09aff2813fba"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/pin.svg",
+      "bytes": 1499,
+      "sha256": "8a6b66a5ab2918156d7c4bf53b759db20a75a3cd40d75f87b5348188655aa7a9"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/play.svg",
+      "bytes": 1475,
+      "sha256": "bd2e3c6611cfd151566a6e4df74d4ff5641c9d74965245ee85f121912ca58e77"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/plus.svg",
+      "bytes": 1476,
+      "sha256": "3a4b41ab0d06f75f1e154ec9a066a18a434dc1b9dc02cbdf3c2e0a38f317e0bc"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/refresh.svg",
+      "bytes": 1492,
+      "sha256": "f8cc5aceaed1e0895f993fe6c5ff76519b8c1d95b3b5a299a4f9a7847f771b32"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/search.svg",
+      "bytes": 1505,
+      "sha256": "9583c9b44207becedbcee7ad75bd9489fda5cc17d81de41cdce60896c38cfcc1"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/settings.svg",
+      "bytes": 2667,
+      "sha256": "19b59f9f3c5219764f31d238e4013d3b79004eea5a8793997c2346742eb1419c"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/solo.svg",
+      "bytes": 1820,
+      "sha256": "9b0fa05223ea762812230f399600b7e5b5f5da1a99707c1f465f19869c05e2e8"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/star.svg",
+      "bytes": 1502,
+      "sha256": "e555b9fd1a7dff28c94e7e6e613e2bd128f40928fd92c8caacba9d1ae96c72f7"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/sun.svg",
+      "bytes": 1554,
+      "sha256": "514dd0afa8d8fb44cdbc8143b517b3a5a13a4d83c3227c5754497a9b0f75a11e"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/trash.svg",
+      "bytes": 1508,
+      "sha256": "e341d38af1523cb890174c4658846e5a62cd799feaae603243784ef57c8cc978"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/undo.svg",
+      "bytes": 1495,
+      "sha256": "ee963420a2bd0e149e94d676b146669364c04e097e5076180b36eb5cb3fae7bf"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/upload.svg",
+      "bytes": 1496,
+      "sha256": "54aed77fb9b7665ddaaf2558354311e987f030d1b32c70fd04a666a83c8e637d"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/window.svg",
+      "bytes": 1526,
+      "sha256": "149dfeb2514bd7c5944fe6fb9075dd3d1d13a789492c6a08e392da4e4bcc9395"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/icons/prism/workbench.svg",
+      "bytes": 1883,
+      "sha256": "df8af794172b13509913b2a21b955b819589bd689dd16d8d9f69f964d47031c2"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/themes/classic.json",
+      "bytes": 1234,
+      "sha256": "81ad4365b3555fa02998bbce68039ec6e485f6f222dfcd8ed2e3650bb9b43be8"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/themes/coast.json",
+      "bytes": 1378,
+      "sha256": "e8c6a801f9773e8ce69b47b13b5ce1d9562915180fa70d6a1ea510756831e793"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/themes/doodle.json",
+      "bytes": 1352,
+      "sha256": "56e8a3b6ea59498361c427599a0113c890526de61d2345d9740fead63404ceee"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/themes/jade.json",
+      "bytes": 1310,
+      "sha256": "73c4d930690dac681c068a9c54833ee90b32eef7c86a75c8b262828d9243120b"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/themes/manifest.json",
+      "bytes": 1660,
+      "sha256": "244c41cdee8acadb8b84120855610e5aff17825ca02502f60ee4a49d4ae99d98"
+    },
+    {
+      "path": "archive/reuse/os-design/assets/themes/midnight.json",
+      "bytes": 1342,
+      "sha256": "8e68e898a1bfe23e74a465af0ada644b4016e0acbdb277286b7baa8bb0f7b9e9"
+    },
+    {
+      "path": "docs/research/original/cinema-tv/README.md",
+      "bytes": 5128,
+      "sha256": "154afc5f7b1c4fc6521d24778e745205df9f65204b447dfb4edb026bf3bc6145"
+    },
+    {
+      "path": "docs/research/original/cinema-tv/docs/改动与验证.md",
+      "bytes": 6076,
+      "sha256": "56941ce947fd8df50e5c4215ed1a4f69088643c4a0616761354a07edc9948818"
+    },
+    {
+      "path": "docs/research/original/eight-themes/JCLAW-八套导航-制作检查表.md",
+      "bytes": 4895,
+      "sha256": "eb6753833290bb51cf09cea6a7099e9c7b7e6b357e86b3ae692cfab75927f61f"
+    },
+    {
+      "path": "docs/research/original/eight-themes/JCLAW-八套导航-调研与设计.md",
+      "bytes": 41509,
+      "sha256": "3ad943873351ad3d94c7dd017c108ad95c8448ac1f292f57f51aecddb8d4f9e1"
+    },
+    {
+      "path": "docs/research/original/eight-themes/研究来源.json",
+      "bytes": 8473,
+      "sha256": "6072ad4b154d2aed51dd93038178fa54e93e2be681bd56f998effad0792dd420"
+    },
+    {
+      "path": "docs/research/original/immersive-tv/README.md",
+      "bytes": 6911,
+      "sha256": "e793faf52151b530263adb14331811436cc5d7a3a62e96ff75864b866474d754"
+    },
+    {
+      "path": "docs/research/original/immersive-tv/docs/动画资源目录.md",
+      "bytes": 2780,
+      "sha256": "4b10b48c7b00e5ee77e37f695f40adf51addbe74e2e2654f95e342bc184ba6c4"
+    },
+    {
+      "path": "docs/research/original/immersive-tv/docs/验证说明.md",
+      "bytes": 5270,
+      "sha256": "cf720bf60b0674c09e35242f9751790edcd20d5d3e6439cebb1b5c7de08f1685"
+    }
+  ]
+}
