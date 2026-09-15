@@ -1,0 +1,12 @@
+{
+  "schema": 1,
+  "bytes": 55584,
+  "sha256": "4bdd1fb39d08274280e98e09e33a001064ea5c279450825006034825a48f85ac",
+  "parts": [
+    {"path":".bootstrap/part-000","bytes":12000,"sha256":"60ed39c36cd06531bfaa2cf43699e8a34e2c1df84a6e5de2273885e7a001b8dd"},
+    {"path":".bootstrap/part-001","bytes":12000,"sha256":"5d9ba87120b8795fcaf9399a79a8933d39078df776ec660ef20bdca91f395541"},
+    {"path":".bootstrap/part-002","bytes":12000,"sha256":"5aed1b0823fcc1011f94dbae2d26aff0fb739a01e6912c7f9e2e3d8f9987a603"},
+    {"path":".bootstrap/part-003","bytes":12000,"sha256":"d54f9923062dd54725c51f9d4a781020c48007cb13ef493cccc7698c87040dca"},
+    {"path":".bootstrap/part-004","bytes":7584,"sha256":"a3921f2a26770db9b73d2c239fe2e6afb6a0f58676bf32f7156093630a2778f7"}
+  ]
+}
