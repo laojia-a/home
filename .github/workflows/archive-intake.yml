@@ -1,0 +1,42 @@
+name: Restore conversation archive assets
+on:
+  push:
+    branches: ['archive/context-assets-20260915']
+    paths: ['.archive-import/READY.json']
+permissions:
+  contents: write
+jobs:
+  restore:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Verify bounded payload and restore archival text only
+        run: python3 scripts/import_archive.py
+      - name: Check immutable core and actual archival assets
+        run: |
+          python3 scripts/verify.py
+          python3 - <<'PY'
+          from pathlib import Path
+          import json, hashlib
+          report=json.loads(Path('docs/development/ARCHIVE-RESTORE.json').read_text())
+          for item in report['files']:
+              data=Path(item['path']).read_bytes()
+              assert len(data)==item['bytes']
+              assert hashlib.sha256(data).hexdigest()==item['sha256']
+          assert len(list(Path('archive/reuse/os-design/assets/icons').glob('*/*.svg')))==172
+          print('Verified restored files:',len(report['files']))
+          PY
+      - name: Commit restored files without overwriting concurrent changes
+        env:
+          EXPECTED_PARENT: ${{ github.sha }}
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git fetch origin "$GITHUB_REF_NAME"
+          test "$(git rev-parse "origin/$GITHUB_REF_NAME")" = "$EXPECTED_PARENT"
+          git add -- archive/reuse docs/research/original docs/development/ARCHIVE-RESTORE.json .archive-import
+          git commit -m "archive: restore original research and icon/theme assets with hashes"
+          git push origin "HEAD:$GITHUB_REF_NAME"
