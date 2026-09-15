@@ -1,0 +1,18 @@
+{
+  "schema": 1,
+  "batch": "original-research-and-icon-theme-library",
+  "compressed_bytes": 56256,
+  "compressed_sha256": "8bc251d3ec23d5ab7d9de4426c2599c2a00b0466e1fae3a679fe77a7cdfad71a",
+  "raw_bytes": 604160,
+  "raw_sha256": "02095e2544bd035bb1229424f3bdae0b9dd0074cf1840d98e63798cb56f28404",
+  "parts": [
+    {"path": ".archive-import/part-000.txt", "bytes": 12000, "sha256": "28ed075c8a0a8e988b1e77b85696a02623b1840dcfc830ee1bf9ef13c7c777f1"},
+    {"path": ".archive-import/part-001.txt", "bytes": 12000, "sha256": "af32995b024b00dcde5e291df6e071beba9b4b8af96cbd68b3c97df5557c62d0"},
+    {"path": ".archive-import/part-002.txt", "bytes": 12000, "sha256": "8cbf1b014165f43f1a9cabccb115dff3fbb5f5b1ea8752a231f952288d1b0c5a"},
+    {"path": ".archive-import/part-003.txt", "bytes": 12000, "sha256": "3f6be567f54d937714e44fe797b4e02f90217bde80a82eb61d72a370e002c1f6"},
+    {"path": ".archive-import/part-004.txt", "bytes": 12000, "sha256": "2bc27f63d3ea9ae271a8028b4a3b9ffa95dee3939a27df7f26c0f9521df53f7d"},
+    {"path": ".archive-import/part-005.txt", "bytes": 12000, "sha256": "b97448173c5eaf7615f43f0a0550ca04e8d98cb3ec02e5b66521f036f51c592a"},
+    {"path": ".archive-import/part-006.txt", "bytes": 3008, "sha256": "7efcf790454a70d17b58294a4b82f25279bc8544bb5dc926643c17e4375dac0c"}
+  ],
+  "file_count": 194
+}
