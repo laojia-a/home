@@ -1,50 +1,55 @@
 # JCLAW Home · S10 节目式导航
 
-一个可以每天使用的TV工具导航。保留S10的大屏节目、薄奶油包边、实体遥控器、七频道与屏内菜单；动画和设置分别开发，不再扩成浏览器操作系统。
+一个可以每天使用的TV工具导航。保留S10大屏节目、薄奶油包边、实体遥控器、七频道与屏内菜单。每个网站独立开发动画；设置、播放器、导航和存储分别维护，不扩成浏览器操作系统。
 
-## 新工作区从这里接手
+## 接手入口
 
-**先读 [AGENTS.md](AGENTS.md) 和 [当前状态](docs/context/STATUS.md)**，再读[对话决策](docs/context/DECISIONS.md)、[被否定的方案](docs/context/REJECTED.md)及[执行计划](PLAN.md)。连接并拉取仓库即可接续已入库部分，不需人工下载再上传源码。
+直接连接GitHub读取 [AGENTS.md](AGENTS.md) → [当前状态](docs/context/STATUS.md) → [PLAN.md](PLAN.md)。
 
-- [对话成果总索引](docs/context/README.md)：原始目标、方案演进、可复用资产、历史证据和缺口。
-- [模块边界](ARCHITECTURE.md)、[已实现的Canvas接口与后续合同](ANIMATION_API.md)、[美学规范](DESIGN.md)。
-- [历史规划](docs/history/)只记录当时状态，不作为重复导入源码的理由。
+[对话成果索引](docs/context/README.md)、[用户决定](docs/context/DECISIONS.md)、[否定方向](docs/context/REJECTED.md)、[独立美学规范](DESIGN.md)、[模块边界](ARCHITECTURE.md)、[动画接口](ANIMATION_API.md)。docs/history只记录旧状态，不据其重复导入源码。
 
-## 已入库的生产源码
+## 已实际入库
 
-核心源码导入提交：`af23c7664f85107d353937a691ebd3fe43fc46d6`。七网站共16幕，每目录含index.js、renderers.js、manifest.json、README.md。
+- 核心S10、原始reference和冻结核心baseline、七网站Canvas16幕：af23c76。
+- 关键决定与接续文档：c32fe3e起。
+- 原始研究、主题代码、172独立SVG图标等194个归档文件：d8207d8。
+- [16个历史SVG及原始生成源码](archive/reuse/cinematic-original/)：f716a43，逐文件匹配原交付SHA-256；不是生产SVG接口或新视觉精修。
 
-| 网站 | 模块目录 | 分幕 |
-|---|---|---|
-| 临床工具集 | src/animations/sites/cth | 6 |
-| 临研知视 | src/animations/sites/clinical-vision | 3 |
-| BE Workbench | src/animations/sites/be-workbench | 3 |
-| EZCTD | src/animations/sites/ezctd | 1 |
-| BE Solo | src/animations/sites/be-solo | 1 |
-| BE Oracle | src/animations/sites/be-oracle | 1 |
-| 2026学习资料 | src/animations/sites/study-2026 | 1 |
+[历史资源目录](archive/README.md)区分已入库与缺项。完整旧TV合集、早期八主题SVG/CSS三维及部分旧媒体仍在#9，不能宣称全对话全部实物归档完成。
 
-共同绘制在shared，实例合同在contract，registry只组合网站模块。TV和独立预览共用场景实例接口。src/runtime.js仍集中了播放器、设置等逻辑，进一步解耦尚未完成。
+## 一个网站一个模块和开发任务
+
+| 网站 | src/animations/sites/下目录 | 分幕 | 任务 |
+|---|---|---|---|
+| 临床工具集 | cth | 6 | [#2](https://github.com/laojia-a/home/issues/2) |
+| 临研知视 | clinical-vision | 3 | [#3](https://github.com/laojia-a/home/issues/3) |
+| BE Workbench | be-workbench | 3 | [#4](https://github.com/laojia-a/home/issues/4) |
+| EZCTD | ezctd | 1 | [#5](https://github.com/laojia-a/home/issues/5) |
+| BE Solo | be-solo | 1 | [#6](https://github.com/laojia-a/home/issues/6) |
+| BE Oracle | be-oracle | 1 | [#7](https://github.com/laojia-a/home/issues/7) |
+| 2026学习资料 | study-2026 | 1 | [#8](https://github.com/laojia-a/home/issues/8) |
+
+每个目录包含index.js、renderers.js、manifest.json、README.md；共享绘制在shared，Canvas实例在contract，registry只组合网站。src/runtime.js仍需进一步拆分。
+
+## 当前执行顺序
+
+归档 [#9](https://github.com/laojia-a/home/issues/9) 和开发分线进行。下一开发批次是 [#10 设置面板/配置服务](https://github.com/laojia-a/home/issues/10)，再与 [#11 播放器/导航/统一嵌入](https://github.com/laojia-a/home/issues/11) 协同。公共接口和回归基准稳定后，七个网站独立精修。历史大包缺失不阻塞核心开发，但阻塞完整便携包验收。总任务 [#1](https://github.com/laojia-a/home/issues/1)。
 
 ## 构建与验证
 
-Node.js 22、Python 3；当前生产源码没有第三方运行依赖安装步骤。
+Node.js22、Python3；当前生产源码没有第三方运行依赖安装步骤。浏览器测试另需Playwright及Chromium。
 
 ```sh
 npm run check
+python3 scripts/restore_cinematic.py
 python3 tests/browser.py --content
 python3 tests/parity.py
+python3 tests/archived_svg.py
 python3 tests/collection.py
 ```
 
-浏览器测试另需Playwright和Chromium。build/test/check是现有npm脚本，没有dev脚本。Windows需确认python3命令可用。
+没有npm run dev。Windows需确认python3命令；file://使用构建输出dist/index.html，不直接双击根ES模块开发入口。七网站预览在dist/previews；只有真实archive/earlier-tv.html存在才生成完整dist/portable.html。
 
-构建后：dist/index.html是独立TV；dist/previews/是七网站独立预览；只有历史合集真实补齐后才生成dist/portable.html。根index.html是ES模块开发入口，不把双击它等同于可用的file://单文件版。
+本轮run [34939772081](https://github.com/laojia-a/home/actions/runs/34939772081) 实际通过：10单元/构建/边界及基线哈希，19浏览器流程，128个固定Canvas帧，16个历史SVG的seek/冻结像素/resume。结果及截图已提交 [docs/evidence/cinematic-recovery-20260915](docs/evidence/cinematic-recovery-20260915/)。这不是最终视觉确认，也不是全档案往返、file://、远程字体或直播验证。
 
-2026-09-15回读确认导入workflow成功，run 34917156186。但本次文档整理没有重跑应用测试；历史19流程/128固定帧的说明与当前执行记录分开看。所有验证均不代表外部站点在线、临床计算正确或最终视觉已获认可。
-
-## 资产完整性
-
-原始reference/s10-tv.html和最新核心基线baseline/s10-programme已在仓库。完整旧合集、历史独立动画/图标、研究说明与验证材料正在分批归档；以[状态表](docs/context/STATUS.md)记载的实物路径为准。**文档沉淀完成不等于所有二进制和历史网页已入库。**
-
-本次不修改线上业务、域名或部署；未确认地址不猜测。历史包中的演示文字也不自动成为产品承诺。
+本轮未改生产布局、动画、原始参考、冻结核心基线或外部业务站点；未部署、未改域名。损坏临时导入片段已移出当前工作树，其证据保存在docs/development/INTERRUPTED-TRANSFER-20260915.json。

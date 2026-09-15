@@ -8,7 +8,7 @@ permissions:
 jobs:
   restore:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
         with:
@@ -16,25 +16,23 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
-      - name: Restore bounded checksum-verified archive batch
+      - name: Verify bounded payload and restore archival text only
         run: python3 scripts/import_archive.py
-      - name: Extract original scene sources and reproduce exact frozen baseline
-        run: python3 scripts/extract_legacy_assets.py
-      - name: Check immutable core and build actual portable collection
-        run: npm run check
-      - name: Install browser test tooling
+      - name: Check immutable core and actual archival assets
         run: |
-          python3 -m pip install playwright==1.56.0
-          python3 -m playwright install --with-deps chromium
-      - name: Verify actual interaction, fixed-frame parity and archive return paths
-        shell: bash
-        run: |
-          mkdir -p /tmp/home-archive-qa
-          python3 tests/browser.py --content --artifacts /tmp/home-archive-qa | tee /tmp/home-archive-qa/browser.log
-          python3 tests/parity.py --artifacts /tmp/home-archive-qa | tee /tmp/home-archive-qa/parity.log
-          python3 tests/collection.py --artifacts /tmp/home-archive-qa | tee /tmp/home-archive-qa/collection.log
-          python3 scripts/capture_archive_evidence.py --artifacts /tmp/home-archive-qa --output docs/evidence/archive-replay-20260915
-      - name: Commit verified archive without overwriting concurrent changes
+          npm run check
+          python3 - <<'PY'
+          from pathlib import Path
+          import json, hashlib
+          report=json.loads(Path('docs/development/ARCHIVE-RESTORE.json').read_text())
+          for item in report['files']:
+              data=Path(item['path']).read_bytes()
+              assert len(data)==item['bytes']
+              assert hashlib.sha256(data).hexdigest()==item['sha256']
+          assert len(list(Path('archive/reuse/os-design/assets/icons').glob('*/*.svg')))==172
+          print('Verified restored files:',len(report['files']))
+          PY
+      - name: Commit restored files without overwriting concurrent changes
         env:
           EXPECTED_PARENT: ${{ github.sha }}
         run: |
@@ -42,8 +40,6 @@ jobs:
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git fetch origin "$GITHUB_REF_NAME"
           test "$(git rev-parse "origin/$GITHUB_REF_NAME")" = "$EXPECTED_PARENT"
-          git add -- archive baseline/s10-programme/index.html baseline/s10-programme/archive docs/development docs/evidence .archive-import
-          git diff --cached --name-only | grep -vE '^(archive/|baseline/s10-programme/(index.html|archive/)|docs/development/|docs/evidence/|\.archive-import/)' > /tmp/unexpected-paths || true
-          test ! -s /tmp/unexpected-paths
-          git commit -m "archive: retain full TV collection, reusable motion sources and actual replay evidence"
+          git add -- archive/reuse docs/research/original docs/development/ARCHIVE-RESTORE.json .archive-import
+          git commit -m "archive: restore original research and icon/theme assets with hashes"
           git push origin "HEAD:$GITHUB_REF_NAME"

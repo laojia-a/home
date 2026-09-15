@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "checkpoint_commit": "391197224d2be127f96fe0a461462309b4cc788c",
+  "interrupted_branch_commit": "ba65ed4bf6d783e69ac354a76fbe7a4f2d6bb52c",
+  "status": "abandoned-corrupt-incomplete-transport-not-archived-assets",
+  "intended_parts": 24,
+  "observed_parts": 8,
+  "decoded_prefix_bytes": 431402,
+  "failure": "The stream through part-003 decodes; adding part-004 raises LZMAError: Corrupt input data. No READY or full-archive success exists.",
+  "observed": [
+    {"name":"part-000.txt","bytes":12000,"sha256":"2093881e475858ebcd2b070597dee065556e1682e9e5849156b784bf28b7f555"},
+    {"name":"part-001.txt","bytes":12000,"sha256":"00029fa4dd01186f44f8d677ee2871f98bf45543ed955e4aedae110e292a91fd"},
+    {"name":"part-002.txt","bytes":12000,"sha256":"880a9795a7e591d0080248e950d0c5ce929da78935d2a20bb59bf2c974d18c10"},
+    {"name":"part-003.txt","bytes":12000,"sha256":"22aed5f0e8ec29534d998c236b84fe715bac485df2849ea29641b2f5b35b3c8c"},
+    {"name":"part-004.txt","bytes":11590,"sha256":"9d0bba3e5f4aa05f01e5c2949919d172ce06ec19e83e4d7db19c95a127d1fab0"},
+    {"name":"part-005.txt","bytes":12756,"sha256":"69627a2c605e5d19a86756f56fd84d3330281b59de21aabef57e4a3c8609422e"},
+    {"name":"part-006.txt","bytes":9485,"sha256":"0e692afee7f5d09f935500b52b39883efe4e3b88b4cdd99c08d437c9552e86a9"},
+    {"name":"part-007.txt","bytes":10905,"sha256":"c7690378a66d8b9ed5790434032414dcb14092064ca305d0ffda82afbe5e5b95"}
+  ],
+  "replacement": "Small independently reproducible asset batches. First replacement recovered two original generator sources and 16 byte-identical SVG files in f716a432487be055520dee70242508780e3a40f0.",
+  "cleanup": "Transient incomplete parts removed from current tree; original attempted commits remain in Git history. No production source or historical original delivery is deleted."
+}
