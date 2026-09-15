@@ -19,6 +19,8 @@ jobs:
           node-version: '22'
       - name: Verify and extract source payload
         run: python3 .bootstrap/import.py
+      - name: Reproduce original generated baselines
+        run: python3 baseline/s10-programme/build.py
       - name: Validate source files, seven website modules and build
         run: npm run check
       - name: Install browser test tooling
