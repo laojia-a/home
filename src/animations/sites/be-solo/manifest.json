@@ -1,0 +1,24 @@
+{
+  "moduleId": "solo",
+  "website": "BE Solo",
+  "directory": "be-solo",
+  "channel": 5,
+  "renderer": "canvas2d",
+  "entry": "index.js",
+  "sceneCount": 1,
+  "sceneIds": [
+    "solo.planning"
+  ],
+  "status": "migrated-existing-programmes-no-visual-redesign",
+  "source": "baseline/s10-programme/src/programmes.js",
+  "defaultUrl": "",
+  "theme": {
+    "bg": "#e2e6eb",
+    "dark": "#414b66",
+    "ink": "#39475a",
+    "muted": "#7b8a9d",
+    "accent": "#677d9c",
+    "line": "#667e9b26",
+    "light": true
+  }
+}

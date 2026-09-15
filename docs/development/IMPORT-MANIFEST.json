@@ -1,0 +1,316 @@
+{
+  "schema": 1,
+  "payload_sha256": "4bdd1fb39d08274280e98e09e33a001064ea5c279450825006034825a48f85ac",
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 48,
+      "sha256": "94eba0d0ac66f5695187b40cf8ff95e9e50d39afb7cb990b56a902112a64bddd"
+    },
+    {
+      "path": "README.md",
+      "bytes": 2822,
+      "sha256": "216713ebf61372ff1d793a686a24dd496f249280afb9a6990bbd1f5eb23dbd6e"
+    },
+    {
+      "path": "baseline/checksums.json",
+      "bytes": 1118,
+      "sha256": "46f5036995b4e8422be091d3db5f70af6ec7d2c35496aebeec4be3870b41b803"
+    },
+    {
+      "path": "baseline/s10-programme/PROVENANCE.json",
+      "bytes": 376,
+      "sha256": "ed9da99560cf5c26216b11207d300c60db6ddfff26954f371c47c5ac133257a5"
+    },
+    {
+      "path": "baseline/s10-programme/README.md",
+      "bytes": 8622,
+      "sha256": "1cad431cc45cd090dc988f7d4af2212966f2de7ece097570ff05f40d4933f15d"
+    },
+    {
+      "path": "baseline/s10-programme/S10-节目精修.html",
+      "bytes": 84954,
+      "sha256": "84fbe9aa8bdf955b0e14f5fe4d5b32dc1a583f76015c360b17266d5b4f4dae1b"
+    },
+    {
+      "path": "baseline/s10-programme/build.py",
+      "bytes": 6874,
+      "sha256": "089ac812498039543a908078a88d47c97a3bf3d8cfcc3f62ef8393b3716c0fc4"
+    },
+    {
+      "path": "baseline/s10-programme/reference/s10-tv.html",
+      "bytes": 42712,
+      "sha256": "e9443d3edf7a1b68292ec44863ef60b47a986589c45529af76673ebdca62803c"
+    },
+    {
+      "path": "baseline/s10-programme/src/draw.js",
+      "bytes": 6079,
+      "sha256": "7c11e1371bb1358169a757a36d2f122875e393e86a9da71d6f104358347bff8c"
+    },
+    {
+      "path": "baseline/s10-programme/src/programmes.js",
+      "bytes": 24654,
+      "sha256": "579131724bd02bbd105fd9e2d626d2fa34872790dbc7dfe4c47b3ee46e6ac5b4"
+    },
+    {
+      "path": "baseline/s10-programme/src/refinements.css",
+      "bytes": 12505,
+      "sha256": "32ba7ec985cc171f38a0ecc51ed8ccd2f5ef8cbe3d86ca21dcf535bab7440000"
+    },
+    {
+      "path": "baseline/s10-programme/src/runtime.js",
+      "bytes": 26850,
+      "sha256": "eaa3394bb8788dd01366a48dfcc4e60c546aab1b0e861b8089436f4c054b4d78"
+    },
+    {
+      "path": "docs/development/CORE-SOURCE-INTAKE.json",
+      "bytes": 10387,
+      "sha256": "07d531ca98656609ce8dbd54267d0027a84a75a1b5dc3d385bc615f8bdf79025"
+    },
+    {
+      "path": "index.html",
+      "bytes": 4774,
+      "sha256": "44dde7490d4f9ae2d06289aa60dff5a49a5e599819961ade772e7cc12e9ba86c"
+    },
+    {
+      "path": "package.json",
+      "bytes": 243,
+      "sha256": "c7a69fa255783ae6ca1e17fbca04d46b63364c85a44e379d107659481006b87d"
+    },
+    {
+      "path": "reference/s10-tv.html",
+      "bytes": 42712,
+      "sha256": "e9443d3edf7a1b68292ec44863ef60b47a986589c45529af76673ebdca62803c"
+    },
+    {
+      "path": "scripts/build.py",
+      "bytes": 4541,
+      "sha256": "32204b1e9dfdfc139673f7f8ae182442b20bde6a545b53061d9b1d075bc9a8eb"
+    },
+    {
+      "path": "scripts/verify.py",
+      "bytes": 865,
+      "sha256": "5245bfee1e6dd8fa38cfaaaa0947188673c6b6e50b7b067b39820265d37bf6e9"
+    },
+    {
+      "path": "src/animations/contract/canvas-scene.js",
+      "bytes": 2297,
+      "sha256": "71b3933dd115baeccbb55ae9e500f586f617e5cb1820832bef702d3a3cd0eb4e"
+    },
+    {
+      "path": "src/animations/registry.js",
+      "bytes": 1018,
+      "sha256": "41fe4550dfee83befebb575ff0da4395ba1f54fb2e53beced7b7f7b6bb0803c3"
+    },
+    {
+      "path": "src/animations/shared/draw.js",
+      "bytes": 5278,
+      "sha256": "c0188e8976a6d4ee6cd0753df388410d72ce5121faf2b16cc53d465a98507829"
+    },
+    {
+      "path": "src/animations/shared/preview-frame.js",
+      "bytes": 385,
+      "sha256": "3b67b551ac7f97d4d3ad172be85c9c305be2fef948334716ad9561d0fc50af1e"
+    },
+    {
+      "path": "src/animations/sites/be-oracle/README.md",
+      "bytes": 849,
+      "sha256": "a66f6f4dee5740e00bc96c81372a40ea25e5365d7523baa6543a98416bb13567"
+    },
+    {
+      "path": "src/animations/sites/be-oracle/index.js",
+      "bytes": 726,
+      "sha256": "a3c17614a09bb0b0d416155d0f8b3ecdd7f40bb75087c7cb162fb986a9a7fb6b"
+    },
+    {
+      "path": "src/animations/sites/be-oracle/manifest.json",
+      "bytes": 523,
+      "sha256": "c4c6baa02d166b1b362475e757f9b7c21c12f0e06b0f9ade99dd5edbc2d29c0b"
+    },
+    {
+      "path": "src/animations/sites/be-oracle/renderers.js",
+      "bytes": 1682,
+      "sha256": "70b7e43a23b51155d74d4e9b387e205f20a122ed722c40754ac5dbdc7990f76e"
+    },
+    {
+      "path": "src/animations/sites/be-solo/README.md",
+      "bytes": 845,
+      "sha256": "3c9eb3ef452bf946e193b7fda39ef2a43de91368771ac2d0d3ee8e8da6b089e5"
+    },
+    {
+      "path": "src/animations/sites/be-solo/index.js",
+      "bytes": 718,
+      "sha256": "3746cc717458f018eb495b6305d51c1bb889d6ab37ccff6b50d876e7283db5e8"
+    },
+    {
+      "path": "src/animations/sites/be-solo/manifest.json",
+      "bytes": 515,
+      "sha256": "f5365fef329c3e8390379f53665fa0f47a48b17d27bffff7e426993729a8b48c"
+    },
+    {
+      "path": "src/animations/sites/be-solo/renderers.js",
+      "bytes": 1416,
+      "sha256": "96a29235f0f89c3471233fada228c1366ab7eb91af56e79070afb9477583674b"
+    },
+    {
+      "path": "src/animations/sites/be-workbench/README.md",
+      "bytes": 883,
+      "sha256": "1ba834b55c4a8fb1e1aace2fddf011b61c9696f2f803dd359e0cb0c6451c2aeb"
+    },
+    {
+      "path": "src/animations/sites/be-workbench/index.js",
+      "bytes": 1120,
+      "sha256": "a43742e453c9a1dc33bd3d229593487f2da9b368a68c7b48fcc10407e195c0cf"
+    },
+    {
+      "path": "src/animations/sites/be-workbench/manifest.json",
+      "bytes": 613,
+      "sha256": "6f19fec174f8bfd5e0eb78c76292d4af38920fdc5a85591f8f87742b9db7baf0"
+    },
+    {
+      "path": "src/animations/sites/be-workbench/renderers.js",
+      "bytes": 3549,
+      "sha256": "55af795d9f6e245e075f30d7b60bf4dcb5ff09ba734d386a5f972cae197706da"
+    },
+    {
+      "path": "src/animations/sites/clinical-vision/README.md",
+      "bytes": 913,
+      "sha256": "33adc4ea08e8290eebb332087864845a1428c8ecd684151df332c1fdd6b76c54"
+    },
+    {
+      "path": "src/animations/sites/clinical-vision/index.js",
+      "bytes": 1096,
+      "sha256": "ef148650ce68b75aa6643430e246af863abba344f10f75efc249fe6f778bc898"
+    },
+    {
+      "path": "src/animations/sites/clinical-vision/manifest.json",
+      "bytes": 591,
+      "sha256": "505294a76f5bf98adcce7b67720dd1d9556766b840d91d3cde2832809a79d46a"
+    },
+    {
+      "path": "src/animations/sites/clinical-vision/renderers.js",
+      "bytes": 2793,
+      "sha256": "64757a5c38cf8f15228834f62f55c640ecdcd2dafce5bd771c21e0b245ab2d87"
+    },
+    {
+      "path": "src/animations/sites/cth/README.md",
+      "bytes": 930,
+      "sha256": "abd5ea942d4cc4720feefcc71a60d08cdce6a323a1ec9dde5fa61ff1d7a4830f"
+    },
+    {
+      "path": "src/animations/sites/cth/index.js",
+      "bytes": 1350,
+      "sha256": "20f0447d42835ad4db10bdc16fa3d6195db45df2406b9ac63ef9af2051e4741c"
+    },
+    {
+      "path": "src/animations/sites/cth/manifest.json",
+      "bytes": 633,
+      "sha256": "5627bbd0dde5a4fe7b01ad2e117fa0cb37b19b2e21cee7516e23a626f97988bb"
+    },
+    {
+      "path": "src/animations/sites/cth/renderers.js",
+      "bytes": 11599,
+      "sha256": "0c58bd52e6fe8c90daea11797d037223e0b9cf56cdc85703c05b368721aef72e"
+    },
+    {
+      "path": "src/animations/sites/ezctd/README.md",
+      "bytes": 841,
+      "sha256": "acc89751bacadb9246f1d2070fc7c7e8da54c16f0d23a5601059eeb6e024f1ea"
+    },
+    {
+      "path": "src/animations/sites/ezctd/index.js",
+      "bytes": 725,
+      "sha256": "34523e488a9c5248b72a43960bd96ea2da6b8135277074d1bc9ff5c5e511f808"
+    },
+    {
+      "path": "src/animations/sites/ezctd/manifest.json",
+      "bytes": 514,
+      "sha256": "49cde3a250a980452ca0f2928c043ce63153e18ca0dd1ee296234a6fad38a14f"
+    },
+    {
+      "path": "src/animations/sites/ezctd/renderers.js",
+      "bytes": 1767,
+      "sha256": "1002e4975dacf44ebf7290e5619ba2f6ec542e1e9c0a6560e5cfd3a5a7953465"
+    },
+    {
+      "path": "src/animations/sites/manifest.json",
+      "bytes": 4285,
+      "sha256": "f9120e721bcadf392b8c7fda8ff25491b2ae194b380a94556318f12f85fa1a0a"
+    },
+    {
+      "path": "src/animations/sites/study-2026/README.md",
+      "bytes": 867,
+      "sha256": "d31575fd7fe1af92c0bde161553f4fddc2f4a26b1d48a99ad00020ad77f4debc"
+    },
+    {
+      "path": "src/animations/sites/study-2026/index.js",
+      "bytes": 737,
+      "sha256": "699a5eed5dad6d158582cc8d71dbe9d04f7aea6ec681d16a4b50762bb16c817a"
+    },
+    {
+      "path": "src/animations/sites/study-2026/manifest.json",
+      "bytes": 532,
+      "sha256": "3fa372b9bb97814b9635024c2ba53b5ce8b33c17d9c2cb1255fdd2cd471c95d4"
+    },
+    {
+      "path": "src/animations/sites/study-2026/renderers.js",
+      "bytes": 2215,
+      "sha256": "167455464345145ba9327b242647c3df9e1468122c1bbb953e4453c43290ed88"
+    },
+    {
+      "path": "src/archive-state.js",
+      "bytes": 121,
+      "sha256": "ab380eb3682baa85fce07c37e9494168fe23f1f9aa8f1cedcbef4e7fc007eb89"
+    },
+    {
+      "path": "src/dev/preview.js",
+      "bytes": 2078,
+      "sha256": "bc8d38303304b06e17953708a768bc5caa8d957a7137bb847dfb9206c6f80830"
+    },
+    {
+      "path": "src/dev/preview.template.html",
+      "bytes": 1476,
+      "sha256": "773f44c6ab4bcd24c6f6e4d46369635a8551722dc120eb290911250f579e01ce"
+    },
+    {
+      "path": "src/runtime.js",
+      "bytes": 26276,
+      "sha256": "b7d178e51ccf78d6fb25d5eaf7d426204fd9332c78da484ff95b36672f123825"
+    },
+    {
+      "path": "src/shell.template.html",
+      "bytes": 4669,
+      "sha256": "02e890f240e936c3cac31676f81d6841ab05f2405183b33294f058b5bd5ac10a"
+    },
+    {
+      "path": "src/styles/refinements.css",
+      "bytes": 12505,
+      "sha256": "32ba7ec985cc171f38a0ecc51ed8ccd2f5ef8cbe3d86ca21dcf535bab7440000"
+    },
+    {
+      "path": "src/styles/s10.css",
+      "bytes": 10188,
+      "sha256": "5051ca22f332af220ec1cf4d46831df3886527ea82be629bb46454b9cad34d33"
+    },
+    {
+      "path": "tests/browser.py",
+      "bytes": 4926,
+      "sha256": "03fb0b873c77faed61ebcf49ad37e4aaa320d6a11930c23521aca52865760a3a"
+    },
+    {
+      "path": "tests/collection.py",
+      "bytes": 1510,
+      "sha256": "8a19f930b12fcc307ea9c42cc3253d586f7be155652781ada486114ff5c7c62b"
+    },
+    {
+      "path": "tests/modules.test.js",
+      "bytes": 1659,
+      "sha256": "19ad7c81d2194e85cdbe73b65f64ab6dd5a06d9d8de4a015a9546e6fdfeb0eea"
+    },
+    {
+      "path": "tests/parity.py",
+      "bytes": 2748,
+      "sha256": "17ee3c53a2e6f35977325a3a78e5f4afb3c300af8ea22e537a6e56e15ffe59af"
+    }
+  ]
+}

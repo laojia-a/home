@@ -1,0 +1,12 @@
+{
+  "reference/s10-tv.html": "e9443d3edf7a1b68292ec44863ef60b47a986589c45529af76673ebdca62803c",
+  "baseline/s10-programme/build.py": "089ac812498039543a908078a88d47c97a3bf3d8cfcc3f62ef8393b3716c0fc4",
+  "baseline/s10-programme/README.md": "1cad431cc45cd090dc988f7d4af2212966f2de7ece097570ff05f40d4933f15d",
+  "baseline/s10-programme/S10-\u8282\u76ee\u7cbe\u4fee.html": "84fbe9aa8bdf955b0e14f5fe4d5b32dc1a583f76015c360b17266d5b4f4dae1b",
+  "baseline/s10-programme/PROVENANCE.json": "ed9da99560cf5c26216b11207d300c60db6ddfff26954f371c47c5ac133257a5",
+  "baseline/s10-programme/reference/s10-tv.html": "e9443d3edf7a1b68292ec44863ef60b47a986589c45529af76673ebdca62803c",
+  "baseline/s10-programme/src/refinements.css": "32ba7ec985cc171f38a0ecc51ed8ccd2f5ef8cbe3d86ca21dcf535bab7440000",
+  "baseline/s10-programme/src/draw.js": "7c11e1371bb1358169a757a36d2f122875e393e86a9da71d6f104358347bff8c",
+  "baseline/s10-programme/src/programmes.js": "579131724bd02bbd105fd9e2d626d2fa34872790dbc7dfe4c47b3ee46e6ac5b4",
+  "baseline/s10-programme/src/runtime.js": "eaa3394bb8788dd01366a48dfcc4e60c546aab1b0e861b8089436f4c054b4d78"
+}

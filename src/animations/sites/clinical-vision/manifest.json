@@ -1,0 +1,26 @@
+{
+  "moduleId": "learn",
+  "website": "临研知视",
+  "directory": "clinical-vision",
+  "channel": 2,
+  "renderer": "canvas2d",
+  "entry": "index.js",
+  "sceneCount": 3,
+  "sceneIds": [
+    "learn.design",
+    "learn.gcp",
+    "learn.data-review"
+  ],
+  "status": "migrated-existing-programmes-no-visual-redesign",
+  "source": "baseline/s10-programme/src/programmes.js",
+  "defaultUrl": "https://cv.jclaw.top",
+  "theme": {
+    "bg": "#183c2d",
+    "dark": "#0b251b",
+    "ink": "#e9efd8",
+    "muted": "#a1b699",
+    "accent": "#c4da93",
+    "line": "#b5d29325",
+    "light": false
+  }
+}

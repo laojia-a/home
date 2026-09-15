@@ -1,0 +1,24 @@
+{
+  "moduleId": "study",
+  "website": "2026 · 学习资料",
+  "directory": "study-2026",
+  "channel": 7,
+  "renderer": "canvas2d",
+  "entry": "index.js",
+  "sceneCount": 1,
+  "sceneIds": [
+    "study.reading"
+  ],
+  "status": "migrated-existing-programmes-no-visual-redesign",
+  "source": "baseline/s10-programme/src/programmes.js",
+  "defaultUrl": "",
+  "theme": {
+    "bg": "#eee3ca",
+    "dark": "#5a543d",
+    "ink": "#534b35",
+    "muted": "#9a8c67",
+    "accent": "#a0864b",
+    "line": "#937e4726",
+    "light": true
+  }
+}

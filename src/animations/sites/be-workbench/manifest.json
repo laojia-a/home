@@ -1,0 +1,26 @@
+{
+  "moduleId": "workbench",
+  "website": "BE Workbench",
+  "directory": "be-workbench",
+  "channel": 3,
+  "renderer": "canvas2d",
+  "entry": "index.js",
+  "sceneCount": 3,
+  "sceneIds": [
+    "workbench.traces",
+    "workbench.auc",
+    "workbench.parameters"
+  ],
+  "status": "migrated-existing-programmes-no-visual-redesign",
+  "source": "baseline/s10-programme/src/programmes.js",
+  "defaultUrl": "https://be-workbench.jclaw.top",
+  "theme": {
+    "bg": "#152b31",
+    "dark": "#0e1f26",
+    "ink": "#e4e7df",
+    "muted": "#93a8a8",
+    "accent": "#ed977b",
+    "line": "#a9b8b920",
+    "light": false
+  }
+}

@@ -1,0 +1,57 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="color-scheme" content="light"><title>JCLAW TV · S10 节目精修</title><link rel="icon" href="data:,"><link rel="stylesheet" href="src/styles/s10.css"><link rel="stylesheet" href="src/styles/refinements.css"></head><body>
+
+<div class="topbar">
+  <div class="brand"><canvas id="brandPix"></canvas></div>
+  <div class="net">BROADCAST NETWORK · 七频导航</div>
+  <div id="clock"></div><button class="top-more" data-action="menu">更多 <span aria-hidden="true">···</span></button>
+</div>
+
+<main>
+  <div class="screenCol">
+    <div class="screen" id="screen" tabindex="0" aria-label="电视节目。左右方向键换台，回车打开工具。">
+      <section class="channel" data-ch="1"><canvas class="fill" id="cv1"></canvas></section>
+      <section class="channel" data-ch="2"><canvas class="fill" id="cv2"></canvas></section>
+      <section class="channel" data-ch="3"><canvas class="fill" id="cv3"></canvas></section>
+      <section class="channel" data-ch="4"><canvas class="fill" id="cv4"></canvas></section>
+      <section class="channel" data-ch="5"><canvas class="fill" id="cv5"></canvas></section>
+      <section class="channel" data-ch="6"><canvas class="fill" id="cv6"></canvas></section>
+      <section class="channel" data-ch="7"><canvas class="fill" id="cv7"></canvas></section>
+      <canvas id="wipe"></canvas>
+      <div class="crt-scan" id="crtScan"></div>
+      <div class="crt-vig" id="crtVig"></div>
+      <div id="osd"></div>
+      <div class="liveTag" id="liveTag"><i></i><span id="signalStatus">本地动画 · 非直播</span></div>
+      <div class="standby" id="standby"></div>
+      <div class="broadcast-id" id="broadcastId"></div>
+      <div class="programme-hud" id="hud"><div class="hud-left"><span id="channelCode"></span><span id="sceneLabel"></span></div><div class="hud-controls"><button data-action="scene-prev" aria-label="上一幕">‹</button><button data-action="play" id="playButton" aria-label="暂停节目">Ⅱ</button><button data-action="scene-next" aria-label="下一幕">›</button><button data-action="menu" class="hud-more">节目表</button><a id="openTool" target="_blank" rel="noopener noreferrer">打开工具 ↗</a></div></div>
+      <div class="power-wake" id="powerWake" hidden><button data-action="power">开启电视</button></div>
+      <p id="canvasAlt" class="sr-only" aria-live="polite"></p>
+      <div id="menu" hidden>
+        <section class="m-box" role="dialog" aria-modal="true" aria-labelledby="menuTitle" tabindex="-1">
+          <div class="m-head"><strong id="menuTitle">MENU <em>节目与设置</em></strong><button data-action="close-menu" class="menu-close" aria-label="关闭菜单">×</button></div>
+          <div class="m-tabs" role="tablist"><button role="tab" data-tab="guide">频道</button><button role="tab" data-tab="pic">画面</button><button role="tab" data-tab="link">接入</button><button role="tab" data-tab="more">更多</button></div>
+          <div class="m-body" id="mBody" role="tabpanel"></div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div class="rail" id="rail">
+    <div class="rc">
+      <div class="rc-ir" id="rcIr"><i></i></div>
+      <div class="rc-brand">JCLAW</div>
+      <button class="rc-pwr" id="rcPwr" data-action="power" title="电源" aria-label="电视电源"><svg viewBox="0 0 24 24"><path d="M12 3v8"/><path d="M6.3 6.5a8 8 0 1 0 11.4 0"/></svg></button>
+      <div class="rc-pad" id="rcPad"></div>
+      <div class="rc-dual">
+        <div class="rc-col"><span>分幕</span><button data-action="scene-next" aria-label="下一幕">+</button><button data-action="scene-prev" aria-label="上一幕">−</button></div>
+        <div class="rc-col"><span>CH</span><button data-action="channel-next" aria-label="下一频道">+</button><button data-action="channel-prev" aria-label="上一频道">−</button></div>
+      </div>
+      <button class="rc-menu" id="rcMenu" data-action="menu">MENU · 更多</button>
+      <div class="rc-foot">RC-07<br>七频导航</div>
+    </div>
+    <div class="rl-foot">键盘 <b>1</b>–<b>7</b> 直选 · <b>←</b><b>→</b> 换台<br>点击屏幕进入工具<br>空格暂停 · 上下键切分幕</div>
+  </div>
+</main>
+
+<nav class="mobileDock" aria-label="手机遥控器"><button data-action="power">电源</button><button data-action="channel-prev">CH −</button><button data-action="play" id="mobilePlay">暂停</button><button data-action="channel-next">CH +</button><button data-action="menu">更多</button></nav><div class="toast" id="toast" role="status"></div>
+
+<script type="module" src="src/runtime.js"></script></body></html>

@@ -1,0 +1,179 @@
+[
+  {
+    "moduleId": "cth",
+    "website": "临床工具集",
+    "directory": "cth",
+    "channel": 1,
+    "renderer": "canvas2d",
+    "entry": "index.js",
+    "sceneCount": 6,
+    "sceneIds": [
+      "cth.contract",
+      "cth.inventory",
+      "cth.sample",
+      "cth.grades",
+      "cth.terms",
+      "cth.breakfast"
+    ],
+    "status": "migrated-existing-programmes-no-visual-redesign",
+    "source": "baseline/s10-programme/src/programmes.js",
+    "defaultUrl": "https://cth.jclaw.top",
+    "theme": {
+      "bg": "#e9e2ce",
+      "dark": "#384b38",
+      "ink": "#364331",
+      "muted": "#7e856c",
+      "accent": "#7b8153",
+      "line": "#7c815126",
+      "light": true
+    }
+  },
+  {
+    "moduleId": "learn",
+    "website": "临研知视",
+    "directory": "clinical-vision",
+    "channel": 2,
+    "renderer": "canvas2d",
+    "entry": "index.js",
+    "sceneCount": 3,
+    "sceneIds": [
+      "learn.design",
+      "learn.gcp",
+      "learn.data-review"
+    ],
+    "status": "migrated-existing-programmes-no-visual-redesign",
+    "source": "baseline/s10-programme/src/programmes.js",
+    "defaultUrl": "https://cv.jclaw.top",
+    "theme": {
+      "bg": "#183c2d",
+      "dark": "#0b251b",
+      "ink": "#e9efd8",
+      "muted": "#a1b699",
+      "accent": "#c4da93",
+      "line": "#b5d29325",
+      "light": false
+    }
+  },
+  {
+    "moduleId": "workbench",
+    "website": "BE Workbench",
+    "directory": "be-workbench",
+    "channel": 3,
+    "renderer": "canvas2d",
+    "entry": "index.js",
+    "sceneCount": 3,
+    "sceneIds": [
+      "workbench.traces",
+      "workbench.auc",
+      "workbench.parameters"
+    ],
+    "status": "migrated-existing-programmes-no-visual-redesign",
+    "source": "baseline/s10-programme/src/programmes.js",
+    "defaultUrl": "https://be-workbench.jclaw.top",
+    "theme": {
+      "bg": "#152b31",
+      "dark": "#0e1f26",
+      "ink": "#e4e7df",
+      "muted": "#93a8a8",
+      "accent": "#ed977b",
+      "line": "#a9b8b920",
+      "light": false
+    }
+  },
+  {
+    "moduleId": "ezctd",
+    "website": "EZCTD",
+    "directory": "ezctd",
+    "channel": 4,
+    "renderer": "canvas2d",
+    "entry": "index.js",
+    "sceneCount": 1,
+    "sceneIds": [
+      "ezctd.documents"
+    ],
+    "status": "migrated-existing-programmes-no-visual-redesign",
+    "source": "baseline/s10-programme/src/programmes.js",
+    "defaultUrl": "",
+    "theme": {
+      "bg": "#ece3e2",
+      "dark": "#5c4f5b",
+      "ink": "#574755",
+      "muted": "#a08b99",
+      "accent": "#9c657e",
+      "line": "#85657526",
+      "light": true
+    }
+  },
+  {
+    "moduleId": "solo",
+    "website": "BE Solo",
+    "directory": "be-solo",
+    "channel": 5,
+    "renderer": "canvas2d",
+    "entry": "index.js",
+    "sceneCount": 1,
+    "sceneIds": [
+      "solo.planning"
+    ],
+    "status": "migrated-existing-programmes-no-visual-redesign",
+    "source": "baseline/s10-programme/src/programmes.js",
+    "defaultUrl": "",
+    "theme": {
+      "bg": "#e2e6eb",
+      "dark": "#414b66",
+      "ink": "#39475a",
+      "muted": "#7b8a9d",
+      "accent": "#677d9c",
+      "line": "#667e9b26",
+      "light": true
+    }
+  },
+  {
+    "moduleId": "oracle",
+    "website": "BE Oracle",
+    "directory": "be-oracle",
+    "channel": 6,
+    "renderer": "canvas2d",
+    "entry": "index.js",
+    "sceneCount": 1,
+    "sceneIds": [
+      "oracle.evidence"
+    ],
+    "status": "migrated-existing-programmes-no-visual-redesign",
+    "source": "baseline/s10-programme/src/programmes.js",
+    "defaultUrl": "",
+    "theme": {
+      "bg": "#dce4d5",
+      "dark": "#334b3f",
+      "ink": "#324e40",
+      "muted": "#7a8c73",
+      "accent": "#708e60",
+      "line": "#60775c26",
+      "light": true
+    }
+  },
+  {
+    "moduleId": "study",
+    "website": "2026 · 学习资料",
+    "directory": "study-2026",
+    "channel": 7,
+    "renderer": "canvas2d",
+    "entry": "index.js",
+    "sceneCount": 1,
+    "sceneIds": [
+      "study.reading"
+    ],
+    "status": "migrated-existing-programmes-no-visual-redesign",
+    "source": "baseline/s10-programme/src/programmes.js",
+    "defaultUrl": "",
+    "theme": {
+      "bg": "#eee3ca",
+      "dark": "#5a543d",
+      "ink": "#534b35",
+      "muted": "#9a8c67",
+      "accent": "#a0864b",
+      "line": "#937e4726",
+      "light": true
+    }
+  }
+]

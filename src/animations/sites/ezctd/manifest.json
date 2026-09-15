@@ -1,0 +1,24 @@
+{
+  "moduleId": "ezctd",
+  "website": "EZCTD",
+  "directory": "ezctd",
+  "channel": 4,
+  "renderer": "canvas2d",
+  "entry": "index.js",
+  "sceneCount": 1,
+  "sceneIds": [
+    "ezctd.documents"
+  ],
+  "status": "migrated-existing-programmes-no-visual-redesign",
+  "source": "baseline/s10-programme/src/programmes.js",
+  "defaultUrl": "",
+  "theme": {
+    "bg": "#ece3e2",
+    "dark": "#5c4f5b",
+    "ink": "#574755",
+    "muted": "#a08b99",
+    "accent": "#9c657e",
+    "line": "#85657526",
+    "light": true
+  }
+}

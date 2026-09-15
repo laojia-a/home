@@ -1,0 +1,13 @@
+{
+  "reference": "s10-tv.html",
+  "reference_sha256": "e9443d3edf7a1b68292ec44863ef60b47a986589c45529af76673ebdca62803c",
+  "reference_unchanged": true,
+  "new_programme_count": 16,
+  "rendering": "Canvas 2D",
+  "new_scope": [
+    "programme artwork and motion",
+    "four preview channels",
+    "local interaction repairs"
+  ],
+  "legacy_archive": "archive/earlier-tv.html"
+}

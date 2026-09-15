@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JCLAW 电视直播 · 10</title>
+<style>
+:root{ --grn:#24eb4f; --grn2:#149a3e; --mut:#968f7f; }
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden}
+body{
+  background:#eae6db;color:#2c2a26;height:100vh;display:flex;flex-direction:column;
+  font-family:"PingFang SC","Microsoft YaHei",-apple-system,sans-serif;
+  background-image:
+    radial-gradient(ellipse at 50% 0%, rgba(255,255,255,.55), transparent 60%),
+    repeating-linear-gradient(90deg, rgba(120,100,60,.035) 0 2px, transparent 2px 7px);
+}
+.topbar{display:flex;align-items:center;gap:20px;padding:14px 22px 12px;
+  border-bottom:1px solid #d3ccbb}
+.brand{display:flex;align-items:center;gap:10px}
+#brandPix{height:26px;image-rendering:pixelated}
+.topbar .net{font-size:10px;letter-spacing:.4em;color:var(--mut);text-transform:uppercase}
+#clock{margin-left:auto;font-family:"Courier New",monospace;font-size:13px;
+  letter-spacing:.14em;color:#7c7668}
+#clock b{color:var(--grn2)}
+
+main{flex:1;display:flex;min-height:0}
+.screenCol{flex:1;display:grid;place-items:center;padding:22px;min-width:0}
+.screen{
+  position:relative;width:min(100%,calc((100vh - 170px)*1.72));aspect-ratio:16/9.3;
+  background:#000;border:1px solid #3a3733;border-radius:6px;overflow:hidden;cursor:pointer;
+  box-shadow:0 0 0 10px #f5f1e6, 0 0 0 12px #c6bfae, 0 26px 60px rgba(80,68,45,.38);
+}
+.crt-scan{position:absolute;inset:0;z-index:40;pointer-events:none;
+  background:repeating-linear-gradient(0deg, rgba(0,0,0,.14) 0 1px, transparent 1px 3px)}
+.crt-vig{position:absolute;inset:0;z-index:41;pointer-events:none;
+  background:radial-gradient(ellipse at center, transparent 58%, rgba(0,0,0,.42) 100%)}
+.channel{filter:brightness(var(--bri,1))}
+.channel{position:absolute;inset:0;opacity:0;transition:opacity .1s}
+.channel.on{opacity:1}
+canvas.fill{position:absolute;inset:0;width:100%;height:100%}
+#wipe{position:absolute;inset:0;z-index:45;width:100%;height:100%;opacity:0;pointer-events:none}
+#osd{position:absolute;left:16px;top:14px;z-index:50;opacity:0;transition:opacity .25s;
+  display:flex;align-items:center;gap:12px;background:rgba(0,0,0,.72);padding:5px 13px;
+  border-left:3px solid var(--grn)}
+#osd.show{opacity:1}
+#osd canvas{image-rendering:pixelated;height:30px}
+.liveTag{position:absolute;right:16px;top:16px;z-index:50;display:flex;align-items:center;gap:7px;
+  font-size:11px;font-weight:800;letter-spacing:.26em;color:#fff}
+.liveTag i{width:8px;height:8px;border-radius:50%;background:var(--grn);
+  box-shadow:0 0 10px var(--grn);animation:pul 1.2s steps(2) infinite}
+@keyframes pul{50%{opacity:.2}}
+.standby{position:absolute;right:16px;top:16px;z-index:50;display:none;
+  font-size:11px;font-weight:700;letter-spacing:.26em;color:#f5e6b8;
+  border:1px solid rgba(245,230,184,.5);padding:4px 10px}
+
+/* ================= 遥控器 ================= */
+.rail{width:250px;flex:none;display:flex;flex-direction:column;align-items:center;
+  padding:18px 0 12px;overflow-y:auto}
+.rc{width:172px;border-radius:30px;padding:16px 14px 14px;position:relative;
+  background:linear-gradient(160deg,#3b3b44,#26262c 55%,#1d1d22);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.16), inset 0 -2px 6px rgba(0,0,0,.5),
+    0 18px 40px rgba(60,50,30,.4), 0 3px 8px rgba(60,50,30,.25);
+  display:flex;flex-direction:column;align-items:center;gap:12px}
+.rc-ir{width:56px;height:12px;border-radius:7px;background:#101014;
+  box-shadow:inset 0 1px 3px #000, 0 1px 0 rgba(255,255,255,.08);position:relative}
+.rc-ir i{position:absolute;right:5px;top:3px;width:6px;height:6px;border-radius:50%;
+  background:#5a1414;transition:.1s}
+.rc-ir.tx i{background:#ff3b30;box-shadow:0 0 8px #ff3b30}
+.rc-brand{font-size:9px;letter-spacing:.5em;color:#71717c;font-weight:700;text-indent:.5em}
+.rc-pwr{width:40px;height:40px;border-radius:50%;border:0;cursor:pointer;
+  background:radial-gradient(circle at 35% 30%,#5b2730,#3a1a20 70%);
+  box-shadow:0 2px 5px rgba(0,0,0,.55), inset 0 1px 1px rgba(255,255,255,.22);
+  display:grid;place-items:center;transition:.08s}
+.rc-pwr:active{transform:translateY(1px);box-shadow:0 1px 2px rgba(0,0,0,.6), inset 0 2px 4px rgba(0,0,0,.5)}
+.rc-pwr svg{width:16px;height:16px;stroke:#ff8a80;fill:none;stroke-width:2;stroke-linecap:round}
+.rc-pad{display:grid;grid-template-columns:repeat(3,1fr);gap:9px}
+.rc-ch{width:38px;height:38px;border-radius:50%;border:0;cursor:pointer;position:relative;
+  background:radial-gradient(circle at 35% 30%,#4d4d56,#33333a 72%);
+  box-shadow:0 2px 4px rgba(0,0,0,.55), inset 0 1px 1px rgba(255,255,255,.18);
+  color:#d8d8de;font:800 13px "Courier New",monospace;transition:.08s}
+.rc-ch:active{transform:translateY(1px);box-shadow:0 1px 2px rgba(0,0,0,.6), inset 0 2px 4px rgba(0,0,0,.5)}
+.rc-ch::after{content:"";position:absolute;left:50%;bottom:4px;transform:translateX(-50%);
+  width:5px;height:5px;border-radius:50%;background:var(--cc,#666);opacity:.9}
+.rc-ch.off{color:#6a6a72}
+.rc-ch.off::after{background:#4a4a50}
+.rc-ch.cur{box-shadow:0 0 0 2px var(--cc,#888), 0 2px 4px rgba(0,0,0,.55);
+  color:#fff}
+.rc-ch.ghost{width:38px;height:38px;visibility:hidden}
+.rc-dual{display:flex;gap:26px}
+.rc-col{display:flex;flex-direction:column;align-items:center;gap:5px}
+.rc-col span{font-size:8.5px;letter-spacing:.24em;color:#71717c;font-weight:700}
+.rc-col button{width:34px;height:26px;border:0;cursor:pointer;border-radius:13px;
+  background:radial-gradient(circle at 35% 30%,#4d4d56,#33333a 72%);
+  box-shadow:0 2px 4px rgba(0,0,0,.55), inset 0 1px 1px rgba(255,255,255,.18);
+  color:#d8d8de;font:800 13px "Courier New",monospace;transition:.08s}
+.rc-col button:active{transform:translateY(1px);box-shadow:0 1px 2px rgba(0,0,0,.6), inset 0 2px 4px rgba(0,0,0,.5)}
+.rc-menu{width:100%;height:32px;border:0;cursor:pointer;border-radius:16px;
+  background:linear-gradient(180deg,#3f4a42,#2c352e);
+  box-shadow:0 2px 4px rgba(0,0,0,.55), inset 0 1px 1px rgba(255,255,255,.18);
+  color:#b8f5c8;font:700 11px "PingFang SC",sans-serif;letter-spacing:.22em;transition:.08s}
+.rc-menu:active{transform:translateY(1px)}
+.rc-menu.on{background:linear-gradient(180deg,#2a7a45,#1d5c33);color:#fff}
+.rc-foot{font-size:8px;letter-spacing:.3em;color:#5b5b64;text-align:center;line-height:1.9}
+.rl-foot{margin-top:12px;font-size:10.5px;color:#8f8878;line-height:2;letter-spacing:.08em;text-align:center}
+.rl-foot b{color:#6e685b;border:1px solid #c6bfae;border-radius:3px;padding:0 5px;
+  font-family:"Courier New",monospace;background:#f6f3ea}
+
+/* ================= 设置菜单 OSD ================= */
+#menu{position:absolute;inset:0;z-index:60;display:none;
+  background:rgba(8,12,20,.78);backdrop-filter:blur(2px);
+  align-items:center;justify-content:center}
+#menu.show{display:flex}
+.m-box{width:min(620px,86%);max-height:86%;display:flex;flex-direction:column;
+  background:linear-gradient(180deg,rgba(16,22,34,.97),rgba(10,14,24,.97));
+  border:1px solid rgba(120,180,255,.22);border-radius:8px;overflow:hidden;
+  box-shadow:0 20px 60px rgba(0,0,0,.6);color:#dce6f2}
+.m-head{display:flex;align-items:baseline;gap:12px;padding:13px 18px;
+  border-bottom:1px solid rgba(120,180,255,.16);
+  font:800 14px "PingFang SC",sans-serif;letter-spacing:.18em;color:#9fc6ff}
+.m-head span{margin-left:auto;font-size:10px;color:#5f748f;letter-spacing:.1em;font-weight:400}
+.m-tabs{display:flex;gap:2px;padding:8px 18px 0}
+.m-tabs b{padding:6px 14px;font-size:12px;cursor:pointer;color:#7f93ab;font-weight:600;
+  border-radius:5px 5px 0 0;border:1px solid transparent;border-bottom:0}
+.m-tabs b.on{color:#fff;background:rgba(90,140,220,.16);border-color:rgba(120,180,255,.25)}
+.m-body{padding:14px 18px 16px;overflow-y:auto;border-top:1px solid rgba(120,180,255,.16)}
+.m-row{display:flex;align-items:center;gap:10px;padding:7px 0;
+  border-bottom:1px dashed rgba(120,180,255,.1)}
+.m-row i{width:10px;height:10px;border-radius:2px;flex:none}
+.m-row .m-ch{font:800 11px "Courier New",monospace;color:#8ba3c0;width:30px;flex:none}
+.m-row .m-nm{font-size:12.5px;font-weight:700;width:104px;flex:none;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.m-row input{flex:1;min-width:0;background:rgba(255,255,255,.06);border:1px solid rgba(120,180,255,.2);
+  border-radius:4px;color:#dce6f2;font:12px "Courier New",monospace;padding:5px 8px;outline:none}
+.m-row input:focus{border-color:#6fb2ff;background:rgba(255,255,255,.1)}
+.m-row input::placeholder{color:#4d6076}
+.m-tg{flex:none;width:64px;height:22px;border-radius:11px;border:1px solid rgba(120,180,255,.25);
+  background:rgba(255,255,255,.05);color:#7f93ab;font:700 10px "PingFang SC",sans-serif;
+  letter-spacing:.08em;cursor:pointer}
+.m-tg.on{background:rgba(36,235,79,.16);border-color:rgba(36,235,79,.5);color:#4ef58a}
+.m-act{display:flex;gap:10px;margin-top:14px}
+.m-act button{flex:1;height:32px;border-radius:6px;border:1px solid rgba(120,180,255,.3);
+  background:rgba(90,140,220,.14);color:#cfe2ff;font:700 12px "PingFang SC",sans-serif;
+  letter-spacing:.12em;cursor:pointer}
+.m-act button:hover{background:rgba(90,140,220,.26)}
+.m-act button#mReset{background:rgba(255,255,255,.04);color:#7f93ab}
+.m-pic{display:flex;align-items:center;gap:12px;padding:10px 0;
+  border-bottom:1px dashed rgba(120,180,255,.1);font-size:13px}
+.m-pic .m-tg{margin-left:auto}
+.m-pic output{margin-left:auto;font:700 12px "Courier New",monospace;color:#9fc6ff;min-width:44px;text-align:right}
+.m-pic button.vb{width:28px;height:24px;border-radius:6px;border:1px solid rgba(120,180,255,.25);
+  background:rgba(255,255,255,.06);color:#dce6f2;cursor:pointer;font:800 13px "Courier New",monospace}
+.m-about{font-size:12.5px;line-height:2.2;color:#a9bcd2;letter-spacing:.06em}
+.m-about b{color:#fff;font-family:"Courier New",monospace}
+
+.sw{position:fixed;right:14px;bottom:12px;z-index:99;display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end}
+.sw a{width:26px;height:26px;display:grid;place-items:center;border-radius:6px;
+  background:#f6f3ea;color:#8f8878;text-decoration:none;font-size:10.5px;font-weight:700;
+  border:1px solid #d5cfbe;transition:.15s;font-family:"Courier New",monospace}
+.sw a:hover{color:var(--grn2);border-color:var(--grn2)}
+.sw a.cur{color:#fff;background:var(--grn2);border-color:var(--grn2)}
+@media (max-width:860px){ .rail{display:none} }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="brand"><canvas id="brandPix"></canvas></div>
+  <div class="net">BROADCAST NETWORK · 七频同播</div>
+  <div id="clock"></div>
+</div>
+
+<main>
+  <div class="screenCol">
+    <div class="screen" id="screen">
+      <section class="channel" data-ch="1"><canvas class="fill" id="cv1"></canvas></section>
+      <section class="channel" data-ch="2"><canvas class="fill" id="cv2"></canvas></section>
+      <section class="channel" data-ch="3"><canvas class="fill" id="cv3"></canvas></section>
+      <section class="channel" data-ch="4"><canvas class="fill" id="cv4"></canvas></section>
+      <section class="channel" data-ch="5"><canvas class="fill" id="cv5"></canvas></section>
+      <section class="channel" data-ch="6"><canvas class="fill" id="cv6"></canvas></section>
+      <section class="channel" data-ch="7"><canvas class="fill" id="cv7"></canvas></section>
+      <canvas id="wipe"></canvas>
+      <div class="crt-scan" id="crtScan"></div>
+      <div class="crt-vig" id="crtVig"></div>
+      <div id="osd"></div>
+      <div class="liveTag" id="liveTag"><i></i>LIVE</div>
+      <div class="standby" id="standby">信号调试中</div>
+      <div id="menu">
+        <div class="m-box">
+          <div class="m-head">系统设置 · SETUP<span>MENU / ESC 关闭</span></div>
+          <div class="m-tabs">
+            <b data-t="link" class="on">接入配置</b><b data-t="pic">画面</b><b data-t="about">关于</b>
+          </div>
+          <div class="m-body" id="mBody"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="rail" id="rail">
+    <div class="rc">
+      <div class="rc-ir" id="rcIr"><i></i></div>
+      <div class="rc-brand">JCLAW</div>
+      <button class="rc-pwr" id="rcPwr" title="电源"><svg viewBox="0 0 24 24"><path d="M12 3v8"/><path d="M6.3 6.5a8 8 0 1 0 11.4 0"/></svg></button>
+      <div class="rc-pad" id="rcPad"></div>
+      <div class="rc-dual">
+        <div class="rc-col"><span>VOL</span><button data-k="vol+">+</button><button data-k="vol-">−</button></div>
+        <div class="rc-col"><span>CH</span><button data-k="ch+">+</button><button data-k="ch-">−</button></div>
+      </div>
+      <button class="rc-menu" id="rcMenu">MENU · 设置</button>
+      <div class="rc-foot">RC-07<br>七频同播</div>
+    </div>
+    <div class="rl-foot">键盘 <b>1</b>–<b>7</b> 直选 · <b>←</b><b>→</b> 换台<br>点击屏幕进入当前频道</div>
+  </div>
+</main>
+
+<nav class="sw" id="sw"></nav>
+
+<script>
+/* ================= 频道定义 ================= */
+const CH=[
+ {n:1,name:'临床工具集',url:'https://cth.jclaw.top',c:'#f5e6b8',on:true,d:'六档常备工具 · 实机演示轮播'},
+ {n:2,name:'临研知视',url:'https://cv.jclaw.top',c:'#7fb069',on:true,d:'内部培训频道 · 正在授课'},
+ {n:3,name:'BE Workbench',url:'https://be-workbench.jclaw.top',c:'#e76f51',on:true,d:'NCA · ABE/RSABE · 实时演算'},
+ {n:4,name:'EZCTD',url:null,c:'#c9a9a6',on:false,d:'CRO PDF 工作台 · 0.3.0.dev0 开发中'},
+ {n:5,name:'BE-Solo',url:null,c:'#a6b8c9',on:false,d:'单机版 BE 工作台 · 排期中'},
+ {n:6,name:'BE Oracle',url:null,c:'#b8a6c9',on:false,d:'证据治理 · 推演中'},
+ {n:7,name:'2026',url:null,c:'#c9c9c9',on:false,d:'频率未校准'},
+];
+const BARS=['#c0c0c0','#c0c000','#00c0c0','#00c000','#c000c0','#c00000','#0000c0'];
+const cv=[null,cv1,cv2,cv3,cv4,cv5,cv6,cv7];
+let cur=1;
+const T0=+(new URLSearchParams(location.search).get('t')||0); /* 调试相位 */
+
+/* ================= 像素字 ================= */
+function pixText(text,color,size=14){
+  const c=document.createElement('canvas'),x=c.getContext('2d');
+  x.font=`700 ${size}px "PingFang SC","Microsoft YaHei",monospace`;
+  const w=Math.ceil(x.measureText(text).width)+2;
+  c.width=w;c.height=size+6;
+  x.font=`700 ${size}px "PingFang SC","Microsoft YaHei",monospace`;
+  x.fillStyle=color;x.textBaseline='top';x.fillText(text,1,2);
+  c.style.imageRendering='pixelated';
+  return c;
+}
+document.getElementById('brandPix').replaceWith(Object.assign(pixText('JCLAW·TV','#149a3e',13),{id:'brandPix'}));
+
+function tickClock(){
+  const d=new Date(),p=n=>String(n).padStart(2,'0');
+  document.getElementById('clock').innerHTML=
+    `${d.getFullYear()}-${p(d.getMonth()+1)}-${p(d.getDate())} <b>${p(d.getHours())}:${p(d.getMinutes())}:${p(d.getSeconds())}</b>`;
+}
+tickClock();setInterval(tickClock,1000);
+
+/* ================= 画布工具 ================= */
+const DPR=Math.min(2,devicePixelRatio||1);
+function fit(c){const w=c.clientWidth|0,h=c.clientHeight|0;
+  if(!w||!h)return false;
+  if(c.width!==Math.round(w*DPR)||c.height!==Math.round(h*DPR)){
+    c.width=Math.round(w*DPR);c.height=Math.round(h*DPR);
+    c.getContext('2d').setTransform(DPR,0,0,DPR,0,0);}
+  return true;}
+const clamp01=v=>Math.max(0,Math.min(1,v));
+const ease=k=>1-Math.pow(1-clamp01(k),3);
+function bottomBar(x,W,H,color,txt){
+  x.fillStyle=color;x.fillRect(0,H-30,W,30);
+  x.fillStyle='#000';x.font='700 13px "Courier New",monospace';x.textAlign='left';x.textBaseline='middle';
+  x.fillText(txt,14,H-14);
+}
+function segTag(x,text,color,W){
+  x.font='700 13px "PingFang SC",sans-serif';
+  const w=x.measureText(text).width+20;
+  const bx=W-w-14;
+  x.fillStyle='rgba(0,0,0,.7)';x.fillRect(bx,52,w,26);
+  x.fillStyle=color;x.fillRect(bx+w-3,52,3,26);
+  x.fillStyle='#fff';x.textAlign='left';x.textBaseline='middle';x.fillText(text,bx+12,66);
+}
+
+/* ================= CH1 临床工具集 · 六幕实机演示 ================= */
+const S1=[
+ {tag:'合同追踪 · 电子签署',draw(x,W,H,lt,t){
+   const C=CH[0].c,pw=Math.min(230,W*.3),ph=H*.52,cx=W*.5,cy=H*.42;
+   const slide=ease(lt/.18),px=cx-pw/2-(1-slide)*(W*.7);
+   const shake=lt>.62&&lt<.72?Math.sin(t/24)*2.4:0;
+   x.save();x.translate(0,shake);
+   x.fillStyle=C;x.fillRect(px,cy-ph/2,pw,ph);
+   x.fillStyle='#000';
+   x.font='700 15px "PingFang SC",sans-serif';x.textAlign='center';
+   x.fillText('临床试验合同',px+pw/2,cy-ph/2+26);
+   for(let i=0;i<5;i++){x.globalAlpha=.28;x.fillRect(px+24,cy-ph/2+48+i*20,pw-48,5);x.globalAlpha=1;}
+   x.fillStyle='rgba(0,0,0,.75)';x.font='11px "PingFang SC",sans-serif';
+   x.fillText('甲方：JCLAW 研究中心',px+pw/2,cy+ph/2-40);
+   /* 盖章 */
+   if(lt>.42){
+     const k=ease((lt-.42)/.2),sc=2.4-1.4*k;
+     x.save();x.translate(px+pw*.66,cy+ph*.24);x.rotate(-.35*(1-k*.6));x.scale(sc,sc);
+     x.globalAlpha=.35+.65*k;
+     x.strokeStyle='#b03a2a';x.lineWidth=3;
+     x.beginPath();x.arc(0,0,26,0,7);x.stroke();
+     x.fillStyle='#b03a2a';x.font='700 16px "PingFang SC",sans-serif';
+     x.fillText('已签署',0,6);
+     x.restore();x.globalAlpha=1;
+   }
+   x.restore();
+   x.fillStyle='rgba(245,230,184,.6)';x.font='12px "PingFang SC",sans-serif';x.textAlign='center';
+   x.fillText(lt>.62?'合同已归档 · 用时 0.8 天':'等待签署…',cx,H*.78);
+ }},
+ {tag:'物资管理 · 库存盘点',draw(x,W,H,lt,t){
+   const C=CH[0].c,rows=[['采血管',.82],['离心管',.64],['试剂盒',.47],['耗材包',.91],['冻存管',.16]];
+   const bx=W*.24,bw=W*.52,x0=H*.2,rh=Math.min(34,H*.09);
+   x.font='12px "PingFang SC",sans-serif';
+   rows.forEach(([nm,v],i)=>{
+     const y=x0+i*(rh+12),k=ease((lt-i*.12)/.3);
+     x.fillStyle='rgba(245,230,184,.85)';x.textAlign='right';x.fillText(nm,bx-14,y+rh/2+4);
+     x.fillStyle='rgba(245,230,184,.16)';x.fillRect(bx,y,bw,rh*.55);
+     const low=v<.25;
+     x.fillStyle=low&&k>=1?(Math.sin(t/130)>0?'#e76f51':'#b03a2a'):C;
+     x.fillRect(bx,y,bw*v*k,rh*.55);
+     x.fillStyle=low?'#e76f51':'rgba(245,230,184,.6)';x.textAlign='left';
+     x.fillText(Math.round(v*k*100)+'%',bx+bw+12,y+rh/2+4);
+   });
+   x.fillStyle=lt>.8&&Math.sin(t/130)>0?'#e76f51':'rgba(245,230,184,.5)';
+   x.textAlign='center';x.font='700 13px "PingFang SC",sans-serif';
+   x.fillText(lt>.8?'冻存管低于安全库存 · 已自动生成采购单':'库存巡检中…',W/2,H*.82);
+ }},
+ {tag:'BE 例数 · 样本量估算',draw(x,W,H,lt,t){
+   const C=CH[0].c,k=ease(lt/.6),n=Math.round(k*48);
+   x.textAlign='center';
+   x.fillStyle='rgba(245,230,184,.55)';x.font='13px "PingFang SC",sans-serif';
+   x.fillText('把握度 90% · CV 22% · 脱落率 10%',W/2,H*.26);
+   x.fillStyle=C;x.font=`900 ${Math.min(120,H*.3)}px "Courier New",monospace`;
+   x.fillText('n = '+n,W/2,H*.5);
+   x.fillStyle='rgba(245,230,184,.5)';x.font='12px "PingFang SC",sans-serif';
+   x.fillText(lt>.7?'推荐入组 48 例 · 2×2 交叉':'迭代计算中…',W/2,H*.68);
+   /* 迷你等效界值条 */
+   const bw=W*.4,bx=W/2-bw/2,by=H*.74;
+   x.fillStyle='rgba(245,230,184,.18)';x.fillRect(bx,by,bw,6);
+   x.fillStyle=C;x.fillRect(bx+bw*.2,by,bw*.6,6);
+   x.fillStyle='#000';x.font='10px "Courier New",monospace';
+   x.fillStyle='rgba(245,230,184,.6)';
+   x.fillText('80.00%',bx+bw*.2,by+18);x.fillText('125.00%',bx+bw*.8,by+18);
+ }},
+ {tag:'CTCAE 5.0 · 不良事件分级',draw(x,W,H,lt,t){
+   const C=CH[0].c,n=5,cw=Math.min(96,W*.13),gap=cw*.3;
+   const total=n*cw+(n-1)*gap,x0=(W-total)/2,y=H*.36;
+   const active=Math.min(5,Math.floor(lt*6.2));
+   for(let i=0;i<n;i++){
+     const on=i<active,cur2=i===active-1;
+     const pulse=cur2?1+Math.sin(t/140)*.06:1;
+     x.save();x.translate(x0+i*(cw+gap)+cw/2,y+cw*.42);x.scale(pulse,pulse);
+     x.fillStyle=on?C:'rgba(245,230,184,.12)';
+     x.fillRect(-cw/2,-cw*.42,cw,cw*.84);
+     x.fillStyle=on?'#000':'rgba(245,230,184,.4)';
+     x.font=`900 ${cw*.32}px "Courier New",monospace`;x.textAlign='center';
+     x.fillText('G'+(i+1),0,-2);
+     x.font=`${cw*.13}px "PingFang SC",sans-serif`;
+     x.fillText(['轻','中','重','危重','死亡'][i],0,cw*.24);
+     x.restore();
+   }
+   x.fillStyle='rgba(245,230,184,.6)';x.font='12.5px "PingFang SC",sans-serif';x.textAlign='center';
+   x.fillText('乏力 · 2 级（中度）→ 已关联 MedDRA 10016256',W/2,H*.74);
+ }},
+ {tag:'MedDRA · 术语检索',draw(x,W,H,lt,t){
+   const C=CH[0].c,boxW=Math.min(430,W*.6),bx=(W-boxW)/2,by=H*.3;
+   x.fillStyle='rgba(245,230,184,.14)';x.fillRect(bx,by,boxW,44);
+   x.strokeStyle=C;x.lineWidth=1.5;x.strokeRect(bx,by,boxW,44);
+   const word='headache',typed=Math.floor(clamp01(lt/.4)*word.length);
+   x.fillStyle=C;x.font='700 17px "Courier New",monospace';x.textAlign='left';
+   x.fillText(word.slice(0,typed)+(lt<.45&&Math.sin(t/160)>0?'▌':''),bx+16,by+27);
+   if(lt>.5){
+     const k=ease((lt-.5)/.25);
+     x.globalAlpha=k;
+     x.fillStyle=C;x.font='20px "PingFang SC",sans-serif';x.textAlign='center';
+     x.fillText('↓',W/2,by+74);
+     x.fillStyle='rgba(245,230,184,.9)';x.font='700 17px "PingFang SC",sans-serif';
+     x.fillText('头痛 · PT 10019211',W/2,by+112);
+     x.fillStyle='rgba(245,230,184,.5)';x.font='12px "PingFang SC",sans-serif';
+     x.fillText('SOC：各类神经系统疾病 (10029205)',W/2,by+140);
+     x.globalAlpha=1;
+   }
+ }},
+ {tag:'餐谱计算 · 高脂餐',draw(x,W,H,lt,t){
+   const C=CH[0].c,cx=W*.38,cy=H*.46,r=Math.min(86,H*.2);
+   /* 餐盘 */
+   x.strokeStyle=C;x.lineWidth=3;
+   x.beginPath();x.arc(cx,cy,r,0,7);x.stroke();
+   x.beginPath();x.arc(cx,cy,r*.62,0,7);x.strokeStyle='rgba(245,230,184,.4)';x.lineWidth=1.5;x.stroke();
+   /* 食物块逐个落入 */
+   const foods=[[-.3,-.25,.32],[.25,-.1,.26],[-.05,.28,.3]];
+   foods.forEach(([fx,fy,fr],i)=>{
+     const k=ease((lt-.08*i)/.22);if(k<=0)return;
+     x.globalAlpha=k;
+     x.fillStyle=C;
+     x.beginPath();x.arc(cx+fx*r*1.4,cy+fy*r*1.4-(1-k)*60,r*fr,0,7);x.fill();
+     x.globalAlpha=1;
+   });
+   /* 刀叉 */
+   x.strokeStyle='rgba(245,230,184,.7)';x.lineWidth=3;
+   x.beginPath();x.moveTo(cx-r-24,cy-r*.6);x.lineTo(cx-r-24,cy+r*.6);x.stroke();
+   x.beginPath();x.moveTo(cx+r+24,cy-r*.6);x.lineTo(cx+r+24,cy+r*.6);x.stroke();
+   /* 热量计数 */
+   const kcal=Math.round(ease(lt/.55)*986);
+   x.fillStyle=C;x.font=`900 ${Math.min(64,H*.16)}px "Courier New",monospace`;x.textAlign='left';
+   x.fillText(kcal+' kcal',W*.56,H*.44);
+   x.fillStyle='rgba(245,230,184,.6)';x.font='12.5px "PingFang SC",sans-serif';
+   x.fillText('脂肪供能比 ≈ 52%',W*.56,H*.52);
+   x.fillText(lt>.7?'满足高脂餐标准 · 可直接下发食谱':'配餐计算中…',W*.56,H*.6);
+ }},
+];
+function loop1(t){
+  if(cur!==1||!powerOn){requestAnimationFrame(loop1);return;}
+  if(!fit(cv[1])){requestAnimationFrame(loop1);return;}
+  const x=cv[1].getContext('2d'),W=cv[1].clientWidth,H=cv[1].clientHeight;
+  x.fillStyle='#000';x.fillRect(0,0,W,H);
+  const TT=t+T0,PER=5600,si=Math.floor(TT/PER)%S1.length,lt=(TT%PER)/PER;
+  S1[si].draw(x,W,H-30,lt,t+T0);
+  /* 分幕指示 */
+  S1.forEach((_,i)=>{
+    x.fillStyle=i===si?CH[0].c:'rgba(245,230,184,.2)';
+    x.fillRect(14+i*16,H-46,10,3);
+  });
+  segTag(x,`${si+1}/6 · ${S1[si].tag}`,CH[0].c,W);
+  bottomBar(x,W,H,CH[0].c,'CH1 · CTH.JCLAW.TOP · 实机演示轮播 · 点击进入');
+  requestAnimationFrame(loop1);
+}
+
+/* ================= CH2 临研知视 · 正在授课 ================= */
+const COURSES=[
+ {t:'BE 试验设计入门',pts:['2×2 交叉设计与洗脱期','随机化与盲法实施','等效界值 80.00%–125.00%']},
+ {t:'GCP 法规更新解读',pts:['2025 修订要点','研究者职责清单','核查常见缺陷']},
+ {t:'数据核查实战',pts:['SDV 抽样策略','query 闭环管理','数据库锁定流程']},
+];
+function loop2(t){
+  if(cur!==2||!powerOn){requestAnimationFrame(loop2);return;}
+  if(!fit(cv[2])){requestAnimationFrame(loop2);return;}
+  const x=cv[2].getContext('2d'),W=cv[2].clientWidth,H=cv[2].clientHeight,C=CH[1].c;
+  x.fillStyle='#000';x.fillRect(0,0,W,H);
+  const TT=t+T0,PER=8000,ci=Math.floor(TT/PER)%COURSES.length,lt=(TT%PER)/PER,co=COURSES[ci];
+  /* 幻灯片 */
+  const sx=W*.12,sy=H*.14,sw=W*.76,sh=H*.56;
+  x.fillStyle='#060806';x.fillRect(sx,sy,sw,sh);
+  x.strokeStyle='rgba(127,176,105,.5)';x.lineWidth=1.5;x.strokeRect(sx,sy,sw,sh);
+  x.fillStyle=C;x.fillRect(sx,sy,sw,46);
+  x.fillStyle='#000';x.font='700 19px "PingFang SC",sans-serif';x.textAlign='left';x.textBaseline='middle';
+  x.fillText(`第 ${ci+10} 讲 · ${co.t}`,sx+18,sy+24);
+  x.textAlign='right';x.font='700 12px "Courier New",monospace';
+  x.fillText('JCLAW ACADEMY',sx+sw-16,sy+24);
+  /* 逐条显现 + 激光笔 */
+  let dotY=sy+96,dotX=sx+30;
+  co.pts.forEach((p,i)=>{
+     const a=lt-.18-i*.22;if(a<=0)return;
+     const k=ease(a/.12);
+     x.globalAlpha=k;
+     x.fillStyle=C;x.fillRect(sx+30,sy+86+i*56,10,10);
+     x.fillStyle='rgba(255,255,255,.92)';x.font='16.5px "PingFang SC",sans-serif';x.textAlign='left';
+     x.fillText(p,sx+54,sy+92+i*56);
+     x.globalAlpha=1;
+     if(a>0) {dotY=sy+91+i*56;dotX=sx+30+Math.sin(TT/260)*3;}
+  });
+  /* 激光笔 */
+  x.beginPath();x.arc(dotX+ (W*.02),dotY+40,5,0,7);
+  x.fillStyle=C;x.shadowColor=C;x.shadowBlur=16;x.fill();x.shadowBlur=0;
+  /* 进度条 */
+  x.fillStyle='rgba(127,176,105,.2)';x.fillRect(sx,sy+sh-10,sw,4);
+  x.fillStyle=C;x.fillRect(sx,sy+sh-10,sw*lt,4);
+  /* 讲者标签 */
+  segTag(x,"LIVE · 内部授课 · 需工号",C,W);
+  /* 字幕带 */
+  x.fillStyle=C;x.fillRect(0,H*.8,W,40);
+  const txt='临研知视 · 内部培训频道 ｜ 本周新课：'+co.t+' ｜ 课后测验已开放 ｜ 学分自动计入年度培训 ｜ ';
+  x.font='700 19px "PingFang SC",sans-serif';x.fillStyle='#000';x.textAlign='left';x.textBaseline='middle';
+  const tw=x.measureText(txt).width,off=(t/42)%tw;
+  x.save();x.beginPath();x.rect(0,H*.8,W,40);x.clip();
+  for(let px=-off;px<W;px+=tw)x.fillText(txt,px,H*.8+21);
+  x.restore();
+  bottomBar(x,W,H,C,'CH2 · CV.JCLAW.TOP · ACADEMY CHANNEL');
+  requestAnimationFrame(loop2);
+}
+
+/* ================= CH3 BE Workbench · 实时演算 ================= */
+function pk(tt,ka,ke){return Math.exp(-ke*tt)-Math.exp(-ka*tt);}
+function loop3(t){
+  if(cur!==3||!powerOn){requestAnimationFrame(loop3);return;}
+  if(!fit(cv[3])){requestAnimationFrame(loop3);return;}
+  const x=cv[3].getContext('2d'),W=cv[3].clientWidth,H=cv[3].clientHeight,C=CH[2].c;
+  x.fillStyle='#000';x.fillRect(0,0,W,H);
+  const pad={x:W*.08,y:H*.68},pw=W*.6,ph=H*.46;
+  x.strokeStyle='rgba(231,111,81,.16)';x.lineWidth=1;
+  for(let i=1;i<8;i++){x.beginPath();x.moveTo(pad.x+pw*i/8,pad.y-ph-30);x.lineTo(pad.x+pw*i/8,pad.y+8);x.stroke();}
+  for(let i=1;i<4;i++){x.beginPath();x.moveTo(pad.x-8,pad.y-ph*i/4);x.lineTo(pad.x+pw+8,pad.y-ph*i/4);x.stroke();}
+  const TT=t+T0,CY=6400,prog=clamp01((TT%CY)/(CY*.68)),done=(TT%CY)>CY*.68;
+  const series=[{ka:.3,ke:.045,c:C,tg:'T'},{ka:.24,ke:.05,c:'#f5e6b8',tg:'R'}];
+  let tmaxX=0,tmaxY=Infinity;
+  series.forEach((s,si)=>{
+    const mv=pk(Math.log(s.ka/s.ke)/(s.ka-s.ke),s.ka,s.ke);
+    /* AUC 填充（仅 T） */
+    if(si===0){
+      x.beginPath();x.moveTo(pad.x,pad.y);
+      for(let i=0;i<=200*prog;i++){const tt=i/200*24;
+        x.lineTo(pad.x+tt/24*pw,pad.y-pk(tt,s.ka,s.ke)/mv*ph);}
+      x.lineTo(pad.x+prog*pw,pad.y);x.closePath();
+      x.fillStyle='rgba(231,111,81,.14)';x.fill();
+    }
+    x.beginPath();x.strokeStyle=s.c;x.lineWidth=3;let lx=pad.x,ly=pad.y;
+    for(let i=0;i<=200*prog;i++){
+      const tt=i/200*24,px=pad.x+tt/24*pw,py=pad.y-pk(tt,s.ka,s.ke)/mv*ph;
+      i===0?x.moveTo(px,py):x.lineTo(px,py);lx=px;ly=py;
+      if(si===0&&py<tmaxY){tmaxY=py;tmaxX=px;}
+    }
+    x.stroke();x.fillStyle=s.c;x.fillRect(lx-4,ly-4,8,8);
+    x.font='700 15px "Courier New",monospace';x.textAlign='left';x.fillText(s.tg,lx+12,ly+5);
+  });
+  /* Tmax / Cmax 标注 */
+  if(prog>.5){
+    x.setLineDash([5,5]);x.strokeStyle='rgba(255,255,255,.4)';x.lineWidth=1;
+    x.beginPath();x.moveTo(tmaxX,pad.y);x.lineTo(tmaxX,tmaxY);x.stroke();
+    x.beginPath();x.moveTo(pad.x,tmaxY);x.lineTo(tmaxX,tmaxY);x.stroke();
+    x.setLineDash([]);
+    x.fillStyle='rgba(255,255,255,.75)';x.font='11.5px "Courier New",monospace';x.textAlign='center';
+    x.fillText('Tmax',tmaxX,pad.y+20);
+    x.textAlign='right';x.fillText('Cmax',pad.x-12,tmaxY+4);
+  }
+  x.fillStyle='rgba(255,255,255,.4)';x.font='11px "Courier New",monospace';x.textAlign='left';
+  x.fillText('C–t (h)',pad.x,pad.y+22);
+  /* 右侧判定面板 */
+  const px2=W*.74,py2=H*.2,pw2=W*.2;
+  x.strokeStyle='rgba(231,111,81,.5)';x.strokeRect(px2,py2,pw2,H*.34);
+  x.fillStyle=C;x.font='700 12px "PingFang SC",sans-serif';x.textAlign='left';
+  x.fillText('BE 判定 · RSABE',px2+14,py2+24);
+  x.fillStyle='rgba(255,255,255,.75)';x.font='11.5px "PingFang SC",sans-serif';
+  x.fillText('AUC₀₋ₜ  94.2%',px2+14,py2+52);
+  x.fillText('Cmax   92.6%',px2+14,py2+72);
+  /* CI 条 */
+  const bx=px2+14,bw2=pw2-28,by=py2+96;
+  x.fillStyle='rgba(255,255,255,.15)';x.fillRect(bx,by,bw2,5);
+  x.fillStyle='rgba(231,111,81,.55)';x.fillRect(bx+bw2*.2,by-2,3,9);x.fillRect(bx+bw2*.8,by-2,3,9);
+  if(done){
+    x.fillStyle=C;x.fillRect(bx+bw2*.3,by-4,bw2*.42,13);
+    x.fillStyle='#24eb4f';x.font='700 15px "PingFang SC",sans-serif';
+    x.fillText('90%CI 88.3–108.9 · 等效',px2+14,by+34);
+  }else{
+    x.fillStyle='rgba(255,255,255,.4)';x.font='11.5px "PingFang SC",sans-serif';
+    x.fillText('演算中…',px2+14,by+30);
+  }
+  segTag(x,"NCA 非房室分析 · 实时演算",C,W);
+  bottomBar(x,W,H,C,'CH3 · BE-WORKBENCH.JCLAW.TOP · V0.2.5 · 点击进入');
+  requestAnimationFrame(loop3);
+}
+
+/* ================= CH4-6 测试卡（动态） ================= */
+const tcPix={};
+function loopTC(n){
+  if(cur!==n||!powerOn){requestAnimationFrame(()=>loopTC(n));return;}
+  const cvs=cv[n];if(!fit(cvs)){requestAnimationFrame(()=>loopTC(n));return;}
+  const x=cvs.getContext('2d'),W=cvs.clientWidth,H=cvs.clientHeight,c=CH[n-1];
+  BARS.forEach((b,i)=>{x.fillStyle=b;x.fillRect(W*i/7,0,W/7+1,H);});
+  /* 下移扫描亮线 */
+  const ly=(t0()/16)%(H+80)-40;
+  x.fillStyle='rgba(255,255,255,.22)';x.fillRect(0,ly,W,26);
+  x.fillStyle='rgba(0,0,0,.82)';x.fillRect(0,H*.4,W,H*.2);
+  if(!tcPix[n]){tcPix[n]=[pixText(`CH${n} · ${c.name}`,'#fff',15),pixText('信号调试中 · PLEASE STAND BY','#f5e6b8',11)];}
+  const [t1,t2]=tcPix[n];
+  const blink=Math.sin(t0()/300)>-0.2;
+  x.imageSmoothingEnabled=false;
+  x.drawImage(t1,(W-t1.width*2.4)/2,H*.415,t1.width*2.4,t1.height*2.4);
+  if(blink)x.drawImage(t2,(W-t2.width*2)/2,H*.5,t2.width*2,t2.height*2);
+  /* 信号强度表 */
+  const lv=2+Math.round((Math.sin(t0()/700)+1)*1.4);
+  for(let i=0;i<5;i++){
+    x.fillStyle=i<lv?'#f5e6b8':'rgba(0,0,0,.55)';
+    x.fillRect(W-34,H*.14+i*16,16,10);
+  }
+  x.fillStyle='rgba(255,255,255,.6)';x.font='10px "Courier New",monospace';x.textAlign='right';
+  x.fillText('SIG',W-38,H*.14+9);
+  requestAnimationFrame(()=>loopTC(n));
+}
+const t0=()=>performance.now()+T0;
+
+/* ================= CH7 雪花 + 故障闪现 ================= */
+function loop7(){
+  if(cur===7&&powerOn&&fit(cv[7])){
+    const cvs=cv[7],x=cvs.getContext('2d'),W=cvs.clientWidth,H=cvs.clientHeight;
+    /* 半分辨率雪花 → 放大出粗颗粒 */
+    const w=Math.max(2,W>>1),h=Math.max(2,H>>1);
+    if(!loop7.off||loop7.off.width!==w||loop7.off.height!==h){
+      loop7.off=document.createElement('canvas');loop7.off.width=w;loop7.off.height=h;}
+    const off=loop7.off,ox=off.getContext('2d');
+    const img=ox.createImageData(w,h),d=img.data;
+    for(let i=0;i<d.length;i+=4){const v=Math.random()*255|0;d[i]=d[i+1]=d[i+2]=v;d[i+3]=255;}
+    ox.putImageData(img,0,0);
+    x.imageSmoothingEnabled=false;
+    x.drawImage(off,0,0,w,h,0,0,W,H);
+    const t=t0(),ph=t%4600;
+    x.textAlign='center';x.textBaseline='middle';
+    if(ph<240){ /* RGB 分离故障 */
+      const jx=(Math.random()-.5)*14;
+      x.font=`900 ${Math.min(96,H*.2)}px "Courier New",monospace`;
+      x.globalCompositeOperation='lighter';
+      x.fillStyle='rgba(255,60,60,.8)';x.fillText('2026',W/2+jx-6,H*.46);
+      x.fillStyle='rgba(60,255,120,.8)';x.fillText('2026',W/2-jx+6,H*.46+3);
+      x.globalCompositeOperation='source-over';
+    }else{
+      x.font=`900 ${Math.min(96,H*.2)}px "Courier New",monospace`;
+      x.fillStyle='rgba(255,255,255,.34)';
+      x.fillText('2026',W/2+(Math.random()-.5)*2,H*.46);
+      x.font='13px "PingFang SC",sans-serif';x.fillStyle='rgba(255,255,255,.26)';
+      x.fillText('频 率 尚 未 校 准',W/2,H*.56);
+    }
+  }
+  setTimeout(()=>requestAnimationFrame(loop7),66);
+}
+
+/* ================= 换台：像素瓷砖 ================= */
+const wipe=document.getElementById('wipe'),wx=wipe.getContext('2d');
+function switchTo(n,instant){
+  if(n<1||n>7)return;
+  cur=n;const c=CH[n-1];
+  const apply=()=>{
+    document.querySelectorAll('.channel').forEach(s=>s.classList.toggle('on',+s.dataset.ch===n));
+    document.getElementById('liveTag').style.display=c.on?'flex':'none';
+    document.getElementById('standby').style.display=c.on?'none':'block';
+    const osd=document.getElementById('osd');osd.innerHTML='';
+    osd.appendChild(pixText(`CH${n}`,c.on?c.c:'#f5e6b8',16));
+    osd.appendChild(pixText(c.name+(c.on?'':' · 未接入'),'#fff',16));
+    osd.classList.add('show');
+    clearTimeout(osd._t);osd._t=setTimeout(()=>osd.classList.remove('show'),1900);
+    document.querySelectorAll('.rc-ch').forEach(r=>r.classList.toggle('cur',+r.dataset.ch===n));
+  };
+  if(instant){apply();return;}
+  fit(wipe);
+  const TS=Math.ceil(wipe.width/26),tiles=[];
+  const cols=Math.ceil(wipe.width/TS),rows=Math.ceil(wipe.height/TS);
+  for(let i=0;i<cols;i++)for(let j=0;j<rows;j++)tiles.push([i,j]);
+  for(let i=tiles.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[tiles[i],tiles[j]]=[tiles[j],tiles[i]];}
+  wipe.style.opacity=1;
+  let f=0;
+  const step=()=>{
+    if(f<6){
+      const per=Math.ceil((cols*rows)/6);
+      for(let k=0;k<per&&tiles.length;k++){const [i,j]=tiles.pop();
+        wx.fillStyle=Math.random()<.55?c.c:'#0a0a0a';
+        wx.globalAlpha=.94;wx.fillRect(i*TS,j*TS,TS,TS);}
+      if(f===3)apply();
+    }
+    f++;
+    if(f===7){wx.clearRect(0,0,wipe.width,wipe.height);wipe.style.opacity=0;return;}
+    setTimeout(step,42);
+  };
+  step();
+}
+
+/* ================= 遥控器 ================= */
+const CFG_KEY='jclaw-tv-cfg-v1';
+let savedCfg={};try{savedCfg=JSON.parse(localStorage.getItem(CFG_KEY)||'{}')}catch(e){}
+CH.forEach(c=>{const o=savedCfg['ch'+c.n];if(o){if(o.url!==undefined)c.url=o.url||null;if(o.on!==undefined)c.on=!!o.on;}});
+let picCfg=Object.assign({scan:true,vig:true,bri:1},savedCfg.pic||{});
+function applyPic(){
+  document.getElementById('crtScan').style.display=picCfg.scan?'block':'none';
+  document.getElementById('crtVig').style.display=picCfg.vig?'block':'none';
+  document.querySelectorAll('.channel').forEach(s=>s.style.setProperty('--bri',picCfg.bri));
+}
+applyPic();
+function saveCfg(){
+  const o={pic:picCfg};CH.forEach(c=>{o['ch'+c.n]={url:c.url,on:c.on}});
+  try{localStorage.setItem(CFG_KEY,JSON.stringify(o))}catch(e){}
+}
+let powerOn=true;
+const irBlink=()=>{const ir=document.getElementById('rcIr');ir.classList.add('tx');
+  clearTimeout(ir._t);ir._t=setTimeout(()=>ir.classList.remove('tx'),160);};
+/* 数字键 1-7（3 列网格，末行居中） */
+const rcPad=document.getElementById('rcPad');
+CH.forEach(c=>{
+  const b=document.createElement('button');
+  b.className='rc-ch'+(c.on?'':' off');b.dataset.ch=c.n;
+  b.style.setProperty('--cc',c.c);b.textContent=c.n;b.title=c.name;
+  b.onclick=()=>{irBlink();switchTo(c.n);};
+  rcPad.appendChild(b);
+});
+{const g=document.createElement('div');g.className='rc-ch ghost';rcPad.appendChild(g);} /* 占位使 7 居中 */
+function refreshPad(){
+  document.querySelectorAll('.rc-ch[data-ch]').forEach(b=>{
+    const c=CH[+b.dataset.ch-1];b.classList.toggle('off',!c.on);b.title=c.name;});
+}
+document.querySelector('.rc-dual').addEventListener('click',e=>{
+  const k=e.target.dataset&&e.target.dataset.k;if(!k)return;irBlink();
+  if(k==='ch+')switchTo(cur%7+1);
+  else if(k==='ch-')switchTo((cur+5)%7+1);
+  else if(k==='vol+'){picCfg.bri=Math.min(1.3,+(picCfg.bri+.1).toFixed(2));applyPic();saveCfg();}
+  else if(k==='vol-'){picCfg.bri=Math.max(.5,+(picCfg.bri-.1).toFixed(2));applyPic();saveCfg();}
+});
+/* ================= 电源：CRT 开关机 ================= */
+function crtOffAnim(done){
+  fit(wipe);wipe.style.opacity=1;
+  const W=wipe.clientWidth,H=wipe.clientHeight,src=cv[cur],t1=performance.now();
+  const fr=now=>{
+    const k=Math.min(1,(now-t1)/430);
+    wx.fillStyle='#000';wx.fillRect(0,0,W,H);
+    if(k<.5){const kk=ease(k/.5),hh=Math.max(3,H*(1-kk));
+      if(src&&src.width)wx.drawImage(src,0,0,src.width,src.height,0,(H-hh)/2,W,hh);}
+    else if(k<.82){const kk=(k-.5)/.32,ww=Math.max(6,W*(1-kk));
+      const g=wx.createLinearGradient((W-ww)/2,0,(W+ww)/2,0);
+      g.addColorStop(0,'rgba(255,255,255,0)');g.addColorStop(.5,'#fff');g.addColorStop(1,'rgba(255,255,255,0)');
+      wx.fillStyle=g;wx.fillRect((W-ww)/2,H/2-1.5,ww,3);}
+    else{const kk=(k-.82)/.18,r=Math.max(.4,7*(1-kk));
+      wx.fillStyle=`rgba(255,255,255,${1-kk})`;
+      wx.beginPath();wx.arc(W/2,H/2,r,0,7);wx.fill();}
+    if(k<1)requestAnimationFrame(fr);
+    else{wx.fillStyle='#000';wx.fillRect(0,0,W,H);done&&done();}
+  };
+  requestAnimationFrame(fr);
+}
+function crtOnAnim(){
+  fit(wipe);wipe.style.opacity=1;
+  const W=wipe.clientWidth,H=wipe.clientHeight,src=cv[cur],t1=performance.now();
+  const fr=now=>{
+    const k=Math.min(1,(now-t1)/480);
+    wx.fillStyle='#000';wx.fillRect(0,0,W,H);
+    if(k<.2){const kk=k/.2,r=Math.max(.4,7*kk);
+      wx.fillStyle=`rgba(255,255,255,${kk})`;
+      wx.beginPath();wx.arc(W/2,H/2,r,0,7);wx.fill();}
+    else if(k<.5){const kk=(k-.2)/.3,ww=Math.min(W,6+(W-6)*ease(kk));
+      wx.fillStyle='#fff';wx.fillRect((W-ww)/2,H/2-1.5,ww,3);}
+    else{const kk=ease((k-.5)/.5),hh=Math.max(3,H*kk);
+      if(src&&src.width)wx.drawImage(src,0,0,src.width,src.height,0,(H-hh)/2,W,hh);
+      else{wx.fillStyle='#fff';wx.fillRect(0,(H-hh)/2,W,hh);}}
+    if(k<1)requestAnimationFrame(fr);
+    else{wx.clearRect(0,0,W,H);wipe.style.opacity=0;}
+  };
+  requestAnimationFrame(fr);
+}
+document.getElementById('rcPwr').onclick=()=>{
+  irBlink();
+  if(powerOn){powerOn=false;crtOffAnim();}
+  else{powerOn=true;crtOnAnim();}
+};
+/* ================= 设置菜单 ================= */
+const menuEl=document.getElementById('menu'),mBody=document.getElementById('mBody');
+let mTab='link';
+function renderMenu(){
+  if(mTab==='link'){
+    mBody.innerHTML=CH.map(c=>`<div class="m-row">
+      <i style="background:${c.on?c.c:'#555'}"></i>
+      <span class="m-ch">CH${c.n}</span><span class="m-nm">${c.name}</span>
+      <input data-n="${c.n}" value="${c.url||''}" placeholder="域名待分配 · 未接入">
+      <button class="m-tg ${c.on?'on':''}" data-n="${c.n}">${c.on?'ON AIR':'OFF'}</button>
+    </div>`).join('')
+    +`<div class="m-act"><button id="mSave">保存接入配置</button><button id="mReset">恢复默认</button></div>`;
+    mBody.querySelectorAll('.m-tg').forEach(t=>t.onclick=()=>{
+      const on=t.classList.toggle('on');t.textContent=on?'ON AIR':'OFF';});
+    document.getElementById('mSave').onclick=()=>{
+      mBody.querySelectorAll('input').forEach(i=>{CH[+i.dataset.n-1].url=i.value.trim()||null;});
+      mBody.querySelectorAll('.m-tg').forEach(t=>{CH[+t.dataset.n-1].on=t.classList.contains('on');});
+      saveCfg();refreshPad();switchTo(cur,true);
+      const s=document.getElementById('mSave');s.textContent='已保存 ✓';
+      setTimeout(()=>s.textContent='保存接入配置',1200);};
+    document.getElementById('mReset').onclick=()=>{
+      try{localStorage.removeItem(CFG_KEY)}catch(e){}location.reload();};
+  }else if(mTab==='pic'){
+    mBody.innerHTML=`
+      <div class="m-pic">扫描线 SCANLINES<button class="m-tg ${picCfg.scan?'on':''}" data-p="scan">${picCfg.scan?'开':'关'}</button></div>
+      <div class="m-pic">暗角 VIGNETTE<button class="m-tg ${picCfg.vig?'on':''}" data-p="vig">${picCfg.vig?'开':'关'}</button></div>
+      <div class="m-pic">亮度 BRIGHTNESS<output id="briOut">${Math.round(picCfg.bri*100)}%</output>
+        <button class="vb" data-b="+">+</button><button class="vb" data-b="-">−</button></div>`;
+    mBody.querySelectorAll('.m-tg').forEach(t=>t.onclick=()=>{
+      const on=t.classList.toggle('on');t.textContent=on?'开':'关';
+      picCfg[t.dataset.p]=on;applyPic();saveCfg();});
+    mBody.querySelectorAll('.vb').forEach(b=>b.onclick=()=>{
+      picCfg.bri=Math.max(.5,Math.min(1.3,+(picCfg.bri+(b.dataset.b==='+'?.1:-.1)).toFixed(2)));
+      document.getElementById('briOut').textContent=Math.round(picCfg.bri*100)+'%';
+      applyPic();saveCfg();});
+  }else{
+    mBody.innerHTML=`<div class="m-about">
+      <b>JCLAW·TV</b> 广播网络 · 临床研究工具接入终端<br>
+      遥控器型号 <b>RC-07</b> · 固件 <b>V0.2.5</b><br>
+      在线频道 ${CH.filter(c=>c.on).length} / 7 · 接入配置保存在本机浏览器<br>
+      <span style="color:#5f748f">提示：保存的配置仅当前浏览器生效（localStorage）</span></div>`;
+  }
+}
+function menuToggle(force){
+  const show=force!==undefined?force:!menuEl.classList.contains('show');
+  menuEl.classList.toggle('show',show);
+  document.getElementById('rcMenu').classList.toggle('on',show);
+  if(show)renderMenu();
+}
+document.getElementById('rcMenu').onclick=()=>{irBlink();menuToggle();};
+menuEl.addEventListener('click',e=>{if(e.target===menuEl)menuToggle(false);});
+document.querySelectorAll('.m-tabs b').forEach(t=>t.onclick=()=>{
+  mTab=t.dataset.t;
+  document.querySelectorAll('.m-tabs b').forEach(x=>x.classList.toggle('on',x===t));
+  renderMenu();});
+
+addEventListener('keydown',e=>{
+  if(e.key==='Escape'){menuToggle(false);return;}
+  if(e.key>='1'&&e.key<='7')switchTo(+e.key);
+  else if(e.key==='ArrowRight')switchTo(cur%7+1);
+  else if(e.key==='ArrowLeft')switchTo((cur+5)%7+1);
+});
+document.getElementById('screen').addEventListener('click',e=>{
+  if(e.target.closest('a')||e.target.closest('#menu'))return;
+  if(!powerOn)return;
+  if(CH[cur-1].url)window.open(CH[cur-1].url,'_blank');
+});
+/* fit 每帧自检尺寸，无需 resize 监听 */
+
+/* 互链 */
+const pages=[['index.html','00'],['s1-orbit.html','01'],['s2-os.html','02'],['s3-island.html','03'],['s4-doodle.html','04'],['s5-pixel.html','05'],['s6-dragonball.html','06'],['s7-nanjing.html','07'],['s8-cards.html','08'],['s9-zelda.html','09'],['s10-tv.html','10']];
+document.getElementById('sw').innerHTML=pages.map(([h,n])=>`<a href="${h}" class="${n==='10'?'cur':''}">${n}</a>`).join('');
+
+requestAnimationFrame(loop1);requestAnimationFrame(loop2);requestAnimationFrame(loop3);
+requestAnimationFrame(()=>loopTC(4));requestAnimationFrame(()=>loopTC(5));requestAnimationFrame(()=>loopTC(6));
+requestAnimationFrame(loop7);
+switchTo(1,true);
+</script>
+</body>
+</html>

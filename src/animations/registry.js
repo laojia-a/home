@@ -1,0 +1,14 @@
+import { site as site1 } from "./sites/cth/index.js";
+import { site as site2 } from "./sites/clinical-vision/index.js";
+import { site as site3 } from "./sites/be-workbench/index.js";
+import { site as site4 } from "./sites/ezctd/index.js";
+import { site as site5 } from "./sites/be-solo/index.js";
+import { site as site6 } from "./sites/be-oracle/index.js";
+import { site as site7 } from "./sites/study-2026/index.js";
+const SITES = Object.freeze([site1, site2, site3, site4, site5, site6, site7]);
+const SITE_BY_CHANNEL = new Map(SITES.map(s=>[s.website.n,s]));
+const SCENE_BY_ID = new Map(SITES.flatMap(s=>s.scenes.map(scene=>[scene.id,scene])));
+if(SITE_BY_CHANNEL.size!==SITES.length || SCENE_BY_ID.size!==SITES.reduce((n,s)=>n+s.scenes.length,0)) throw Error('Duplicate site/channel/scene ID');
+const CHANNELS = Object.freeze(SITES.map(s=>s.website));
+const PROGRAMMES = Object.freeze(Object.fromEntries(SITES.map(s=>[s.website.n,s.scenes])));
+export { SITES, SITE_BY_CHANNEL, SCENE_BY_ID, CHANNELS, PROGRAMMES };

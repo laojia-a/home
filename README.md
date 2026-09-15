@@ -1,31 +1,35 @@
-# JCLAW Home · S10 节目式导航
+# JCLAW Home · S10 网站独立动画模块
 
-**最终目标：做成一个可以日常使用、可以独立更换动画和设置面板的 TV 导航，而不是浏览器操作系统。**
+本期导入 S10 节目精修核心源码，并按网站拆分七个动画模块；本轮不更换配色、构图和动作，不重新设计桌面系统。
 
-默认进入 S10 大屏。保留薄奶油色包边、实体遥控器、七频道、节目分幕、屏内菜单、沉浸观看和工具直达。鹈鹕只提供动作设计的参考，不作为频道主角，也不改变原有节目内容。
+## 运行与检查
 
-## 当前真实状态
+Node.js 22、Python 3。`npm run check` 完成10项单元检查、构建、JavaScript语法和基线哈希检查。`python tests/browser.py --content` 检查19个浏览器流程；`python tests/parity.py` 将16幕在桌面和手机下的128个固定帧与原始交付基线比较。浏览器测试需要 Playwright 与 Chromium。
 
-2026-09-15 重新核验：本轮规划提交之前，`main` 位于 `4ce24a3f1312770793d9616ee3fde73e4ba2de9c`，只有 README、`.bootstrap/import.py` 和两份 workflow；Actions 查询返回 0 次运行。**此前源码导入没有完成，不能把创建了 blob 或写好了 workflow 当成成果已落库。**
+`npm run build` 后用浏览器打开 `dist/index.html`；各网站独立预览在 `dist/previews/`。部署源码目录时也可直接使用根目录index.html；file://请使用构建后的单文件，不直接双击ES模块开发入口。
 
-本次已补齐目标、任务、接口草案、美学规范和来源清单。最新 16 幕源码包仍是对话交付资产，尚未进入 `main`。本轮不声称重跑了浏览器测试，也没有发布新网页或部署域名。
+## 一个网站一个目录
 
-## 从这里开始
+| 网站 | 动画模块 | 现有分幕 |
+|---|---|---|
+| 临床工具集 | src/animations/sites/cth | 6 |
+| 临研知视 | src/animations/sites/clinical-vision | 3 |
+| BE Workbench | src/animations/sites/be-workbench | 3 |
+| EZCTD | src/animations/sites/ezctd | 1 |
+| BE Solo | src/animations/sites/be-solo | 1 |
+| BE Oracle | src/animations/sites/be-oracle | 1 |
+| 2026 学习资料 | src/animations/sites/study-2026 | 1 |
 
-- [PLAN.md](PLAN.md)：唯一任务编排、阶段目标、依赖、完成标准；下一项是 HOME-01 成果完整入库。
-- [ARCHITECTURE.md](ARCHITECTURE.md)：目标模块划分、依赖方向、设置面板接口与协作分工。
-- [ANIMATION_API.md](ANIMATION_API.md)：统一动画嵌入接口 v0.1 草案，待实现验证，不是已经可用的 SDK。
-- [DESIGN.md](DESIGN.md)：独立的配色、排版、材质、动作和交互规范。
-- [SOURCE_INTAKE.json](SOURCE_INTAKE.json)：实际交付包的文件大小及 SHA-256；这是待导入清单，不是远端源码导入证明。
+每个目录有 index.js（网站/分幕/主题注册）、renderers.js（本网站的画面）、manifest.json 和 README.md。不是七个空目录，也不通过七个包装文件继续调用一个中央programme巨函数。
 
-## 开发顺序
+通用绘制在shared；Canvas实例合同在contract；registry只组合模块。生产TV与七个预览使用相同的场景definition.create/render/resize/updateTheme/dispose。只有播放器/预览宿主推进时间，动画不访问存储、跳转网站或自行开定时器。
 
-先完整入库 → 一个动画和一个设置面板试拆 → 完成无视觉变化的模块拆分 → 验证 Canvas/SVG/CSS 三维适配 → 逐幕打磨 → 发布验收。
+## 来源与范围
 
-先让结构变化不影响画面，再让画面变好。不要同时重做外壳、替换动画内容和重写播放器；不要再产生互相替代却说不清基准的 vNext HTML。
+原始 s10 位于reference/s10-tv.html；最新交付的核心文件原样保存在baseline/s10-programme，哈希见baseline/checksums.json。没有把被否定的简化vNext作为开发基线。原参考的大屏、七频道和屏内菜单继续保留。
 
-## 暂不扩展
+本批次是核心源码与七网站拆分。此前约5.4MB的完整旧合集及约6.7MB的基线整合页属于单独的大文件归档批次；未实际传入前，不宣称完整历史档案已落库。交付ZIP中的旧资产在本地保留不删除。
 
-不做桌面窗口系统、待办/笔记/计算器、统一账号、业务数据库、内置临床统计计算、自动在线状态或未经验证的直播。既有其他主题和动画保留为档案与可复用资产，不要求重新开发八套导航才算完成本期。
+当前Canvas接口已用于16幕和独立预览；SVG/CSS三维适配仍是后续任务。设置面板及播放器服务的进一步拆分尚未完成，src/runtime.js保留原操作逻辑；不要把本轮说成所有关键功能已经完全解耦。
 
-本仓库目前尚不能按 `npm run check` 启动完整项目；相关源码和脚本到位之前，不把预置 CI 当作通过证明。
+美学规范见DESIGN.md，后续计划见PLAN.md；原文件中的“源码未导入”是此前核验快照，本次实际导入以Git树和提交为准。单元/浏览器检查均不能替代视觉验收，亦不代表外部网站在线或统计计算已验证。

@@ -1,0 +1,29 @@
+{
+  "moduleId": "cth",
+  "website": "临床工具集",
+  "directory": "cth",
+  "channel": 1,
+  "renderer": "canvas2d",
+  "entry": "index.js",
+  "sceneCount": 6,
+  "sceneIds": [
+    "cth.contract",
+    "cth.inventory",
+    "cth.sample",
+    "cth.grades",
+    "cth.terms",
+    "cth.breakfast"
+  ],
+  "status": "migrated-existing-programmes-no-visual-redesign",
+  "source": "baseline/s10-programme/src/programmes.js",
+  "defaultUrl": "https://cth.jclaw.top",
+  "theme": {
+    "bg": "#e9e2ce",
+    "dark": "#384b38",
+    "ink": "#364331",
+    "muted": "#7e856c",
+    "accent": "#7b8153",
+    "line": "#7c815126",
+    "light": true
+  }
+}
