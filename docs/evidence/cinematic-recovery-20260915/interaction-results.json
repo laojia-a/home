@@ -1,0 +1,24 @@
+{
+  "passed": [
+    "page identity and visible TV",
+    "seven website modules in actual player",
+    "actual programme clock advances",
+    "pause freezes time",
+    "menu holds programme time",
+    "typing digits cannot change channel",
+    "draft survives tab changes",
+    "unsafe URL rejected",
+    "discard closes menu without losing manual pause",
+    "rapid channel input preserves final choice and URL",
+    "standby guards channel and restores power",
+    "six additional responsive viewports remain visible without horizontal overflow",
+    "be-oracle independent preview pause and seek",
+    "be-solo independent preview pause and seek",
+    "be-workbench independent preview pause and seek",
+    "clinical-vision independent preview pause and seek",
+    "cth independent preview pause and seek",
+    "ezctd independent preview pause and seek",
+    "study-2026 independent preview pause and seek"
+  ],
+  "page_errors": []
+}

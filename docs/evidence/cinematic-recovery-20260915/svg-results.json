@@ -1,0 +1,177 @@
+{
+  "kind": "current-isolated-SMIL-validation-not-production-host-integration",
+  "browser_path": "Browser plugin not available; Playwright Chromium",
+  "load_method": "set_content with original inline SVG; no file:// or remote-font validation",
+  "viewport": [
+    820,
+    560
+  ],
+  "results": [
+    {
+      "file": "cth-contract.svg",
+      "original_sha256": "0a2a54df7ee2a9cbabe916167985bc40de9ab5bf66079ad502052303a0347795",
+      "phase_a_pixels_sha256": "418195aad69840a98a57e764c6dfb7461b41391ffa7a901385ffa2170260e67a",
+      "phase_b_pixels_sha256": "7753c6b7cd37cf2060869039c5431bc03aad1c76419bcd8ef24b058eae1fe3e8",
+      "seek_changes_pixels": true,
+      "paused_pixels_frozen": true,
+      "resume_clock_advances": true,
+      "backward_seek_repeatable": true
+    },
+    {
+      "file": "cth-supplies.svg",
+      "original_sha256": "38a9085efd7a24149ac7ee90b71dea3933d885b49713aec70ed1fc7edeb74aea",
+      "phase_a_pixels_sha256": "f08158eef28c4630e683b976601df924a0d47dcd77e76c6030b33074c2c0a60d",
+      "phase_b_pixels_sha256": "de00b72d8507db605c1329e7ac7908079b499d2930c38764171739c29aeb58c9",
+      "seek_changes_pixels": true,
+      "paused_pixels_frozen": true,
+      "resume_clock_advances": true,
+      "backward_seek_repeatable": true
+    },
+    {
+      "file": "cth-size.svg",
+      "original_sha256": "c134ea58d50d377817e4ab4b92729f721dff74a8a50d7acf0fa4ec4b16d3cc82",
+      "phase_a_pixels_sha256": "2c0981fd06987dc0464eab202807a77e3b438d21acf3701f07765155c61bacae",
+      "phase_b_pixels_sha256": "0598b3c44b0968ab8f258ea88f1b7b87d8c93cb20cd2e63add5354d0b09daf6d",
+      "seek_changes_pixels": true,
+      "paused_pixels_frozen": true,
+      "resume_clock_advances": true,
+      "backward_seek_repeatable": true
+    },
+    {
+      "file": "cth-ctcae.svg",
+      "original_sha256": "924be61fcc93c2798accb8dfb26e8bc14afff5f1c113dc2cddc562a184b76c18",
+      "phase_a_pixels_sha256": "74ca98974884aa772fb279db1f07bd0aa68fc0059fb7c0d5a5d566c9dbca5d79",
+      "phase_b_pixels_sha256": "802d57f38a8f557d39a14a6146b23e2e76e7a34a2b43726f24eed912fdc27ce4",
+      "seek_changes_pixels": true,
+      "paused_pixels_frozen": true,
+      "resume_clock_advances": true,
+      "backward_seek_repeatable": true
+    },
+    {
+      "file": "cth-meddra.svg",
+      "original_sha256": "32ef4ca7a21c02f3d55165ca3d20c93607f83203c407d4753d35246fcd59476c",
+      "phase_a_pixels_sha256": "6d8f64c6630e44537edcc4d8150e74dd08d9f876e3135e62769711f3bfda3a78",
+      "phase_b_pixels_sha256": "1a538f9521178f25e153b78becc5d286a5f26356a9a2d7d17c80cf66ff9c82dd",
+      "seek_changes_pixels": true,
+      "paused_pixels_frozen": true,
+      "resume_clock_advances": true,
+      "backward_seek_repeatable": true
+    },
+    {
+      "file": "cth-meal.svg",
+      "original_sha256": "2660d8b4dbec753444147a159aea8ca2203b7cde13cc3481498d37dc89221c46",
+      "phase_a_pixels_sha256": "1ed5c3ad8110c0d275a186a03e1e77de01bf43c15b90cf09e68475a184918fc9",
+      "phase_b_pixels_sha256": "04096fec33e51b573af7eb3171aba074cdec496cb6b497177ee4f5a97ddf024c",
+      "seek_changes_pixels": true,
+      "paused_pixels_frozen": true,
+      "resume_clock_advances": true,
+      "backward_seek_repeatable": true
+    },
+    {
+      "file": "learn-design.svg",
+      "original_sha256": "9a11572d224f6af793db8974ae1c6089e6b1416c08a0c80e6440ebda5c83a7ef",
+      "phase_a_pixels_sha256": "0eddffba7c09c46ed9d7ad14d09edea8fac9f7cce5ae7b40bdaf4c211cd9dfbe",
+      "phase_b_pixels_sha256": "a34a2ca9e953c74e4f518e4ca6d8b2f3f75ce5410c2ec363cf7d57667cc7dd50",
+      "seek_changes_pixels": true,
+      "paused_pixels_frozen": true,
+      "resume_clock_advances": true,
+      "backward_seek_repeatable": true
+    },
+    {
+      "file": "learn-guidance.svg",
+      "original_sha256": "87f49ad086f2e0a1801f7f47ed0415530075090c54e9bbb2def339962a68cb3a",
+      "phase_a_pixels_sha256": "6885f8da9f5cee6800f0d2a4ef1a30bb309c562802193792d2db7926e90fb404",
+      "phase_b_pixels_sha256": "614e0e7af590dd56c03eaf2231794e0dc7e69541968c90a750638447620bad26",
+      "seek_changes_pixels": true,
+      "paused_pixels_frozen": true,
+      "resume_clock_advances": true,
+      "backward_seek_repeatable": true
+    },
+    {
+      "file": "learn-practice.svg",
+      "original_sha256": "21c694d6bb91827b24430b6197306a64854a4b6cba0810a20620536773fa43e3",
+      "phase_a_pixels_sha256": "7e120006f9cd1743b67366981193f7e40e7852ef6fb86481e54f9fd50122c9f3",
+      "phase_b_pixels_sha256": "8e36f2eef9a226c57474b939ef844731f4467f06ccd0a903d329f743acf08bd2",
+      "seek_changes_pixels": true,
+      "paused_pixels_frozen": true,
+      "resume_clock_advances": true,
+      "backward_seek_repeatable": true
+    },
+    {
+      "file": "workbench-nca.svg",
+      "original_sha256": "5551410d36292fa07519be7a111f55074d68bc69594b03734f8e9386b911d6e8",
+      "phase_a_pixels_sha256": "40d943ba05db5b5d88e526cd1c4939f3ba37e3487ce844d39107634631f4ad9c",
+      "phase_b_pixels_sha256": "5580ecc25dc5dff13d373007f4fd226175e7f74c920985bc36f802c6ffb0f8b6",
+      "seek_changes_pixels": true,
+      "paused_pixels_frozen": true,
+      "resume_clock_advances": true,
+      "backward_seek_repeatable": true
+    },
+    {
+      "file": "workbench-be.svg",
+      "original_sha256": "858865e9bc113df59327e707f86de9553bc69e16ef5e48d80c627c4692d42823",
+      "phase_a_pixels_sha256": "f64c2fd75407e860352ab3ea26bab3196b5865179bf053769727a6dcda4ebc88",
+      "phase_b_pixels_sha256": "63d95c243060165e6b2795369bfacf222b0e39bf4fa10944c13d6e4e8466d84a",
+      "seek_changes_pixels": true,
+      "paused_pixels_frozen": true,
+      "resume_clock_advances": true,
+      "backward_seek_repeatable": true
+    },
+    {
+      "file": "workbench-explore.svg",
+      "original_sha256": "e0d1bc4110c967a107a9873f53274f74aae750dce0420540f3afd22d298b18c4",
+      "phase_a_pixels_sha256": "ccac27e63ba7f3cfd384bc5f81ec79e7bc008eb80e45ff90aaf5ca5ca50797ed",
+      "phase_b_pixels_sha256": "d1f782718e91ca2f4d615979c26462f65f1b1a162d97743c2e21ff2bb39d0c86",
+      "seek_changes_pixels": true,
+      "paused_pixels_frozen": true,
+      "resume_clock_advances": true,
+      "backward_seek_repeatable": true
+    },
+    {
+      "file": "ezctd-pdf.svg",
+      "original_sha256": "6c063abda9679b50dfa416dd41d2841a7b385ff8a9c48d67c3095e5e8e162174",
+      "phase_a_pixels_sha256": "dd685c58524a829991b836628e44f035dd6c8a4e22228863f6dc975b5bb33470",
+      "phase_b_pixels_sha256": "3a644bb44e3f738e34147fbabe62bfe3e19c79c96b0763d3d9fbeb843432bc51",
+      "seek_changes_pixels": true,
+      "paused_pixels_frozen": true,
+      "resume_clock_advances": true,
+      "backward_seek_repeatable": true
+    },
+    {
+      "file": "solo-project.svg",
+      "original_sha256": "a0b682e8a96cf5d924740e533ab105ecc6202a2604d40ab938554a4fd6de7b18",
+      "phase_a_pixels_sha256": "566f8c152abd7ce973d19968de5ab278ae3ccb3a4965d9d0f9dfe011585755e0",
+      "phase_b_pixels_sha256": "9d611bf7ef41acf46475bb4b7af5ac64a15f2cb051380bd09c5b4c72a49ac322",
+      "seek_changes_pixels": true,
+      "paused_pixels_frozen": true,
+      "resume_clock_advances": true,
+      "backward_seek_repeatable": true
+    },
+    {
+      "file": "oracle-evidence.svg",
+      "original_sha256": "17843f3edceed79f77c43d899cf7cf5eb78322d2a0f03bbd5d9b74e539f41adc",
+      "phase_a_pixels_sha256": "b58fdce163ae835ce76f03b71df67bd163e2dd91a7dc448e0234078cdb8f1f8a",
+      "phase_b_pixels_sha256": "20ab98f47f3083ac646e394bbb25f0e3ec6bfd132f707ffc793258e18d93ab40",
+      "seek_changes_pixels": true,
+      "paused_pixels_frozen": true,
+      "resume_clock_advances": true,
+      "backward_seek_repeatable": true
+    },
+    {
+      "file": "gcp-reference.svg",
+      "original_sha256": "0e5d8ca672f367b56147c1109e00d6f7dddd730edce9f723432f1c080b13204f",
+      "phase_a_pixels_sha256": "b79f77db422d92f98c6763b0c4e9a50ff42578a8a8dfe1b34def3ec2959d8079",
+      "phase_b_pixels_sha256": "7cfcd9f89ec7613c8c8bb9a82c69a011a901842d4f1c38fb87223d3e4a3be09c",
+      "seek_changes_pixels": true,
+      "paused_pixels_frozen": true,
+      "resume_clock_advances": true,
+      "backward_seek_repeatable": true
+    }
+  ],
+  "page_errors": [],
+  "limits": [
+    "No user aesthetics approval.",
+    "Not a test of current production Canvas-to-SVG replacement.",
+    "Full old collection, CSS3D examples, remote fonts and streaming are not covered."
+  ]
+}

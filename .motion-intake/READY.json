@@ -1,9 +1,0 @@
-{
-  "schema": 1,
-  "batch": "cinematic-original-two-sources",
-  "parts": [
-    {"name":"part-000.txt","bytes":6040,"sha256":"9f328cc60af21cb39a21aaa6fc72a869497e4f85c5daf03dc00e1d1beaa9c619"},
-    {"name":"part-001.txt","bytes":6040,"sha256":"c18dd5fe356f66c63130f5519553a6b545bd1adc675c9db6155d6934b92187e2"},
-    {"name":"part-002.txt","bytes":6040,"sha256":"afd3e84880939363c292c775912eb8cfd07537d088d372ab86f129efc4da7a3d"}
-  ]
-}
