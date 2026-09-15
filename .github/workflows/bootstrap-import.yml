@@ -1,8 +1,8 @@
 name: Import verified S10 source
 on:
   push:
-    paths:
-      - '.bootstrap/payload.json'
+    branches: ['import/s10-website-modules']
+    paths: ['.bootstrap/payload.json']
 permissions:
   contents: write
 jobs:
@@ -19,7 +19,7 @@ jobs:
           node-version: '22'
       - name: Verify and extract source payload
         run: python3 .bootstrap/import.py
-      - name: Validate imported project
+      - name: Validate source files, seven website modules and build
         run: npm run check
       - name: Install browser test tooling
         run: |
@@ -30,14 +30,15 @@ jobs:
           python tests/browser.py --content --artifacts /tmp/jclaw-home-qa
           python tests/parity.py --artifacts /tmp/jclaw-home-qa
           python tests/collection.py --artifacts /tmp/jclaw-home-qa
-      - name: Commit verified source without overwriting concurrent changes
+      - name: Commit verified readable source on the import branch
         env:
           EXPECTED_PARENT: ${{ github.sha }}
+          TARGET_BRANCH: ${{ github.ref_name }}
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git fetch origin main
-          test "$(git rev-parse origin/main)" = "$EXPECTED_PARENT"
+          git fetch origin "$TARGET_BRANCH"
+          test "$(git rev-parse "origin/$TARGET_BRANCH")" = "$EXPECTED_PARENT"
           git add -A
-          git commit -m "feat: import S10 baseline with modular animation and settings"
-          git push origin HEAD:main
+          git commit -m "feat: import complete S10 source and seven independent website animation modules"
+          git push origin "HEAD:$TARGET_BRANCH"
