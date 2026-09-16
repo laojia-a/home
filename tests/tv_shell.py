@@ -142,7 +142,7 @@ async def main(args):
                 # Validate both source-module and offline bundled entry points.
                 await page.goto(origin + '/index.html', wait_until='load')
                 assert await page.locator('.tv-dial').count() == 1
-                assert await page.evaluate('S10.version') == '2.2-tv-shell'
+                assert await page.evaluate('S10.version') == '2.3-depth-playback'
                 results.append('ES-module development entry matches bundled shell')
                 await page.goto((ROOT / 'dist/index.html').as_uri(), wait_until='load')
                 assert await page.locator('.tv-cabinet').count() == 1
@@ -211,7 +211,7 @@ async def main(args):
                     record_video_dir=str(args.artifacts / 'recording'), record_video_size={'width':1440,'height':900})
                 movie = await recording.new_page(); await load(movie)
                 await movie.wait_for_timeout(4350 if args.content else 900)
-                await movie.locator('#screen').focus(); await movie.keyboard.press('Space')
+                await movie.locator('#screen').focus()  # record live programmes, not paused posters
                 for number in [1, 2, 3, 4, 5, 6, 7, 1]:
                     await movie.keyboard.press(str(number)); await movie.wait_for_timeout(750)
                 for number in [2, 6, 3]:

@@ -8,6 +8,7 @@ function mountTelevision(screen, channels, onTune) {
   const set = document.createElement('div');
   set.className = 'tv-set';
   set.innerHTML = `
+    <div class="tv-depth" aria-hidden="true"><span class="tv-side-vents"></span><span class="tv-side-badge">JCLAW<br>SEVEN CHANNELS</span></div>
     <div class="tv-handle" aria-hidden="true"></div>
     <div class="tv-aerial" aria-hidden="true"><i></i><i></i></div>
     <div class="tv-cabinet">
@@ -17,13 +18,14 @@ function mountTelevision(screen, channels, onTune) {
         <div class="tv-tuner">
           <div class="tv-dial-marks" aria-hidden="true">${channels.map(c => `<i style="--mark:${(c.n - 1) * 360 / channels.length}deg" data-mark="${c.n}">${c.n}</i>`).join('')}</div>
           <button class="tv-dial" type="button" aria-label="换台旋钮：点击下一频道，或左右拖动换台" title="点击下一台 · 左右拖动换台"><span class="tv-dial-grip" aria-hidden="true"></span></button>
+          <span class="tv-tuner-label" aria-hidden="true">TURN<br>TO EXPLORE</span>
         </div>
-        <span class="tv-tuner-label">换台</span>
-        <div class="tv-channel-rocker">
-          <button data-action="channel-prev" aria-label="机身：上一频道"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></button>
-          <button data-action="channel-next" aria-label="机身：下一频道"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></button>
+        <div class="tv-key-stack tv-channel-rocker">
+          <button class="tv-key tv-key-coral" data-action="channel-prev" aria-label="机身：上一频道"><span class="tv-key-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></span><span>上一台</span></button>
+          <button class="tv-key tv-key-amber" data-action="channel-next" aria-label="机身：下一频道"><span class="tv-key-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m10 6 6 6-6 6"/></svg></span><span>下一台</span></button>
+          <button class="tv-key tv-key-sage tv-play" data-action="play" aria-label="暂停节目"><span class="tv-key-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="tv-pause-glyph" d="M8 5v14M16 5v14"/><path class="tv-play-glyph" d="m8 5 10 7-10 7Z"/></svg></span><span id="tvPlayLabel">暂停节目</span></button>
+          <button class="tv-key tv-key-blue tv-guide" data-action="menu"><span class="tv-key-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><span>节目表</span></button>
         </div>
-        <button class="tv-guide" data-action="menu"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14M5 12h14M5 18h14"/></svg>节目表</button>
         <div class="tv-speaker" aria-hidden="true"></div>
         <button class="tv-power" data-action="power" aria-label="机身电源" aria-pressed="true"><i aria-hidden="true"></i><span>电源</span></button>
       </aside>
@@ -34,12 +36,21 @@ function mountTelevision(screen, channels, onTune) {
       </div>
     </div>
     <div class="tv-feet" aria-hidden="true"><i></i><i></i></div>`;
+  const playbackNote = document.createElement('div');
+  playbackNote.className = 'tv-playback-note';
+  playbackNote.hidden = true;
+  const noteText = document.createElement('span');
+  noteText.setAttribute('role', 'status');
+  const resume = document.createElement('button');
+  resume.type = 'button'; resume.dataset.action = 'play'; resume.textContent = '播放节目';
+  playbackNote.append(noteText, resume);
   screen.replaceWith(set);
+  set.after(playbackNote);
   set.querySelector('.tv-glass-surround').append(screen);
   const dial = set.querySelector('.tv-dial');
   const grip = set.querySelector('.tv-dial-grip');
   const consolePanel = set.querySelector('.tv-console');
-  const backgroundControls = [consolePanel, document.querySelector('#rail'), document.querySelector('.topbar'), document.querySelector('.mobileDock')];
+  const backgroundControls = [consolePanel, document.querySelector('#rail'), document.querySelector('.topbar'), document.querySelector('.mobileDock'), playbackNote];
   let channel = 1, rotation = 0, powered = true, modal = false, drag = null, suppressClick = false;
   const request = step => { if (powered && !modal) onTune(((channel - 1 + step) % channels.length + channels.length) % channels.length + 1); };
   dial.addEventListener('click', event => {
@@ -77,19 +88,28 @@ function mountTelevision(screen, channels, onTune) {
     if (dial.hasPointerCapture(id)) dial.releasePointerCapture(id);
   };
   return {
-    update({ ch, power }) {
+    update({ ch, power, paused = false, pauseReason = null }) {
       if (!power) cancelActiveDrag();
       rotation += channelDistance(channel, ch, channels.length) * 360 / channels.length;
       channel = ch; powered = power;
       grip.style.setProperty('--dial-angle', `${rotation}deg`);
       set.dataset.channel = String(ch);
       set.classList.toggle('tv-off', !power);
+      set.classList.toggle('tv-paused', paused);
+      const play = set.querySelector('.tv-play');
+      play.disabled = !power;
+      play.setAttribute('aria-label', paused ? '播放节目' : '暂停节目');
+      set.querySelector('#tvPlayLabel').textContent = paused ? '播放节目' : '暂停节目';
+      playbackNote.hidden = !power || !paused;
+      noteText.textContent = pauseReason === 'reduced-motion'
+        ? '系统启用了“减少动态”，节目已暂停。'
+        : '节目已暂停';
       set.querySelector('#tvChannelNumber').textContent = String(ch).padStart(2, '0');
       set.querySelector('#tvChannelName').textContent = channels[ch - 1].name;
       set.querySelector('.tv-power').setAttribute('aria-pressed', String(power));
       dial.setAttribute('aria-label', `换台旋钮：当前 ${ch}，${channels[ch - 1].name}。点击下一频道，或左右拖动换台`);
       for (const mark of set.querySelectorAll('[data-mark]')) mark.classList.toggle('active', Number(mark.dataset.mark) === ch);
-      for (const button of set.querySelectorAll('.tv-dial,.tv-channel-rocker button')) button.disabled = !power;
+      for (const button of set.querySelectorAll('.tv-dial,[data-action=channel-prev],[data-action=channel-next]')) button.disabled = !power;
     },
     setMenuOpen(open) {
       modal = open;
