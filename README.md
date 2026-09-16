@@ -31,9 +31,13 @@
 
 每个目录包含index.js、renderers.js、manifest.json、README.md；共享绘制在shared，Canvas实例在contract，registry只组合网站。src/runtime.js仍需进一步拆分。
 
-## 第二轮更新：立体机身与播放问题
+## 当前：正面观看，保留立体机身
 
-按最新反馈，主操作集中到机身右侧的旋钮与四个彩色竖排按钮；独立遥控器默认收起，可在“画面”中开启。机身增加侧面厚度与轻透视。普通模式自动播放；因系统“减少动态”暂停时会明确说明，并提供常驻播放按钮，点击从开场播放。新增 `tests/tv_motion.py` 用真实时间检查16幕主体像素变化，不只检查时钟或进度条。详见 [第二轮记录](docs/development/TV-DEPTH-PLAYBACK-20260916.md)。下段保留第一轮交付说明。
+按第三轮反馈取消整台电视的透视旋转。屏幕、菜单和正文保持正面，不随鼠标倾斜；立体感留在机身窄厚度、倒角、玻璃凹面、凸起旋钮/按键及支脚阴影。右侧控制、默认收起的辅助遥控器和播放修复保留。详见 [正面观看记录](docs/development/TV-FRONT-20260916.md)。新增 `tests/tv_front.py` 检查实际屏幕四边与鼠标移动前后坐标。
+
+## 第二轮历史：立体机身与播放问题
+
+按最新反馈，主操作集中到机身右侧的旋钮与四个彩色竖排按钮；独立遥控器默认收起，可在“画面”中开启。当时增加侧面厚度与轻透视；当前已按第三轮反馈取消整体透视。普通模式自动播放；因系统“减少动态”暂停时会明确说明，并提供常驻播放按钮，点击从开场播放。新增 `tests/tv_motion.py` 用真实时间检查16幕主体像素变化，不只检查时钟或进度条。详见 [第二轮记录](docs/development/TV-DEPTH-PLAYBACK-20260916.md)。下段保留第一轮交付说明。
 
 ## 主界面打磨 · PR #14
 
@@ -55,6 +59,8 @@ python3 scripts/restore_cinematic.py
 python3 tests/browser.py --content
 python3 tests/parity.py
 python3 tests/tv_shell.py --video
+python3 tests/tv_motion.py --video
+python3 tests/tv_front.py
 python3 tests/archived_svg.py
 python3 tests/collection.py
 ```
