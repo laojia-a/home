@@ -29,6 +29,7 @@ jobs:
         run: |
           python tests/browser.py --content --artifacts /tmp/jclaw-home-qa
           python tests/parity.py --artifacts /tmp/jclaw-home-qa
+          python tests/tv_shell.py --video --artifacts /tmp/jclaw-home-qa
           python tests/archived_svg.py --artifacts /tmp/jclaw-home-qa
           python tests/collection.py --artifacts /tmp/jclaw-home-qa
       - uses: actions/upload-artifact@v4
