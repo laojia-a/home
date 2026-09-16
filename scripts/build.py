@@ -29,7 +29,7 @@ def bundle(entry):
     return '(function(){"use strict";const __modules=Object.create(null);\n'+'\n'.join(emitted)+'\n})();'
 def build():
     out=ROOT/'dist';out.mkdir(exist_ok=True)
-    js=bundle('src/runtime.js');css='\n'.join((ROOT/'src/styles'/n).read_text() for n in ['s10.css','refinements.css'])
+    js=bundle('src/runtime.js');css='\n'.join((ROOT/'src/styles'/n).read_text() for n in ['s10.css','refinements.css','tv-shell.css'])
     html=(ROOT/'src/shell.template.html').read_text().replace('__STYLES__',css).replace('__SCRIPTS__',js.replace('</script','<\\/script'))
     (out/'index.html').write_text(html,encoding='utf-8')
     (out/'runtime.check.js').write_text(js,encoding='utf-8')

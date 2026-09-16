@@ -1,0 +1,134 @@
+/* Front-facing cabinet: depth belongs to the casing, glass and controls,
+   never to a tilted programme plane. No pointer-driven camera movement. */
+:root { --tv-cream:#f3ead9; --tv-ink:#36382f; --tv-edge:#756957; --tv-mono:'Courier New',monospace; --tv-focus:#41684d; }
+html { overflow:auto; }
+body { min-height:100svh; height:100dvh; overflow:auto; color:var(--tv-ink); background:#eeeae3; background-image:radial-gradient(ellipse at 27% 12%,#fffdf7 0,transparent 70%); }
+.topbar { min-height:62px; padding:13px 30px; gap:22px; border-bottom-color:#65584412; }
+.topbar .net { letter-spacing:.17em; color:#847c6c; }
+#clock { font-size:11px; letter-spacing:.06em; color:#847c6c; }
+#clock b { color:#586f52; font-weight:600; }
+.top-more { min-height:36px; padding-inline:14px; border-radius:8px; background:#f9f5ed; border-color:#bfb4a3; color:#495342; }
+main { align-items:center; justify-content:center; gap:20px; padding:0 58px 0 42px; }
+.screenCol { position:relative; display:flex; align-items:center; justify-content:center; flex-direction:column; min-width:0; padding:110px 0 74px; align-self:stretch; }
+.tv-set { position:relative; width:min(100%,1190px,calc((100dvh - 278px) * 1.72043 + 252px)); flex:none; isolation:isolate; transform:none; perspective:none; }
+.tv-set::after { content:''; position:absolute; left:3%; right:-2%; bottom:-54px; height:70px; z-index:-3; background:radial-gradient(ellipse,#68553c3b,transparent 68%); filter:blur(9px); pointer-events:none; }
+.tv-depth { position:absolute; z-index:-2; inset:6px -22px -9px 12px; background:linear-gradient(105deg,#ded1b9 65%,#e3d5bd 79%,#cbbb9e 93%,#b7a68b); border:1px solid #776954; border-radius:49px 52px 43px 45px / 46px 48px 39px 40px; box-shadow:inset -5px 1px 0 #f5e9d166,inset -9px -4px 0 #aa987b55,8px 17px 22px #51433125; transform:none; pointer-events:none; }
+.tv-depth::before { content:''; position:absolute; inset:5px 6px 7px; border:1px solid #74634c70; border-radius:44px 47px 38px 40px / 41px 43px 34px 35px; }
+.tv-side-vents { position:absolute; right:7px; top:34%; width:9px; height:88px; border-radius:10px; background:repeating-linear-gradient(0deg,transparent 0 7px,#6e604b 7px 9px,#f7ead055 9px 10px); transform:none; opacity:.48; }
+.tv-side-badge { display:none; position:absolute; right:10px; bottom:19%; width:41px; writing-mode:vertical-rl; transform:skewY(8deg); font:8px/1.8 var(--tv-mono); letter-spacing:.09em; color:#72634f; }
+.tv-cabinet { position:relative; display:grid; grid-template-columns:minmax(0,1fr) 158px; gap:0 27px; padding:25px 25px 0; background:linear-gradient(129deg,#fff9ed,var(--tv-cream) 36%,#e9ddc5 97%); border:1.5px solid var(--tv-edge); border-radius:51px 49px 42px 45px / 47px 46px 38px 40px; box-shadow:inset 0 3px 1px #fffdf5,inset -4px -5px 0 #c3b2907d,inset 0 -7px 10px #dfd0b575,2px 6px 0 #bcaa8c,3px 7px 0 1px #7e6b50,5px 14px 18px #715a3835; }
+.tv-cabinet::before { content:''; position:absolute; inset:7px 8px 9px 7px; border:1px solid #8a775d66; border-radius:44px 43px 37px 39px / 40px 40px 32px 33px; pointer-events:none; }
+.tv-cabinet::after { content:''; position:absolute; left:43px; right:71px; top:11px; height:1px; background:linear-gradient(90deg,#75634f77,transparent 29%,#75634f33 42%,transparent 70%); pointer-events:none; }
+.tv-handle { position:absolute; z-index:-1; top:-38px; left:31%; width:28%; height:57px; border:8px solid #8c643a; border-bottom:0; border-radius:120px 135px 0 0 / 50px 58px 0 0; box-shadow:inset 0 2px 0 #d8b479,0 -1px 0 1px #5b4230,0 -3px 0 #bb9057; transform:none; }
+.tv-aerial { position:absolute; right:12%; top:-85px; width:140px; height:90px; z-index:-1; }
+.tv-aerial i { position:absolute; width:5px; height:92px; bottom:0; left:66px; transform-origin:center bottom; transform:rotate(-27deg); border:1px solid #746a5a; border-radius:4px; background:linear-gradient(90deg,#655e54,#f9f4e6 49%,#98907f); box-shadow:1px 0 1px #fff9; }
+.tv-aerial i+i { height:110px; transform:rotate(24deg); }
+.tv-aerial i::before { content:''; position:absolute; top:-5px; left:-3px; width:10px; height:10px; border:1px solid #786c5e; border-radius:50%; background:radial-gradient(circle at 30% 26%,white,#9a8f7d 67%,#4c453b); }
+.tv-glass-surround { position:relative; align-self:center; min-width:0; padding:16px; border:1px solid #675b47; border-radius:46px 46px 41px 42px / 43px 44px 40px 39px; background:linear-gradient(140deg,#252723 2%,#665e4e 34%,#222720 68%,#575240); box-shadow:inset 0 4px 6px #0c110ab5,inset 0 -3px 1px #918367aa,0 1px 0 2px #ffffeccc,0 -1px 0 3px #baa78960; }
+.tv-glass-surround::before { content:''; position:absolute; inset:5px; border:1px solid #b7ab8b8c; border-radius:40px; box-shadow:inset 1px 1px 2px #090e0780; pointer-events:none; }
+.tv-set .screen { display:block; width:100%; max-width:none; aspect-ratio:16/9.3; border:1px solid #101a11; border-radius:33px 35px 32px 34px / 33px 34px 31px 31px; box-shadow:0 3px 4px #0009,0 -2px 1px #b2ac88, inset 0 0 10px #0002; touch-action:pan-y pinch-zoom; }
+.tv-set .screen::after { background:linear-gradient(128deg,#ffffff15,transparent 24%,transparent 79%,#ffffff0a); box-shadow:inset 0 0 0 1px #fffff061,inset 3px 7px 12px #26342120,inset -4px -4px 8px #fff9e40a; }
+.tv-set .screen::before { content:''; position:absolute; z-index:42; left:4%; top:3%; width:28%; height:7%; border-radius:80% 13% 100% 0; background:linear-gradient(162deg,#fff5,transparent 58%); transform:rotate(-9deg); pointer-events:none; }
+.crt-scan { opacity:.035; }.crt-vig { opacity:.09; }
+.tv-console { display:flex; position:relative; flex-direction:column; align-items:center; justify-content:center; gap:12px; padding:4px 0 0; color:#474636; }
+.tv-channel-window { width:75px; align-self:flex-start; display:flex; align-items:center; justify-content:center; gap:8px; padding:4px 6px; border:1px solid #3c4032; border-radius:5px; color:#e6e4c7; background:linear-gradient(#253a2b,#40523a); box-shadow:inset 1px 2px 4px #0007,0 1px 0 #fff8; }
+.tv-channel-window span { font:9px var(--tv-mono); letter-spacing:.12em; opacity:.75; }.tv-channel-window strong { font:700 20px/1 var(--tv-mono); }
+.tv-tuner { position:relative; width:126px; height:126px; align-self:flex-start; display:grid; place-items:center; margin:0 0 2px -2px; }
+.tv-dial-marks { position:absolute; inset:0; pointer-events:none; }
+.tv-dial-marks i { position:absolute; left:58px; top:57px; width:10px; height:12px; text-align:center; transform:rotate(var(--mark)) translateY(-57px) rotate(calc(-1 * var(--mark))); font:10px var(--tv-mono); color:#8e7d61; }
+.tv-dial-marks .active { color:#34523c; font-weight:700; }
+.tv-dial { position:relative; width:88px; height:88px; border:1px solid #63513b; border-radius:50%; background:repeating-conic-gradient(#988261 0deg 2deg,#ccb285 3deg 6deg); box-shadow:inset 1px 2px 0 #fff1c3,3px 7px 0 #a18b63,4px 9px 0 1px #67553d,7px 13px 7px #55402944; touch-action:none; cursor:ew-resize; transition:translate 110ms,box-shadow 110ms; }
+.tv-dial::before { content:''; position:absolute; inset:6px; border:1px solid #9c794f; border-radius:50%; background:radial-gradient(circle at 32% 20%,#ffe1a9,#e4b975 56%,#c49350); box-shadow:inset 1px 2px 1px #fff1c5,inset -3px -3px 3px #986a4247,0 1px 1px #63503c; }
+.tv-dial-grip { position:absolute; inset:11px; transform:rotate(var(--dial-angle,0deg)); transition:transform 300ms cubic-bezier(.2,.9,.25,1); pointer-events:none; }
+.tv-dial-grip::before { content:''; position:absolute; top:-1px; left:23px; width:17px; height:66px; border:1px solid #282720; border-radius:5px; background:linear-gradient(90deg,#272c25,#5e6151 36%,#35392f 58%,#191f1a); box-shadow:inset 1px 1px 0 #9f9d7f,3px 3px 2px #71512d91; }
+.tv-dial-grip::after { content:''; position:absolute; top:5px; left:30px; width:2px; height:9px; border-radius:2px; background:#f2dfb3; }
+.tv-tuner-label { position:absolute; left:124px; top:20px; font:9px/1.55 var(--tv-mono); letter-spacing:.01em; transform:rotate(-9deg); color:#716248; }
+.tv-key-stack { width:100%; display:flex; flex-direction:column; gap:13px; padding:0; border:0; background:none; box-shadow:none; }
+.tv-key { --key:#d29a83; display:flex; align-items:center; flex:none; width:100%; min-height:45px; height:45px; gap:10px; padding:0 13px 0 0; overflow:hidden; border:1.5px solid #73654f; border-radius:25px 25px 24px 24px / 23px 21px 24px 23px; color:#3b4132; background:linear-gradient(180deg,#fff9ec,#eee2cd); box-shadow:inset 0 2px 0 #fffdf5,1px 4px 0 #c0af90,2px 5px 0 1px #817057,4px 7px 5px #5e4c3026; font-size:13px; letter-spacing:.04em; transition:translate 110ms,box-shadow 110ms,filter 110ms; }
+.tv-key-icon { display:grid; place-items:center; flex:none; width:43px; height:44px; border-right:1px solid #706146; border-radius:20px 6px 10px 20px; background:var(--key); box-shadow:inset 1px 2px 0 #fff8; }
+.tv-key svg { width:22px; height:22px; fill:none; stroke:currentColor; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+.tv-key-coral { --key:#df9a83; }.tv-key-amber { --key:#e8c279; }.tv-key-sage { --key:#c0ce92; }.tv-key-blue { --key:#b6ccd1; }
+.tv-play-glyph { display:none; }.tv-paused .tv-play-glyph { display:block; }.tv-paused .tv-pause-glyph { display:none; }
+.tv-speaker { width:103px; height:110px; align-self:flex-start; margin:10px 0 0 4px; border:6px double #82735a; border-radius:48% 50% 49% 46%; background:repeating-linear-gradient(0deg,#1b211b 0 4px,#484a3a 4px 5px,#ddceb0 5px 11px); box-shadow:inset 2px 3px 4px #302b2255,1px 1px 0 #fff5; }
+.tv-power { display:flex; align-items:center; justify-content:center; gap:8px; min-height:44px; width:83px; border:0; border-radius:18px; background:transparent; color:#6b624f; font-size:11px; align-self:flex-end; margin-top:-48px; margin-right:-3px; }
+.tv-power i { width:7px; height:7px; border-radius:50%; background:#739156; box-shadow:0 0 0 2px #e3dab9,0 0 0 3px #958365; }.tv-off .tv-power i { background:#bc735c; }.tv-off .tv-channel-window { color:#96a38b; }
+.tv-chin { position:relative; grid-column:1/-1; display:flex; align-items:center; gap:15px; min-height:57px; padding:0 11px 3px; }
+.tv-sketch { width:60px; height:27px; fill:none; stroke:#6c5d44; stroke-width:1.2; stroke-linecap:round; stroke-linejoin:round; }
+.tv-wordmark { position:absolute; left:46%; transform:translateX(-50%) rotate(-2deg); white-space:nowrap; font:750 22px 'Segoe Print','Comic Sans MS','Trebuchet MS',sans-serif; letter-spacing:-.03em; }
+.tv-wordmark b { font:600 11px var(--tv-mono); padding:2px 3px; border:1px solid #726247; border-radius:3px; vertical-align:3px; margin-left:3px; }
+.tv-now { margin-left:auto; color:#81745f; font-size:11px; max-width:180px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.tv-feet { position:absolute; top:calc(100% - 2px); left:0; right:0; height:42px; z-index:-1; pointer-events:none; }
+.tv-feet i { position:absolute; left:9%; width:38px; height:41px; transform:skew(-15deg); border:1px solid #695039; border-radius:0 0 8px 5px; background:linear-gradient(100deg,#64472d,#b58345 45%,#966a36 77%,#6f4e2d); box-shadow:inset 0 -8px 0 #363b2f,inset 3px 0 1px #d0a363; }
+.tv-feet i+i { left:auto; right:6%; transform:skew(15deg); }
+.tv-playback-note { position:absolute; bottom:12px; left:0; right:0; display:flex; align-items:center; justify-content:center; gap:14px; color:#645e4c; font-size:12px; line-height:1.7; }
+.tv-playback-note button { min-height:44px; border:1px solid #a5af90; border-radius:20px; padding:0 17px; color:#35583d; background:#e7ead5; font-size:12px; }
+.tv-key:active { translate:1px 3px; box-shadow:inset 0 1px 0 #fff8,1px 1px 0 #c0af90,2px 2px 0 #817057; }
+.tv-dial:active { translate:1px 3px; box-shadow:1px 3px 0 #a18b63,2px 5px 0 #67553d; }
+@media (hover:hover) { .tv-key:not(:disabled):hover,.tv-dial:not(:disabled):hover { filter:brightness(1.035); } }
+button:focus-visible,a:focus-visible,input:focus-visible,[tabindex]:focus-visible { outline-color:var(--tv-focus); }
+.tv-key:disabled { color:#898374; filter:saturate(.3); cursor:default; }.tv-dial:disabled { cursor:default; }
+.broadcast-id { top:18px; left:22px; background:#233d30b3; color:#f5f0df; padding:7px 10px; border-radius:5px; }
+.liveTag { top:18px; right:20px; color:#f5f0df; background:#293d32a3; border-color:#fffff021; }
+#osd { top:17px; left:22px; border-left-color:#c0bf87; border-radius:5px; background:#283f32ef; }
+.programme-hud { padding:6px 13px; min-height:49px; background:#f6f0e3f5; }
+.hud-controls button { width:35px; min-height:35px; border-radius:8px; background:#fffaf0; }
+.hud-controls a { min-height:35px; border:1px solid #86917466; border-radius:8px; background:#e5e8d4; font-weight:500; }
+.m-box { background:#24382c; border-color:#89977388; border-radius:16px; box-shadow:0 15px 35px #15221966; }
+.m-head { color:#e7e5c9; border-color:#a2aa8629; }.m-tabs button,.m-guide .number,.m-guide a,.menu-close { min-height:36px; }.m-head .menu-close { min-width:36px; }
+.m-body input:focus-visible,.m-body button:focus-visible,.m-body a:focus-visible { outline-color:#d6d7af; }
+/* The existing handheld remote is optional, never a second default control column. */
+.rail { display:none; width:180px; padding:10px 0 24px; overflow:visible; }
+body.remote-open .rail { display:flex; }
+.rc { width:180px; border:1px solid #55594d; border-radius:35px; background:linear-gradient(155deg,#42463b,#2d352a 65%,#242b21); box-shadow:inset 0 2px 1px #959b8555,3px 5px 0 #1f261f,7px 14px 18px #62513926; }
+.rc-brand,.rc-foot { color:#a9ad9a; }.rc-pad { gap:9px; grid-template-columns:repeat(3,44px); }.rc-ch { width:44px; height:44px; border-radius:16px; border:1px solid #b9b29f; background:linear-gradient(145deg,#efe9da,#d7d0be); color:#414e3f; box-shadow:0 3px 0 #8d8b77; }.rc-ch.cur { color:#233d2a; background:#ccd5aa; box-shadow:0 0 0 2px #c5cf99,0 3px 0 #8d986f; }.rc-ch.off { color:#797d6d; }.rc-ch.off::after { background:var(--cc); opacity:.65; }
+.rc-pwr { width:44px; height:44px; background:radial-gradient(circle at 32% 25%,#cd8b76,#aa6558); }.rc-pwr svg { stroke:#fff1dd; }.rc-col button { width:44px; height:44px; border-radius:17px; background:linear-gradient(#535c4e,#3c4539); color:#eee8d7; }.rc-menu { min-height:44px; border-radius:20px; color:#edeadb; background:#607555; font-size:11px; }.rl-foot { color:#827a68; font-size:10px; line-height:2.2; margin-top:20px; }
+body.immersive main { padding:0; gap:0; }body.immersive .rail { display:none; }
+body.immersive .screenCol { padding:10px 14px 50px; }
+body.immersive .tv-set { width:min(100%,calc((100dvh - 80px) * 1.72043)); transform:none; }
+body.immersive .tv-cabinet { display:block; padding:0; border:0; background:none; box-shadow:none; }
+body.immersive .tv-cabinet::before,body.immersive .tv-cabinet::after,body.immersive .tv-set::after,body.immersive .tv-depth,body.immersive .tv-handle,body.immersive .tv-aerial,body.immersive .tv-console,body.immersive .tv-chin,body.immersive .tv-feet { display:none; }
+body.immersive .tv-glass-surround { padding:4px; border-radius:16px; }
+body.immersive .tv-set .screen { border-radius:12px; box-shadow:none; }
+.tv-set .screen:fullscreen { width:100vw; height:100dvh; border:0; border-radius:0; aspect-ratio:auto; box-shadow:none; }
+@media(max-width:1200px) { main { padding-right:46px; padding-left:28px; }.tv-cabinet { grid-template-columns:minmax(0,1fr) 142px; gap:0 23px; padding:21px 23px 0; }.tv-console { gap:10px; }.tv-tuner { scale:.91; margin:-5px 0 -7px -5px; }.tv-tuner-label { left:115px; top:26px; font-size:8px; }.tv-speaker { width:85px; height:87px; margin-top:5px; }.tv-key-stack { gap:11px; }.tv-key { font-size:12px; }.tv-power { width:73px; font-size:10px; }.tv-chin { min-height:49px; }.tv-glass-surround { padding:12px; } }
+@media(max-width:1000px) and (min-width:861px) { .tv-console { gap:7px; }.tv-channel-window { padding-block:3px; }.tv-tuner { scale:.83; height:108px; margin:-6px 0 -7px; }.tv-key-stack { gap:9px; }.tv-key { height:43px; min-height:43px; }.tv-speaker { width:74px; height:60px; margin-top:5px; }.tv-chin { min-height:45px; } }
+@media(max-width:860px) {
+  .topbar { min-height:57px; padding:10px 18px; }
+  main { padding:0 24px 0 18px; gap:0; }
+  .screenCol { padding:62px 0 118px; }
+  .tv-set { width:min(100%,750px,calc((100dvh - 273px) * 1.72043 + 40px)); transform:none; }
+  .tv-cabinet { display:block; padding:12px 12px 0; border-radius:35px 35px 29px 29px; box-shadow:inset 0 2px 1px #fffaf2,inset -3px -3px 0 #c3b39763,2px 4px 0 #c4b79e,3px 5px 0 1px #8b7d68,5px 10px 18px #53443120; }
+  .tv-cabinet::before { inset:5px; border-radius:30px 30px 25px 25px; }.tv-cabinet::after { display:none; }
+  .tv-depth { inset:-5px -10px 3px 10px; border-radius:35px 40px 31px 30px; transform:none; }.tv-depth::before,.tv-side-vents,.tv-side-badge { display:none; }
+  .tv-console,body.remote-open .rail { display:none; }
+  .tv-glass-surround { padding:8px; border-radius:28px; }.tv-glass-surround::before { border-radius:24px; inset:3px; }.tv-set .screen { border-radius:21px; }
+  .tv-chin { min-height:40px; padding-inline:3px; }.tv-wordmark { left:50%; font-size:16px; }.tv-now { font-size:10px; max-width:110px; }.tv-sketch { width:35px; height:20px; }
+  .tv-handle { top:-24px; height:36px; border-width:5px; }.tv-aerial { right:11%; top:-40px; height:45px; scale:.6; transform-origin:bottom; }
+  .tv-feet { height:24px; }.tv-feet i { width:24px; height:25px; }
+  .tv-playback-note { bottom:76px; gap:10px; font-size:11px; }.tv-playback-note button { min-height:36px; padding:0 11px; font-size:11px; }
+  .mobileDock { left:14px; right:14px; bottom:max(16px,env(safe-area-inset-bottom)); gap:7px; padding:8px; border-radius:18px; background:#f4eddfed; border-color:#b5a78e; box-shadow:inset 0 1px 0 #fffaf0,0 3px 0 #cbbda5,0 5px 10px #5d4e3220; }
+  .mobileDock button { min-height:44px; border-radius:11px; border-color:#c2bba3; background:linear-gradient(#fcf9f0,#e5dfcc); color:#43503c; font-size:12px; box-shadow:0 2px 0 #bbaf93; }
+  .mobileDock button:first-child { color:#905549; background:#eed7c5; }.mobileDock button[data-action^=channel] { background:#dce1c5; }
+  body.immersive .screenCol { padding:10px 0 110px; }body.immersive .tv-set { width:min(100%,calc((100dvh - 150px) * 1.72043)); }
+}
+@media(max-width:560px) {
+  main { padding:0 19px 0 13px; }.topbar { padding-inline:16px; gap:10px; }#clock { font-size:10px; letter-spacing:-.025em; flex-shrink:0; }.top-more { min-height:36px; padding:6px 9px; font-size:11px; }
+  .screenCol { padding:50px 0 126px; }.tv-set { width:min(100%,calc((100dvh - 292px) * .72 + 29px)); }
+  .tv-cabinet { padding:8px 8px 0; border-radius:30px 31px 26px 27px; }.tv-glass-surround { padding:5px; border-radius:24px; }.tv-set .screen { aspect-ratio:540/750; max-width:none; border-radius:18px; }
+  .tv-chin { min-height:36px; }.tv-now { display:none; }.tv-wordmark { font-size:15px; }.tv-wordmark b { font-size:9px; }.tv-aerial { right:6%; }.tv-set::after { bottom:-41px; height:49px; }
+  .tv-playback-note { bottom:80px; flex-wrap:wrap; gap:5px 9px; font-size:10px; }.tv-playback-note button { min-height:36px; font-size:11px; }
+  .broadcast-id { font-size:9px; top:13px; left:11px; padding:6px 7px; }.liveTag { font-size:8px; right:10px; top:13px; padding:6px; }#osd { top:12px; left:10px; padding:6px 8px; max-width:65%; }
+  .programme-hud { padding:6px 8px; min-height:46px; }.hud-controls { gap:3px; }.hud-controls button { width:30px; min-height:34px; }.hud-controls a { font-size:10px; padding:0 7px; min-height:34px; }#channelCode { display:none; }#sceneLabel { max-width:74px; font-size:10px; }
+  .m-box { width:96%; max-height:96%; border-radius:14px; }.m-head em { font-size:11px; }.m-body input { font-size:16px; }.m-tabs button { padding-inline:10px; }
+  body.immersive .tv-set { width:100%; }body.immersive .tv-set .screen { height:calc(100dvh - 150px); aspect-ratio:auto; }
+}
+@media(max-height:800px) and (min-width:861px) {
+  .screenCol { padding:88px 0 68px; }.tv-set { width:min(100%,calc((100dvh - 330px) * 1.72043 + 253px)); }.tv-cabinet { grid-template-columns:minmax(0,1fr) 135px; gap:0 18px; padding:18px 22px 0; }
+  .tv-console { gap:6px; }.tv-channel-window { padding:3px 5px; }.tv-tuner { height:98px; width:98px; scale:1; margin:0 0 4px; }.tv-dial-marks i { left:44px; top:43px; transform:rotate(var(--mark)) translateY(-44px) rotate(calc(-1 * var(--mark))); font-size:9px; }.tv-dial { width:68px; height:68px; }.tv-dial-grip { inset:9px; }.tv-dial-grip::before { left:17px; top:0; height:48px; width:13px; }.tv-dial-grip::after { left:23px; top:5px; }.tv-tuner-label { display:none; }.tv-key-stack { gap:8px; }.tv-key { height:41px; min-height:41px; font-size:12px; }.tv-key-icon { width:39px; height:40px; }.tv-speaker { width:77px; height:67px; margin-top:3px; }.tv-power { margin-top:-43px; }.tv-chin { min-height:42px; }.tv-aerial { scale:.68; transform-origin:bottom; }.tv-handle { height:38px; top:-24px; border-width:6px; }.tv-playback-note { bottom:3px; }
+}
+@media(max-height:540px) and (min-width:561px) {
+  .topbar { min-height:44px; height:44px; padding-block:5px; }.screenCol { padding:9px 0 99px; }.tv-set { width:min(100%,calc((100dvh - 171px) * 1.72043 + 20px)); transform:none; }
+  .tv-cabinet { display:block; padding:5px; border-radius:26px; }.tv-console,.tv-handle,.tv-aerial,.tv-feet,.tv-chin,body.remote-open .rail { display:none; }.tv-depth { inset:-3px -8px 1px 8px; border-radius:28px; transform:none; }.tv-depth::before,.tv-side-vents,.tv-side-badge { display:none; }.tv-glass-surround { padding:4px; border-radius:21px; }.tv-set .screen { border-radius:17px; }
+  .mobileDock { display:grid; max-width:500px; margin-inline:auto; bottom:10px; padding:6px; }.mobileDock button { min-height:44px; }.tv-playback-note { bottom:71px; }.tv-playback-note button { min-height:30px; }.broadcast-id,.liveTag { top:9px; }.hud-controls button,.hud-controls a { min-height:30px; }.programme-hud { min-height:39px; padding-block:4px; }
+}
+@media(prefers-reduced-motion:reduce) { .tv-dial-grip,.tv-set *,.tv-set *::before,.tv-set *::after { transition:none!important; animation:none!important; } }

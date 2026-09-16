@@ -1,4 +1,7 @@
-"""Compare actual Canvas RGBA frames to the immutable source edition, not to screenshots."""
+"""Compare programme pixels, not the cabinet. Candidate Canvas geometry is explicitly
+normalised to the immutable source at each viewport. Full-page visual differences
+are intentional in this polish and are tested separately in tv_shell.py.
+"""
 from pathlib import Path
 import asyncio, argparse, json, hashlib, shutil
 from playwright.async_api import async_playwright
@@ -17,15 +20,18 @@ async def main(args):
   results=[]
   for width,height in [(1440,900),(390,844)]:
    for page in pages:await page.set_viewport_size({'width':width,'height':height});await page.evaluate('document.fonts.ready')
+   geometry=await pages[0].locator('#cv1').evaluate('(c)=>({width:c.getBoundingClientRect().width,height:c.getBoundingClientRect().height})')
+   await pages[1].evaluate("g=>document.querySelectorAll('canvas.fill').forEach(c=>{c.style.width=g.width+'px';c.style.height=g.height+'px'})",geometry)
    for ch,count in enumerate([6,3,3,1,1,1,1],1):
     for scene in range(count):
      for phase in [.05,.25,.55,.9]:
       hashes=[await page.evaluate('([ch,s,p])=>__seek(ch,s,p)',[ch,scene,phase]) for page in pages]
-      results.append({'viewport':width,'channel':ch,'scene':scene,'phase':phase,'baseline':hashes[0],'modular':hashes[1],'same':hashes[0]==hashes[1]})
+      results.append({'viewport':width,'canvasGeometry':geometry,'channel':ch,'scene':scene,'phase':phase,'baseline':hashes[0],'modular':hashes[1],'same':hashes[0]==hashes[1]})
       if hashes[0]!=hashes[1]: print('MISMATCH',results[-1],flush=True)
+   await pages[1].evaluate("()=>document.querySelectorAll('canvas.fill').forEach(c=>{c.style.removeProperty('width');c.style.removeProperty('height')})")
    await pages[1].evaluate('()=>__seek(1,0,.8)')
    await pages[1].screenshot(path=str(args.artifacts/f'parity-{width}.png'))
-  (args.artifacts/'parity-results.json').write_text(json.dumps({'frames':results,'errors':errors},indent=2))
+  (args.artifacts/'parity-results.json').write_text(json.dumps({'scope':'programme Canvas RGBA at equal baseline geometry; not full-page parity','frames':results,'errors':errors},indent=2))
   await browser.close()
   assert not errors,errors
   assert all(r['same'] for r in results),'Canvas parity failed'
