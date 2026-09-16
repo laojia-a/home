@@ -181,9 +181,12 @@ async def main(args):
                 await shot.clock.set_fixed_time(datetime(2026, 9, 16, 2, 0, tzinfo=timezone.utc))
                 if args.content:
                     await shot.set_content(instrument(source.read_text()), wait_until='load')
-                    await shot.wait_for_timeout(4250)  # allow the truthful unavailable-storage notice to expire
+                    await shot.wait_for_timeout(4250)
                 else:
-                    await shot.route('**/qa-frame.html', lambda route, data=instrument(source.read_text()): route.fulfill(status=200, content_type='text/html', body=data))
+                    frame_html = instrument(source.read_text())
+                    async def serve_frame(route):
+                        await route.fulfill(status=200, content_type='text/html', body=frame_html)
+                    await shot.route('**/qa-frame.html', serve_frame)
                     await shot.goto(origin + '/qa-frame.html')
                 for width, height in [(1440,900),(390,844),(844,390)]:
                     await shot.set_viewport_size({'width':width,'height':height})
