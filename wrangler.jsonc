@@ -1,0 +1,10 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "jclaw-home",
+  "pages_build_output_dir": "./dist",
+  "compatibility_date": "2026-09-17",
+  "secrets": { "required": ["ADMIN_PASSWORD"] },
+  "kv_namespaces": [
+    { "binding": "SITE_CONFIG", "id": "25ee2d486a774137838f98f9ad3ccd5f" }
+  ]
+}

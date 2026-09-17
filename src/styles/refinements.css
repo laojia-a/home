@@ -23,3 +23,5 @@ body{font-family:var(--font)}button,input,select{font:inherit}button,a,input{tou
 /* Channel OSD temporarily replaces the station bug instead of covering the title. */
 #osd{top:16px;left:22px;max-width:65%}#osd.show~.broadcast-id{opacity:0}
 @media(max-width:560px){#osd{top:13px;left:12px;max-width:66%;padding:6px 8px;gap:8px}#osd .number{font-size:21px}#osd .osd-name{font-size:11px}#osd .osd-note{font-size:9px}}
+
+#adminLogin{max-width:360px;margin:24px auto;display:grid;gap:12px}#adminLogin label{font-size:12px}#adminPassword{width:100%;min-height:42px;padding:8px 12px;border:1px solid #91a97d88;border-radius:4px;background:#ffffff0b;color:#f4f4e9;font:16px var(--font)}#adminLogin .m-act{margin:0}#adminLogin .m-act button{width:100%}

@@ -29,7 +29,7 @@
 | BE Oracle | be-oracle | 1 | [#7](https://github.com/laojia-a/home/issues/7) |
 | 2026学习资料 | study-2026 | 1 | [#8](https://github.com/laojia-a/home/issues/8) |
 
-每个目录包含index.js、renderers.js、manifest.json、README.md；共享绘制在shared，Canvas实例在contract，registry只组合网站。主界面机身在`src/ui/tv-shell.js`，设置菜单在`src/ui/settings-menu.js`，配置、时钟和导航分别位于`src/settings`、`src/player`和`src/navigation`；`runtime.js`仍负责协调，尚需继续拆分。
+每个目录包含index.js、renderers.js、manifest.json、README.md；共享绘制在shared，Canvas实例在contract，registry只组合网站。主界面机身在`src/ui/tv-shell.js`，设置菜单在`src/ui/settings-menu.js`，配置、时钟和导航分别位于`src/settings`、`src/player`和`src/navigation`；`runtime.js`仍负责协调，尚需继续拆分。线上全站接入配置由 Pages Function 和 KV 管理，见 `docs/deployment/SHARED-CONFIG-20260917.md`。
 
 屏幕公共叠层只在左上显示站点图标、名称和分幕。图标取自已归档的`os-design`导航资产并内嵌到单文件构建；它们不是已核验的各网站正式品牌Logo。
 

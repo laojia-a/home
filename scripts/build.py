@@ -33,6 +33,10 @@ def build():
     html=(ROOT/'src/shell.template.html').read_text(encoding='utf-8').replace('__STYLES__',css).replace('__SCRIPTS__',js.replace('</script','<\\/script'))
     (out/'index.html').write_text(html,encoding='utf-8')
     (out/'runtime.check.js').write_text(js,encoding='utf-8')
+    # Pages advanced mode: the API worker is deployed together with the static TV.
+    (out/'_worker.js').write_text((ROOT/'src/server/worker.js').read_text(encoding='utf-8').replace("'./config-api.js'","'./server/config-api.js'"),encoding='utf-8')
+    server_out=out/'server';server_out.mkdir(exist_ok=True)
+    (server_out/'config-api.js').write_bytes((ROOT/'src/server/config-api.js').read_bytes())
     previews=out/'previews';previews.mkdir(exist_ok=True)
     previewjs=bundle('src/dev/preview.js')
     for site in json.loads((ROOT/'src/animations/sites/manifest.json').read_text(encoding='utf-8')):

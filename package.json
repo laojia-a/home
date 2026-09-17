@@ -1,1 +1,1 @@
-{"name":"jclaw-home","version":"0.1.0-site-import","private":true,"type":"module","scripts":{"build":"python3 scripts/build.py","test":"node --test tests/*.test.js","check":"npm test && python3 scripts/build.py && python3 scripts/verify.py"}}
+{"name":"jclaw-home","version":"0.1.0-site-import","private":true,"type":"module","scripts":{"build":"python3 scripts/build.py","test":"node --test tests/*.test.js","check":"npm test && python3 scripts/build.py && python3 scripts/verify.py","dev:pages":"wrangler pages dev dist"},"devDependencies":{"wrangler":"^4.133.0"}}
