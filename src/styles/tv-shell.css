@@ -291,21 +291,129 @@ body.immersive main::before,body.immersive main::after { display:none; }
 /* Final room pass: ground the feet and leave the operating hints quiet. */
 body {
   background:
-    radial-gradient(ellipse 68% 58% at 50% 34%,#fffdf7 0%,#f1ebdf 66%,#ded2bf 100%);
+    radial-gradient(ellipse 62% 62% at 50% 37%,#eef0e9 0%,#dce1d9 58%,#cbd3c9 100%);
 }
 main::before {
-  height:12%;
-  background:linear-gradient(180deg,#d6c8af00 0%,#c3b39836 2%,#ded1b9 9%,#c9b89c 100%);
-  border-top-color:#a9977938;
+  height:26%;
+  background:linear-gradient(180deg,#c5cec300 0%,#b7c4b738 42%,#9eaf9ead 100%);
+  border-top:0;
 }
 main::after {
   background:
-    radial-gradient(ellipse 56% 43% at 49% 39%,#fffdf87d,transparent 100%),
-    linear-gradient(90deg,#ad9c7e0a,transparent 18%,transparent 82%,#ad9c7e0a);
+    radial-gradient(ellipse 56% 43% at 49% 39%,#fffef65c,transparent 100%),
+    linear-gradient(90deg,#697d6b08,transparent 18%,transparent 82%,#697d6b08);
 }
-.tv-ground { bottom:-42px; height:64px; filter:blur(8px); }
+.tv-ground {
+  left:2%; right:-2%; bottom:-42px; height:72px;
+  background:radial-gradient(ellipse at 50% 40%,#3546395c 0%,#40514030 38%,transparent 74%);
+  filter:blur(9px);
+}
+.tv-ground::before {
+  left:0; right:0; top:27px; height:22px;
+  background:
+    radial-gradient(ellipse 62px 13px at 13% 50%,#293b305c,transparent 82%),
+    radial-gradient(ellipse 62px 13px at 88% 50%,#293b305c,transparent 82%);
+}
+.tv-feet i { box-shadow:inset 0 -7px 0 #3a3c32,2px 2px 0 #665235,0 7px 8px #344a3a66; }
 .tv-hint { opacity:0; transform:translateY(-5px); transition:opacity 180ms,transform 180ms; pointer-events:none; }
 @media(hover:hover) { .tv-set:hover .tv-hint { opacity:.85; transform:translateY(0); } }
 .tv-set:focus-within .tv-hint { opacity:.85; transform:translateY(0); }
 @media(prefers-reduced-motion:reduce) { .tv-hint { transition:none; } }
-@media(max-width:860px) { main::before { height:10%; } }
+@media(max-width:860px) { main::before { height:24%; } }
+/* Cabinet lettering: ink and shallow embossing belong to the physical shell. */
+.tv-wordmark {
+  font:italic 800 21px/1 'Trebuchet MS','Segoe UI',sans-serif;
+  letter-spacing:-.05em;
+  color:#304638;
+  text-shadow:0 1px 0 #fffdf1,0 -1px 0 #82775e;
+}
+.tv-wordmark b {
+  font:700 11px/1 var(--tv-mono);
+  color:#304638;
+  border-color:#686b52;
+  background:linear-gradient(#fbf7eb,#dfd4bd);
+  box-shadow:inset 0 1px 0 #fff7ed,0 1px 0 #fff8e8;
+}
+.tv-channel-window span { font-size:11px; font-weight:700; color:#d7dfc6; }
+.tv-channel-window strong { color:#e5e8cf; text-shadow:0 1px 2px #0c1d14; }
+.tv-dial-marks i { font:700 12px/1 var(--tv-mono); color:#48513e; text-shadow:0 1px 0 #fff9ea; }
+.tv-dial-marks .active { color:#1f402e; }
+.tv-channel-rocker span { font-size:12px; font-weight:700; color:#3d4938; }
+.tv-key { font:700 14px/1.2 var(--font); color:#293e32; text-shadow:0 1px 0 #fff9e9; }
+.tv-play .tv-key-icon,.tv-guide .tv-key-icon,.tv-open .tv-key-icon { color:#365141; }
+.tv-now { font-size:12px; font-weight:700; color:#3d4a3b; }
+@media(max-width:1100px) and (min-width:861px) { .tv-key { font-size:13px; } }
+@media(max-width:860px) { .tv-wordmark { font-size:18px; } }
+@media(max-width:560px) { .tv-wordmark { font-size:16px; } }
+/* The cabinet stays ivory; only the quiet room hue follows the current programme. */
+body { --room-color:#d7ddd4; --identity-bg:#31483c; background:var(--room-color); }
+body[data-channel="learn"] { --room-color:#d2dbd3; --identity-bg:#1a3e30; }
+body[data-channel="workbench"] { --room-color:#d4dce0; --identity-bg:#243f49; }
+body[data-channel="ezctd"] { --room-color:#ddd5da; --identity-bg:#594653; }
+body[data-channel="solo"] { --room-color:#d8dce3; --identity-bg:#364861; }
+body[data-channel="oracle"] { --room-color:#d7dfd4; --identity-bg:#324b3c; }
+body[data-channel="study"] { --room-color:#dddacf; --identity-bg:#66563d; }
+main { background:var(--room-color); transition:background-color 350ms ease; }
+main::before,main::after { display:none; }
+.tv-ground { background:radial-gradient(ellipse at 50% 40%,#26372d78 0%,#40514036 40%,transparent 74%); }
+.tv-ground::before {
+  background:
+    radial-gradient(ellipse 62px 13px at 13% 50%,#21332870,transparent 82%),
+    radial-gradient(ellipse 62px 13px at 88% 50%,#21332870,transparent 82%);
+}
+/* Shared programme identity: one compact mark, no status or bottom control bar. */
+.site-identity {
+  position:absolute; z-index:50; top:17px; left:18px;
+  display:flex; align-items:center; gap:8px; max-width:min(72%,300px);
+  padding:5px 11px 5px 5px; border:1px solid #ffffff38; border-radius:9px;
+  background:var(--identity-bg); color:#f6f3e7;
+  box-shadow:0 2px 7px #07170d26;
+  pointer-events:none; transition:opacity 160ms;
+}
+.site-identity[hidden] { display:none; }
+.site-identity img { flex:none; width:29px; height:29px; border-radius:7px; background:#f5f2e9; }
+.site-identity span { display:flex; flex-direction:column; min-width:0; line-height:1.25; }
+.site-identity strong { font:600 13px/1.25 var(--font); overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.site-identity small { font:10px/1.35 var(--font); color:#d5dfd1; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+.power-off .site-identity { visibility:hidden; }
+@media(max-width:560px) {
+  .site-identity { top:12px; left:10px; gap:6px; max-width:72%; padding:4px 8px 4px 4px; }
+  .site-identity img { width:24px; height:24px; border-radius:6px; }
+  .site-identity strong { font-size:11px; }
+  .site-identity small { font-size:9px; }
+}
+/* Raised ivory keys with a distinct enamel end cap and physical travel. */
+.tv-key {
+  border-color:#8b775a;
+  background:linear-gradient(180deg,#fffdf4 0%,#f6edda 28%,#e4d3b5 100%);
+  box-shadow:inset 0 1px 0 #fffef8,inset 0 -1px 0 #c4ac85,
+    0 2px 0 #c8b18d,0 4px 0 #8d7759,0 7px 10px #2833263f;
+}
+.tv-key::after {
+  content:''; position:absolute; left:43px; right:8px; top:3px; height:1px;
+  background:#fffdf5b8; border-radius:1px; pointer-events:none;
+}
+.tv-key-icon {
+  background:linear-gradient(155deg,#e4eadb 0%,#c6d0bd 58%,#acbba8 100%);
+  border-right:1px solid #82947e;
+  box-shadow:inset 1px 1px 0 #f7faee,inset -1px -2px 2px #71856866,1px 0 0 #fff9e8;
+}
+.tv-key:active {
+  translate:1px 4px;
+  box-shadow:inset 0 2px 5px #8b76536b,0 1px 0 #7d6a50;
+}
+.tv-key:active .tv-key-icon { box-shadow:inset 0 2px 4px #71856888; }
+.tv-channel-rocker button {
+  box-shadow:inset 0 1px 0 #fffdf4,0 2px 0 #b9a27f,0 4px 5px #35403940;
+}
+.tv-channel-rocker button:active { translate:0 3px; box-shadow:inset 0 2px 4px #7d674766; }
+/* Three physical controls sit in a shallow recess in the cabinet. */
+.tv-keys {
+  width:126px; gap:10px; margin-top:4px; padding:5px 4px 8px;
+  border:1px solid #a99575; border-radius:25px;
+  background:linear-gradient(150deg,#d5c4a6,#efe5cf 48%,#c9b594);
+  box-shadow:inset 0 3px 5px #75634862,inset 0 -1px 0 #fff8e9,0 1px 0 #fffdf6;
+}
+.tv-key { min-height:47px; border-radius:21px; }
+.tv-key-icon { min-height:44px; border-radius:20px 8px 8px 20px; }
+@media(max-width:1100px) and (min-width:861px) { .tv-keys { width:120px; padding-inline:3px; } }

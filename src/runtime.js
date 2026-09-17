@@ -9,6 +9,7 @@ import { createSettings } from "./settings/config.js";
 import { createSettingsMenu } from "./ui/settings-menu.js";
 import { advanceProgramme } from "./player/clock.js";
 import { openConfiguredTool } from "./navigation/open-tool.js";
+import { siteMarkDataUrl } from "./ui/site-marks.js";
 const $=s=>document.querySelector(s),$$=s=>Array.from(document.querySelectorAll(s));
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const settings=createSettings(CHANNELS,{getItem:key=>localStorage.getItem(key),setItem:(key,value)=>localStorage.setItem(key,value)});
@@ -38,8 +39,20 @@ function drawActive(){
 window.addEventListener('pagehide',releaseDrawing);
 function snapshotCanvas(){const src=canvases[state.ch],c=document.createElement('canvas');c.width=Math.max(1,src.width);c.height=Math.max(1,src.height);const context=c.getContext('2d');context.drawImage(src,0,0);if(state.transition?.type==='tune')context.drawImage(wipe,0,0,c.width,c.height);return c;}
 function wake(){state.chromeAt=performance.now();screen.classList.remove('chrome-hidden')}
-function updateChrome(){cabinet.update(state,currentLink());const ch=current(),l=currentLink();screen.classList.toggle('paused',state.paused);screen.classList.toggle('power-off',!state.power);$('#powerWake').hidden=state.power;$('#channelCode').textContent='CH '+String(state.ch).padStart(2,'0');$('#sceneLabel').textContent=programme().label;$('#broadcastId').textContent='CH '+String(state.ch).padStart(2,'0')+' / '+ch.name;$('#signalStatus').textContent=state.paused?'已暂停 · 本地节目':state.ch>=4?'片头预告 · 非直播':'本地动画 · 非直播';$('#playButton').textContent=state.paused?'▷':'Ⅱ';$('#playButton').setAttribute('aria-label',state.paused?'播放节目':'暂停节目');$('#mobilePlay').textContent=state.paused?'播放':'暂停';const a=$('#openTool');a.textContent=l.url&&l.enabled?'打开工具 ↗':'配置入口 ↗';a.href=l.url&&l.enabled?l.url:'#';a.dataset.openCh=String(state.ch);$$('.rc-ch[data-ch]').forEach(b=>{const n=Number(b.dataset.ch);b.classList.toggle('cur',n===state.ch);b.classList.toggle('off',!config.links[n-1].enabled);b.setAttribute('aria-pressed',String(n===state.ch));});$('#canvasAlt').textContent=`${ch.name}，${programme().label}。本地节目示意，不是实时业务数据。`;}
-function showOSD(){const ch=current(),l=currentLink(),el=$('#osd');el.innerHTML=`<span class="number">${String(state.ch).padStart(2,'0')}</span><div><div class="osd-name">${esc(ch.name)}</div><div class="osd-note">${l.enabled&&l.url?'工具入口已配置':'预告可看 · 入口待配置'}</div></div>`;el.classList.add('show');clearTimeout(showOSD.timer);showOSD.timer=setTimeout(()=>el.classList.remove('show'),1450);}
+function updateChrome(){
+ cabinet.update(state);
+ const ch=current(),mark=$('#siteMark');
+ document.body.dataset.channel=ch.id;
+ screen.classList.toggle('paused',state.paused);
+ screen.classList.toggle('power-off',!state.power);
+ $('#powerWake').hidden=state.power;
+ $('#siteIdentity').hidden=!state.power;
+ $('#siteName').textContent=ch.name;
+ $('#siteScene').textContent=programme().label;
+ if(mark.dataset.siteId!==ch.id){mark.src=siteMarkDataUrl(ch.id);mark.dataset.siteId=ch.id;}
+ $('#mobilePlay').textContent=state.paused?'播放':'暂停';
+ $('#canvasAlt').textContent=`${ch.name}，${programme().label}。本地节目示意，不是实时业务数据。`;
+}
 function applyPic(){const p=config.pic;$('#crtScan').style.display=p.scan?'block':'none';$('#crtVig').style.display=p.vig?'block':'none';$$('.channel').forEach(s=>s.style.setProperty('--bri',p.bri));document.body.classList.toggle('immersive',p.immersive);state.last=performance.now();drawActive();wake()}
 function startTransition(type,snap,direction=1){state.revision++;state.transition={type,snap,direction,start:performance.now(),duration:type==='tune'?300:450,rev:state.revision};wipe.style.opacity=1;}
 function clearTransition(){state.transition=null;const c=wipe.getContext('2d');c.setTransform(1,0,0,1,0,0);c.clearRect(0,0,wipe.width,wipe.height);wipe.style.opacity=0;}
@@ -54,10 +67,10 @@ function paintTransition(now){const tr=state.transition;if(!tr)return;const z=si
  }
  if(k>=1){if(tr.type==='off'){state.transition=null;c.globalAlpha=1;c.fillStyle='#101c14';c.fillRect(0,0,W,H);wipe.style.opacity=1;}else clearTransition()}
 }
-function switchTo(n,{instant=false}={}){if(!state.power||!Number.isInteger(n)||n<1||n>7)return;if(n===state.ch){showOSD();wake();return}const snap=snapshotCanvas(),direction=Math.sign(channelDistance(state.ch,n));state.ch=n;state.scene=0;state.elapsed=state.paused?programme().seconds*.72:.001;state.last=performance.now();$$('.channel').forEach(s=>s.classList.toggle('on',Number(s.dataset.ch)===n));updateChrome();drawActive();if(instant||reduced)clearTransition();else startTransition('tune',snap,direction);showOSD();wake();}
+function switchTo(n,{instant=false}={}){if(!state.power||!Number.isInteger(n)||n<1||n>7)return;if(n===state.ch){wake();return}const snap=snapshotCanvas(),direction=Math.sign(channelDistance(state.ch,n));state.ch=n;state.scene=0;state.elapsed=state.paused?programme().seconds*.72:.001;state.last=performance.now();$$('.channel').forEach(s=>s.classList.toggle('on',Number(s.dataset.ch)===n));updateChrome();drawActive();if(instant||reduced)clearTransition();else startTransition('tune',snap,direction);wake();}
 function sceneTo(idx){if(!state.power)return;const list=PROGRAMMES[state.ch];state.scene=(idx+list.length)%list.length;state.elapsed=state.paused?programme().seconds*.72:.001;state.last=performance.now();clearTransition();updateChrome();drawActive();wake();}
 function playToggle(){if(!state.power)return;state.paused=!state.paused;state.pauseReason=state.paused?'user':null;state.last=performance.now();updateChrome();wake();if(state.menu)renderMenu();}
-function powerToggle(){if(state.menu){notify('请先关闭菜单再操作电源');return}const was=state.power,snap=snapshotCanvas();state.power=!state.power;state.last=performance.now();if(!was)drawActive();updateChrome();$('#osd').classList.remove('show');clearTimeout(showOSD.timer);clearTransition();if(reduced){if(was){size(wipe);const c=wipe.getContext('2d');c.setTransform(1,0,0,1,0,0);c.fillStyle='#101c14';c.fillRect(0,0,wipe.width,wipe.height);wipe.style.opacity=1;}}else startTransition(was?'off':'on',was?snap:snapshotCanvas());wake();}
+function powerToggle(){if(state.menu){notify('请先关闭菜单再操作电源');return}const was=state.power,snap=snapshotCanvas();state.power=!state.power;state.last=performance.now();if(!was)drawActive();updateChrome();clearTransition();if(reduced){if(was){size(wipe);const c=wipe.getContext('2d');c.setTransform(1,0,0,1,0,0);c.fillStyle='#101c14';c.fillRect(0,0,wipe.width,wipe.height);wipe.style.opacity=1;}}else startTransition(was?'off':'on',was?snap:snapshotCanvas());wake();}
 function openTool(n=state.ch){const l=config.links[n-1];if(!state.power){notify('电视已待机');return}if(!l.url||!l.enabled){openMenu('link');notify('请填写并启用实际入口；本页不会启动本机软件。');return}openConfiguredTool(l);}
 const {dirty,confirmDiscard,openMenu,closeMenu,renderMenu,guideRows,saveDraft}=createSettingsMenu({state,config,settings,cabinet,notify,updateChrome,wake,persist,screen,esc});
 async function toggleFullscreen(){try{if(document.fullscreenElement)await document.exitFullscreen();else await screen.requestFullscreen();}catch(e){notify('当前浏览器或预览环境不允许全屏。')}wake();}
@@ -104,9 +117,7 @@ function frame(now){const active=state.power&&!state.paused&&!state.menu&&!docum
  // Even a paused programme re-renders on resize; all temporal values are held.
  if(active&&now-state.lastPaint>14){drawActive();state.lastPaint=now;state.fpsFrames++;}
  paintTransition(now);
- const holdingFocus=$('#hud').contains(document.activeElement)||state.menu;
- if(config.pic.autohide&&state.power&&!holdingFocus&&now-state.chromeAt>4200)screen.classList.add('chrome-hidden');
- requestAnimationFrame(frame);
+  requestAnimationFrame(frame);
 }
 $$('.channel').forEach(s=>s.classList.toggle('on',Number(s.dataset.ch)===1));updateChrome();applyPic();drawActive();requestAnimationFrame(frame);
 if(loadWarning)setTimeout(()=>notify(loadWarning),800);

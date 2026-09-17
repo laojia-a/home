@@ -1,6 +1,6 @@
 # JCLAW Home · S10 节目式导航
 
-一个可以每天使用的TV工具导航。当前主界面使用S10大屏、薄奶油包边、机身旋钮与按键、七频道及屏内菜单，没有独立遥控器。每个网站独立开发动画，不扩成浏览器操作系统。
+一个可以每天使用的TV工具导航。当前主界面使用S10大屏、薄奶油包边、机身换台旋钮、开关／暂停／设置三枚按键、七频道及屏内菜单，没有独立遥控器。每个网站独立开发动画，不扩成浏览器操作系统。
 
 ## 接手入口
 
@@ -30,6 +30,8 @@
 | 2026学习资料 | study-2026 | 1 | [#8](https://github.com/laojia-a/home/issues/8) |
 
 每个目录包含index.js、renderers.js、manifest.json、README.md；共享绘制在shared，Canvas实例在contract，registry只组合网站。主界面机身在`src/ui/tv-shell.js`，设置菜单在`src/ui/settings-menu.js`，配置、时钟和导航分别位于`src/settings`、`src/player`和`src/navigation`；`runtime.js`仍负责协调，尚需继续拆分。
+
+屏幕公共叠层只在左上显示站点图标、名称和分幕。图标取自已归档的`os-design`导航资产并内嵌到单文件构建；它们不是已核验的各网站正式品牌Logo。
 
 ## 当前执行顺序
 
