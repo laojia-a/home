@@ -2,7 +2,7 @@ name: Check S10 modules
 on:
   push:
     branches: [main]
-    paths: ['src/**', 'scripts/**', 'tests/**', 'package.json', 'docs/**', 'reference/**', 'archive/**', '.github/workflows/check.yml']
+    paths: ['src/**', 'scripts/**', 'tests/**', 'package.json', 'package-lock.json', 'wrangler.jsonc', 'docs/**', 'reference/**', 'archive/**', '.github/workflows/check.yml']
   pull_request:
 permissions:
   contents: read

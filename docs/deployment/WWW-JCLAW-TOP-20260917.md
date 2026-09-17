@@ -1,6 +1,6 @@
 # www.jclaw.top 发布记录（已上线并激活）
 
-- 源码：`feat/immersive-tv-material-20260917`，`cbc8cd66c73f790627a5b6f53d2f72cb962c4b3e`；该分支已推送，未合并到 `main`。
+- 此节记录首次发布时的源码快照：`feat/immersive-tv-material-20260917`，`cbc8cd66c73f790627a5b6f53d2f72cb962c4b3e`。后续已合并到 `main`；当前生产发布见 `SHARED-CONFIG-20260917.md`。
 - 构建：15 项单元检查、`scripts/build.py`、`scripts/verify.py` 通过。
 - 发布包：`release/www-jclaw-top/cbc8cd66/index.html`，仅 1 个文件；SHA-256 `acd8e51ec5cf62fb6f3410f030a0576bdb72e914f31103609051343b755646dd`，与 `dist/index.html` 一致。`release/` 在 `.gitignore` 中。
 - Cloudflare Pages 项目：`jclaw-home`；Production 分支为 `feat/immersive-tv-material-20260917`。

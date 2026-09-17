@@ -24,3 +24,11 @@
 ## 验证
 
 `npm test`、`py -3 scripts/build.py`、`py -3 scripts/verify.py`，以及 `npx wrangler pages dev dist`。线上发布后核对：公开 GET、未授权写入 401、正确密码解锁和保存、另一个浏览器读取同一配置、电视画面与换台。
+
+## 2026-09-17 发布结果
+
+- 实现经 [PR #16](https://github.com/laojia-a/home/pull/16) 的完整 CI 检查通过并快进合并到 `main`。Wrangler 配置兼容修复后，发布源码为 `fa5ccc75b45cb3a3c3b6a0162c72885b3f4df2f7`。
+- Pages 生产分支已改为 `main`；生产部署为 `https://980f2abb.jclaw-home.pages.dev/`，自定义域名仍为 `https://www.jclaw.top/`。
+- KV 初始值已写入：三个既有 HTTPS 接入地址启用，其余四个频道未配置；公开 API 返回 revision 1。
+- 线上验证：主页与公开 API 均 HTTP 200；错误密码 HTTP 401；本机备查密码验证 HTTP 200；Edge 观察到机身设置打开后仅显示管理员密码入口。
+- 密码备查仅在当前机器的 `.secrets/admin-password.txt`，Git 忽略；发布后不要将该文件放入任何公开同步目录。
