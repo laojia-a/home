@@ -19,8 +19,12 @@ src/animations/
     study-2026/             学习资料预告
     manifest.json
 src/dev/                    独立网站动画预览
-src/styles/                 原S10外观与局部修正
-src/runtime.js              TV操作逻辑；尚需进一步拆分
+src/styles/                 原S10外观、修正与tv-shell.css沉浸机身
+src/ui/                     机身、换台视觉与设置菜单
+src/settings/               配置校验、草稿和持久化
+src/player/                 节目时钟推进
+src/navigation/             外部工具入口
+src/runtime.js              TV宿主协调；尚需进一步拆分
 src/shell.template.html     构建模板
 scripts/build.py            本地ES模块打包、七预览、可选整合页
 reference/                  用户原始参考，不修改
@@ -31,7 +35,7 @@ baseline/                   最新交付核心基线，不当作开发目录
 
 ## 未完成部分
 
-runtime.js尚未完全拆成播放器、设置、导航、存储和输入服务。Canvas合同已经实际使用，SVG/CSS3D适配仍是目标；独立预览不等于跨渲染器宿主已经验证。
+机身、菜单、配置、时钟推进和外部入口已从runtime.js拆出；换台/播放状态、输入委托及画布生命周期仍由runtime.js协调。Canvas合同已经实际使用，SVG/CSS3D适配仍是目标；独立预览不等于跨渲染器宿主已经验证。
 
 下一拆分的职责：shell只显示状态和发动作；player拥有唯一节目时钟、当前频道/分幕和暂停原因；navigation拥有校验后的真实跳转；settings拥有面板会话及草稿；services负责偏好和URL策略；animation instance只绘制。
 

@@ -1,6 +1,6 @@
 # JCLAW Home · S10 节目式导航
 
-一个可以每天使用的TV工具导航。保留S10大屏节目、薄奶油包边、实体遥控器、七频道与屏内菜单。每个网站独立开发动画；设置、播放器、导航和存储分别维护，不扩成浏览器操作系统。
+一个可以每天使用的TV工具导航。当前主界面使用S10大屏、薄奶油包边、机身旋钮与按键、七频道及屏内菜单，没有独立遥控器。每个网站独立开发动画，不扩成浏览器操作系统。
 
 ## 接手入口
 
@@ -29,11 +29,11 @@
 | BE Oracle | be-oracle | 1 | [#7](https://github.com/laojia-a/home/issues/7) |
 | 2026学习资料 | study-2026 | 1 | [#8](https://github.com/laojia-a/home/issues/8) |
 
-每个目录包含index.js、renderers.js、manifest.json、README.md；共享绘制在shared，Canvas实例在contract，registry只组合网站。src/runtime.js仍需进一步拆分。
+每个目录包含index.js、renderers.js、manifest.json、README.md；共享绘制在shared，Canvas实例在contract，registry只组合网站。主界面机身在`src/ui/tv-shell.js`，设置菜单在`src/ui/settings-menu.js`，配置、时钟和导航分别位于`src/settings`、`src/player`和`src/navigation`；`runtime.js`仍负责协调，尚需继续拆分。
 
 ## 当前执行顺序
 
-归档 [#9](https://github.com/laojia-a/home/issues/9) 和开发分线进行。下一开发批次是 [#10 设置面板/配置服务](https://github.com/laojia-a/home/issues/10)，再与 [#11 播放器/导航/统一嵌入](https://github.com/laojia-a/home/issues/11) 协同。公共接口和回归基准稳定后，七个网站独立精修。历史大包缺失不阻塞核心开发，但阻塞完整便携包验收。总任务 [#1](https://github.com/laojia-a/home/issues/1)。
+归档 [#9](https://github.com/laojia-a/home/issues/9) 和开发分线进行。[#10 设置](https://github.com/laojia-a/home/issues/10) 与 [#11 播放器/导航](https://github.com/laojia-a/home/issues/11) 已开始模块拆分，剩余完整生命周期和跨渲染器宿主仍待实现。历史大包缺失不阻塞核心开发，但阻塞完整便携包验收。总任务 [#1](https://github.com/laojia-a/home/issues/1)。
 
 ## 构建与验证
 
@@ -52,4 +52,4 @@ python3 tests/collection.py
 
 本轮run [34939772081](https://github.com/laojia-a/home/actions/runs/34939772081) 实际通过：10单元/构建/边界及基线哈希，19浏览器流程，128个固定Canvas帧，16个历史SVG的seek/冻结像素/resume。结果及截图已提交 [docs/evidence/cinematic-recovery-20260915](docs/evidence/cinematic-recovery-20260915/)。这不是最终视觉确认，也不是全档案往返、file://、远程字体或直播验证。
 
-本轮未改生产布局、动画、原始参考、冻结核心基线或外部业务站点；未部署、未改域名。损坏临时导入片段已移出当前工作树，其证据保存在docs/development/INTERRUPTED-TRANSFER-20260915.json。
+当前分支已接入沉浸式机身布局并拆出部分宿主模块；七网站Canvas节目、原始参考、冻结核心基线、外部业务站点和域名未改，也未部署。损坏临时导入片段的历史证据保存在docs/development/INTERRUPTED-TRANSFER-20260915.json。

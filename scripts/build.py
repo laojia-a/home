@@ -29,14 +29,14 @@ def bundle(entry):
     return '(function(){"use strict";const __modules=Object.create(null);\n'+'\n'.join(emitted)+'\n})();'
 def build():
     out=ROOT/'dist';out.mkdir(exist_ok=True)
-    js=bundle('src/runtime.js');css='\n'.join((ROOT/'src/styles'/n).read_text() for n in ['s10.css','refinements.css'])
-    html=(ROOT/'src/shell.template.html').read_text().replace('__STYLES__',css).replace('__SCRIPTS__',js.replace('</script','<\\/script'))
+    js=bundle('src/runtime.js');css='\n'.join((ROOT/'src/styles'/n).read_text(encoding='utf-8') for n in ['s10.css','refinements.css','tv-shell.css'])
+    html=(ROOT/'src/shell.template.html').read_text(encoding='utf-8').replace('__STYLES__',css).replace('__SCRIPTS__',js.replace('</script','<\\/script'))
     (out/'index.html').write_text(html,encoding='utf-8')
     (out/'runtime.check.js').write_text(js,encoding='utf-8')
     previews=out/'previews';previews.mkdir(exist_ok=True)
     previewjs=bundle('src/dev/preview.js')
-    for site in json.loads((ROOT/'src/animations/sites/manifest.json').read_text()):
-        page=(ROOT/'src/dev/preview.template.html').read_text().replace('__SITE__',site['moduleId']).replace('__NAME__',site['website']).replace('__SCRIPT__',previewjs)
+    for site in json.loads((ROOT/'src/animations/sites/manifest.json').read_text(encoding='utf-8')):
+        page=(ROOT/'src/dev/preview.template.html').read_text(encoding='utf-8').replace('__SITE__',site['moduleId']).replace('__NAME__',site['website']).replace('__SCRIPT__',previewjs)
         (previews/(site['directory']+'.html')).write_text(page,encoding='utf-8')
     for name in ['reference','archive']:
         source=ROOT/name
@@ -44,7 +44,7 @@ def build():
     # All-in-one is generated only when the full immutable archive actually exists.
     old=ROOT/'archive/earlier-tv.html';ref=ROOT/'reference/s10-tv.html'
     if old.exists() and ref.exists():
-        pages={'main':html,'reference':ref.read_text(),'earlier':old.read_text()}
+        pages={'main':html,'reference':ref.read_text(encoding='utf-8'),'earlier':old.read_text(encoding='utf-8')}
         payload=json.dumps(pages,ensure_ascii=False).replace('<','\\u003c').replace('\u2028','\\u2028').replace('\u2029','\\u2029')
         loader='''<!doctype html><html lang="zh-CN"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>JCLAW TV · 网站独立模块</title><style>html,body{margin:0;height:100%;background:#eae6db}iframe{width:100%;height:100%;border:0}button{position:fixed;right:12px;top:10px;z-index:9;padding:10px;background:#f5f1e6;border:1px solid #bfb6a2;color:#294832}button[hidden]{display:none}</style><button id="back" hidden>返回电视</button><iframe id="surface" title="JCLAW TV" allow="fullscreen" allowfullscreen></iframe><script>const PAGES=__PAGES__;const frame=document.querySelector('iframe'),back=document.querySelector('button');function show(id){if(!Object.hasOwn(PAGES,id))return;frame.srcdoc=PAGES[id];back.hidden=id==='main'}back.onclick=()=>show('main');addEventListener('message',e=>{if(e.source===frame.contentWindow&&e.data?.type==='s10-archive')show(e.data.id)});show('main');</script></html>'''.replace('__PAGES__',payload)
         (out/'portable.html').write_text(loader,encoding='utf-8')
