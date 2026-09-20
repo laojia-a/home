@@ -2,19 +2,21 @@ const clamp=x=>Math.min(1,Math.max(0,x));
 const ease=x=>{const t=clamp(x);return t*t*(3-2*t);};
 const phase=(t,a,b)=>ease((t-a)/(b-a));
 const lerp=(a,b,t)=>a+(b-a)*t;
-const INITIAL_PLASMA=3.2; // Illustration units only; not a volume or a recommendation.
+const INITIAL_PLASMA=2; // Two illustrative aliquots; not a volume or a recommendation.
+const plasmaSurface=amount=>386-amount*42;
+const aspirationTip=amount=>plasmaSurface(amount)+Math.min(10,amount*42*.45);
 function processState(ms){
   const t=Math.min(28,Math.max(0,ms/1000));
   const a1=phase(t,8.5,10),d1=phase(t,13,14.8),a2=phase(t,17.3,18.8),d2=phase(t,21.5,23.3);
   const source=INITIAL_PLASMA-a1-a2,tip=a1-d1+a2-d2;
-  const surface=387-source*26;
-  const aspirationY=surface+10;
-  const startY=387-INITIAL_PLASMA*26+10;
+  const surface=plasmaSurface(source);
+  const aspirationY=aspirationTip(source);
+  const startY=aspirationTip(2),middleY=aspirationTip(1),endY=aspirationTip(0);
   const route=[
     [7,220,155],[7.7,300,205],[8.5,300,startY],
-    [10,300,startY+26],[11,300,200],[12.3,630,210],[13,639,365],
-    [14.8,639,365],[15.5,630,205],[16.7,300,205],[17.3,300,startY+26],
-    [18.8,300,startY+52],[19.5,300,195],[21,790,205],[21.5,799,365],
+    [10,300,middleY],[11,300,200],[12.3,630,210],[13,639,365],
+    [14.8,639,365],[15.5,630,205],[16.7,300,205],[17.3,300,middleY],
+    [18.8,300,endY],[19.5,300,195],[21,790,205],[21.5,799,365],
     [23.3,799,365],[24,790,205],[25,890,110]
   ];
   let x=route[0][1],y=route[0][2];

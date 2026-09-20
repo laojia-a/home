@@ -14,8 +14,9 @@ test('aspiration stays in plasma and never enters the cell interface',()=>{
   for(const [a,b] of [[8500,10000],[17300,18800]])for(let ms=a;ms<=b;ms+=25){
     const s=processState(ms);
     assert.equal(s.pipette.x,300);
-    assert.ok(s.pipette.y>s.surface);
-    assert.ok(s.pipette.y<386);
+    if(s.source>0)assert.ok(s.pipette.y>s.surface);
+    else assert.equal(s.pipette.y,s.surface);
+    assert.ok(s.pipette.y<=386);
     assert.equal(s.uncap,1);
   }
 });
@@ -31,7 +32,7 @@ test('receivers fill only with the tip inside their open neck',()=>{
     before=s;
   }
   const end=processState(28000);
-  assert.equal(end.test,1);assert.equal(end.backup,1);assert.equal(end.tip,0);assert.equal(end.seal,1);
+  assert.equal(end.test,1);assert.equal(end.backup,1);assert.equal(end.source,0);assert.equal(end.tip,0);assert.equal(end.seal,1);
 });
 test('the pipette clears tube mouths before travelling between vessels',()=>{
   for(const [a,b] of [[11000,12300],[15500,16700],[19500,21000]])for(let ms=a;ms<=b;ms+=25){

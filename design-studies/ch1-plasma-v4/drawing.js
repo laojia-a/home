@@ -26,9 +26,11 @@ function drawCollectionTube(c,s){
   c.save();glassPath(c,x,y+4,w-3,h-7,23);c.clip();
   // Lower cells remain in place throughout both aspirations.
   rr(c,x-w/2,390,w,67,0,grad(c,x-w/2,0,x+w/2,0,[[0,'#844543'],[.48,'#af6255'],[1,'#914845']])) ;
-  rr(c,x-w/2,386,w,4,0,'#e6d2aa');
-  rr(c,x-w/2,s.surface,w,386-s.surface,0,grad(c,x-w/2,0,x+w/2,0,[[0,'#c5a554b0'],[.5,'#ead58d88'],[1,'#c7a451bc']])) ;
-  ellipse(c,x,s.surface,w/2-2,3,'#eddca385','#b59b5577',.8);c.restore();
+  rr(c,x-w/2,386,w,4,0,'#ddd6c8');
+  if(s.source>0){
+    rr(c,x-w/2,s.surface,w,386-s.surface,0,grad(c,x-w/2,0,x+w/2,0,[[0,'#c5a554b0'],[.5,'#ead58d88'],[1,'#c7a451bc']]));
+    c.save();c.globalAlpha=Math.min(1,s.source*10);ellipse(c,x,s.surface,w/2-2,3,'#eddca385','#b59b5577',.8);c.restore();
+  }c.restore();
   glassFront(c,x,y,w,h,24);
   rr(c,x-41,459,82,15,4,grad(c,0,459,0,474,[[0,'#d5ddbd'],[1,'#adbf96']]),'#92a57d',1);
   // The collection tube has a stopper and rounded bottom, not a conical centrifuge-tube body.
