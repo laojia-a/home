@@ -25,8 +25,11 @@ async def main(args):
   for channel in range(4,8):
    await page.keyboard.press(str(channel));await page.wait_for_timeout(350)
    assert await page.evaluate('S10.snapshot().signal')=='none'
-   assert not await page.locator('#siteIdentity').is_visible()
-  results.append('CH04-07 show no signal and no speculative station overlay')
+   assert await page.locator('#siteIdentity').is_visible()
+   assert await page.locator('#siteName').inner_text() in ['EZCTD','BE Solo','BE Oracle','2026 · 学习资料']
+   assert not await page.locator('#siteMark').is_visible()
+   assert not await page.locator('#siteScene').is_visible()
+  results.append('CH04-07 show no signal with project-name station labels')
   frame="document.querySelector('#cv7').toDataURL()"
   frozen=await page.evaluate(frame);await page.wait_for_timeout(220);assert await page.evaluate(frame)==frozen
   await page.keyboard.press('Space');await page.wait_for_timeout(240);assert await page.evaluate(frame)!=frozen

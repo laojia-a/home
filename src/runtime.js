@@ -49,7 +49,9 @@ function updateChrome(){
  screen.classList.toggle('paused',state.paused);
  screen.classList.toggle('power-off',!state.power);
  $('#powerWake').hidden=state.power;
- $('#siteIdentity').hidden=!state.power||programme().signal==='none';
+ $('#siteIdentity').hidden=!state.power;
+ mark.hidden=programme().signal==='none';
+ $('#siteScene').hidden=programme().signal==='none';
  $('#siteName').textContent=ch.name;
  $('#siteScene').textContent=programme().label;
  if(mark.dataset.siteId!==ch.id){mark.src=siteMarkDataUrl(ch.id);mark.dataset.siteId=ch.id;}
