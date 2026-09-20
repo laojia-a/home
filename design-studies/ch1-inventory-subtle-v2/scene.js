@@ -1,6 +1,6 @@
 import { mountTelevision } from '../../src/ui/tv-shell.js';
 import { siteMarkDataUrl } from '../../src/ui/site-marks.js';
-import { site as originalSite } from '../../src/animations/sites/cth/index.js';
+import { originalTheme, inventoryScene } from '../ch1-original-inventory.js';
 import { defineCanvasScene } from '../../src/animations/contract/canvas-scene.js';
 import { inventory } from './inventory-refined.js';
 
@@ -14,8 +14,8 @@ document.querySelector('#tvPlayLabel').textContent='样稿';
 const refined=defineCanvasScene({id:'cth.inventory-refined',channelId:'cth',label:'物资盘点',seconds:10.5,draw:inventory});
 let original=false,playing=false,elapsedMs=7560,last=0,frameId=0;
 function viewport(){return {width:screen.clientWidth,height:screen.clientHeight,dpr:Math.min(devicePixelRatio,2)};}
-const options={canvas,viewport:viewport(),theme:originalSite.theme,index:1,count:6};
-const instances=[refined.create(options),originalSite.scenes[1].create(options)];
+const options={canvas,viewport:viewport(),theme:originalTheme,index:1,count:6};
+const instances=[refined.create(options),inventoryScene.create(options)];
 function paint(){const instance=instances[Number(original)];instance.resize(viewport());instance.render({elapsedMs,deltaMs:0,playing});document.body.dataset.rendered='true';}
 function tick(now){if(!playing)return;if(!document.hidden)elapsedMs=(elapsedMs+Math.min(100,Math.max(0,now-last)))%10500;last=now;paint();frameId=requestAnimationFrame(tick);}
 document.querySelector('#compare').onclick=event=>{original=!original;event.currentTarget.setAttribute('aria-pressed',String(original));event.currentTarget.textContent=original?'看微调版':'看原版';document.querySelector('#edition').textContent=original?'原版 · 相同时间点':'原版微调 · v2';paint();};

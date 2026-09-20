@@ -1,0 +1,110 @@
+[
+  {
+    "study": "design-studies/ch1-contract-v10/drawing.js",
+    "sourceSha256": "5434e200a9d5f03f38ffdf0df62a5dcee127328461ba827c05013b53e621c559",
+    "module": "src/animations/sites/cth/scenes/contract/drawing.js",
+    "adaptation": "import paths and named export form only"
+  },
+  {
+    "study": "design-studies/ch1-contract-v10/amounts.js",
+    "sourceSha256": "a495d7bd27bad53d16e56ef7d87bfaa7ee133bfa03d97354aca8c5b7f3789d20",
+    "module": "src/animations/sites/cth/scenes/contract/amounts.js",
+    "adaptation": "import paths and named export form only"
+  },
+  {
+    "study": "design-studies/ch1-contract-v10/reference/chinese-upper.js",
+    "sourceSha256": "4863ca0d0c84ac03126a9110a77685d11f66d8b36f87798b76648e4579668aa0",
+    "module": "src/animations/sites/cth/scenes/contract/reference/chinese-upper.js",
+    "adaptation": "import paths and named export form only"
+  },
+  {
+    "study": "design-studies/ch1-contract-v10/reference/provenance.json",
+    "sourceSha256": "261164713d1c9d557d7f550a2ac3c509290f61378cdd42d52bef7f00f2b5f848",
+    "module": "src/animations/sites/cth/scenes/contract/reference/provenance.json",
+    "adaptation": "import paths and named export form only"
+  },
+  {
+    "study": "design-studies/ch1-plasma-v4/drawing.js",
+    "sourceSha256": "103aa24dbdf1c265da6727cf52b79d4592af6b8d4a6f632008db2ea5f027c127",
+    "module": "src/animations/sites/cth/scenes/plasma/drawing.js",
+    "adaptation": "import paths and named export form only"
+  },
+  {
+    "study": "design-studies/ch1-plasma-v4/process.js",
+    "sourceSha256": "6e80dc42aa1bdb43bd66fbbde905baaa280d06a6164bb2317f4acb4a69aaec83",
+    "module": "src/animations/sites/cth/scenes/plasma/process.js",
+    "adaptation": "import paths and named export form only"
+  },
+  {
+    "study": "design-studies/ch1-sample-size-v6/drawing.js",
+    "sourceSha256": "b1539c03e3b24db3153afd6c3551bf3e3bc1258ec9e2117c3fe9023eccfba7c4",
+    "module": "src/animations/sites/cth/scenes/sample-size/drawing.js",
+    "adaptation": "import paths and named export form only"
+  },
+  {
+    "study": "design-studies/ch1-sample-size-v6/example.js",
+    "sourceSha256": "c7ae549c3ffd2f0d8a9f4f1e4665d236a4dc3c0b31e715679f4aa3a0a85bac12",
+    "module": "src/animations/sites/cth/scenes/sample-size/example.js",
+    "adaptation": "import paths and named export form only"
+  },
+  {
+    "study": "design-studies/ch1-sample-size-v6/reference/be-stats.js",
+    "sourceSha256": "7680c6125365e35d93a1c03b0f2a77bfb433908e110fcba12a3dfda8fa565a1c",
+    "module": "src/animations/sites/cth/scenes/sample-size/reference/be-stats.js",
+    "adaptation": "import paths and named export form only"
+  },
+  {
+    "study": "design-studies/ch1-sample-size-v6/reference/provenance.json",
+    "sourceSha256": "3f479e3c580100f9457edf35dbf428a58d807073904665249a63bffbe4cef47e",
+    "module": "src/animations/sites/cth/scenes/sample-size/reference/provenance.json",
+    "adaptation": "import paths and named export form only"
+  },
+  {
+    "study": "design-studies/ch1-ctcae-v7/drawing.js",
+    "sourceSha256": "2e43f3c4cd690baa1e42cfe7329f663b656e49614ecea0bec346e9a3f6d98bd8",
+    "module": "src/animations/sites/cth/scenes/ctcae/drawing.js",
+    "adaptation": "import paths and named export form only"
+  },
+  {
+    "study": "design-studies/ch1-ctcae-v7/term.js",
+    "sourceSha256": "ff1affaa545ff528cbe8ffb1070e5f74fa6eb0ff386c69454a8dca9d019ff8dd",
+    "module": "src/animations/sites/cth/scenes/ctcae/term.js",
+    "adaptation": "import paths and named export form only"
+  },
+  {
+    "study": "design-studies/ch1-terms-v8/drawing.js",
+    "sourceSha256": "986893dd65a9de1257bc90b2aff5003756c76944ed092798d6b9884afc5fec12",
+    "module": "src/animations/sites/cth/scenes/terms/drawing.js",
+    "adaptation": "import paths and named export form only"
+  },
+  {
+    "study": "design-studies/ch1-terms-v8/hierarchy.js",
+    "sourceSha256": "77e49c7e0e5fdc7d7ee418c5aa8afb9b48706175d29f4f4300d7ec857a84c38d",
+    "module": "src/animations/sites/cth/scenes/terms/hierarchy.js",
+    "adaptation": "import paths and named export form only"
+  },
+  {
+    "study": "design-studies/ch1-terms-v8/example.json",
+    "sourceSha256": "30af43a307d754de9e9cb2ab82b7c921300c3c1a211b54ff6c7b52d7a14af4c0",
+    "module": "src/animations/sites/cth/scenes/terms/data.js",
+    "adaptation": "JSON wrapped as named ES module"
+  },
+  {
+    "study": "design-studies/ch1-meal-v9/drawing.js",
+    "sourceSha256": "9e589a525a67a7a0dfba20d5cce3a5108245a2f858b62d68627f8a2a1af6a4e4",
+    "module": "src/animations/sites/cth/scenes/meal/drawing.js",
+    "adaptation": "import paths and named export form only"
+  },
+  {
+    "study": "design-studies/ch1-meal-v9/nutrition.js",
+    "sourceSha256": "c4ba3bd719339b8ab1c2c5946116e137610af80eed3dffd6eccfe1cb22764626",
+    "module": "src/animations/sites/cth/scenes/meal/nutrition.js",
+    "adaptation": "import paths and named export form only"
+  },
+  {
+    "study": "design-studies/ch1-meal-v9/example.json",
+    "sourceSha256": "c11bbdcfaa5bbce9b20cd9b6fc8e66094c67784cab380a13c53b42f9fd154538",
+    "module": "src/animations/sites/cth/scenes/meal/data.js",
+    "adaptation": "JSON wrapped as named ES module"
+  }
+]

@@ -1,11 +1,22 @@
-# 临床工具集 · 独立网站动画模块
+# 临床工具集 · 六幕连播
 
-入口 `index.js`，本网站的画面函数在 `renderers.js`，元数据清单在 `manifest.json`。
+index.js 注册六个已审阅场景，绘制与示例数据分别位于 scenes/ 的六个子目录；scenes/PROVENANCE.json 记录对应样稿与来源哈希。原 renderers.js 保留作历史对照，不用于当前 CH1 播放。
 
-现有 6 幕：合同追踪、物资盘点、例数估算、不良事件分级、术语检索、餐谱计算。函数体从 S10 节目精修原文件迁移，不改写构图或动作；保留合成/示意说明。
+| 主题组 | 顺序 | 内容 | 正片时长 |
+|---|---|---|---|
+| 研究准备 | 1 | 例数估算 | 20 s |
+| 研究准备 | 2 | 合同金额与分期 | 20 s |
+| 执行操作 | 3 | 餐谱计算 | 20 s |
+| 执行操作 | 4 | 血浆分装 | 28 s |
+| 记录核对 | 5 | 不良事件分级 | 20 s |
+| 记录核对 | 6 | 术语检索 | 20 s |
 
-开发只修改本目录的节目函数、场景注册和主题。不要复制播放器、菜单、导航或创建 requestAnimationFrame/setInterval。宿主传入绝对时间，支持指定帧、暂停与恢复，实例 dispose 必须可重复调用。
+以上为节目理解顺序，不是临床操作 SOP。每幕增加 0.85 s 入场、1.1 s 收尾阅读、0.9 s 接续，总计 145.1 s。接续终帧与下一幕开场卡片相同，第六幕也接回第一幕。
 
-单独预览：构建后打开 `dist/previews/cth.html`。预览和电视使用同一入口与同一 Canvas 适配器。
+适配器位于 src/animations/contract/programme-series.js。统一由宿主时间推进，支持暂停、恢复与拖动。关闭分幕轮播时回到本幕开场卡片。手动切幕使用短叠化，不改变手动暂停状态。
 
-验证：仓库根目录 `npm run check`；`python tests/parity.py` 检查16幕与原始基线固定帧相同。后续视觉修改另开 polish 提交，不与本次迁移混在一起。
+本地审阅：design-studies/ch1-continuous-v11/ 提供整期时间轴和“看衔接”；根 index.html 与 dist/index.html 使用同一组模块，dist/previews/cth.html 可逐幕检查。
+
+验证：npm test、构建、scripts/verify.py，以及 tests/programme-series.py 的真实浏览器边界像素、暂停、手动切幕、自动推进和循环检查。tests/parity.py 继续验证未改动的 CH02–03。
+
+当前仅在本地与私有开发分支接入，未发布线上。术语单例授权范围是私有仓库，不包括公开站点部署。

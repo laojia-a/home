@@ -7,7 +7,7 @@ function advanceProgramme(state, now, scenes, picture, active){
   state.elapsed+=dt*picture.speed;
   if(state.elapsed<scene.seconds)return false;
   if(picture.autoplay){
-    state.elapsed=0;
+    state.elapsed-=scene.seconds;
     state.scene=(state.scene+1)%scenes.length;
     return true;
   }

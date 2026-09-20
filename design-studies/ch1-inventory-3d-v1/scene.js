@@ -7,7 +7,7 @@ import { BokehPass } from 'three/addons/postprocessing/BokehPass.js';
 import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
 import { mountTelevision } from '../../src/ui/tv-shell.js';
 import { siteMarkDataUrl } from '../../src/ui/site-marks.js';
-import { site as originalSite } from '../../src/animations/sites/cth/index.js';
+import { originalTheme, inventoryScene } from '../ch1-original-inventory.js';
 
 const screen=document.querySelector('#screen');
 const cabinet=mountTelevision(screen,Array.from({length:7},(_,i)=>({n:i+1,name:i===0?'临床工具集':'频道 '+(i+1)})),()=>{});
@@ -151,7 +151,7 @@ function paint(){
   bokeh.enabled=depth;
   if(original){
     const viewport={width,height,dpr:Math.min(devicePixelRatio,2)};
-    if(!originalInstance)originalInstance=originalSite.scenes[1].create({canvas:originalCanvas,viewport,theme:originalSite.theme,index:1,count:6});
+    if(!originalInstance)originalInstance=inventoryScene.create({canvas:originalCanvas,viewport,theme:originalTheme,index:1,count:6});
     originalInstance.resize(viewport);originalInstance.render({elapsedMs:7560,deltaMs:0,playing:false});
   }else composer.render();
   document.body.dataset.rendered='true';
