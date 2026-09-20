@@ -1,0 +1,43 @@
+{
+  "items": [
+    {
+      "id": "f1",
+      "name": "煮鸡蛋",
+      "short": "煮鸡蛋",
+      "amount": 50,
+      "unit": "g",
+      "per100": {
+        "protein": 13.1,
+        "fat": 8.6,
+        "carb": 2.4
+      }
+    },
+    {
+      "id": "f2",
+      "name": "盼盼吐司小方",
+      "short": "吐司",
+      "amount": 80,
+      "unit": "g",
+      "per100": {
+        "protein": 7.9,
+        "fat": 15.4,
+        "carb": 51.5
+      }
+    },
+    {
+      "id": "f10",
+      "name": "特仑苏纯牛奶 250mL",
+      "short": "纯牛奶",
+      "amount": 250,
+      "unit": "mL",
+      "per100": {
+        "protein": 3.6,
+        "fat": 4.4,
+        "carb": 5.0
+      }
+    }
+  ],
+  "source": "CTH src/data/foods.js DEFAULT_FOODS",
+  "sourceSha256": "44eaf563485af47e4ec5147443a48a867488473b22a05aff4804960b497ebc3d",
+  "scope": "Illustrative portions, not a recommended diet or BE meal qualification"
+}
