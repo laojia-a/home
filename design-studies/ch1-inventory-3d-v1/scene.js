@@ -94,7 +94,7 @@ function bloodTube(parent,x,z,height,fill){
   const meniscus=torus(.143,.009,liquidMaterial,group,0,.12+fill,0);meniscus.castShadow=false;
   const cap=cyl(.218,.21,capMaterial,group,0,height+.075,0);
   torus(.203,.017,lightPlastic,group,0,height-.034,0);
-  
+
   // The long bright reflection is an actual studio light reflected in the glass.
   return group;
 }
