@@ -7,15 +7,15 @@
   "entry": "index.js",
   "sceneCount": 6,
   "sceneIds": [
-    "cth.contract",
-    "cth.inventory",
     "cth.sample",
+    "cth.contract",
+    "cth.breakfast",
+    "cth.inventory",
     "cth.grades",
-    "cth.terms",
-    "cth.breakfast"
+    "cth.terms"
   ],
-  "status": "migrated-existing-programmes-no-visual-redesign",
-  "source": "baseline/s10-programme/src/programmes.js",
+  "status": "reviewed-six-scene-continuous-programme",
+  "source": "src/animations/sites/cth/scenes/PROVENANCE.json",
   "defaultUrl": "https://cth.jclaw.top",
   "theme": {
     "bg": "#e9e2ce",
@@ -25,5 +25,6 @@
     "accent": "#7b8153",
     "line": "#7c815126",
     "light": true
-  }
+  },
+  "programmeDurationMs": 145100
 }

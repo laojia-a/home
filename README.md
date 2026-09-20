@@ -33,6 +33,10 @@
 
 屏幕公共叠层只在左上显示站点图标、名称和分幕。图标取自已归档的`os-design`导航资产并内嵌到单文件构建；它们不是已核验的各网站正式品牌Logo。
 
+## CH1 六幕连播（本地已接入）
+
+已审阅的六幕按“例数 → 合同金额 → 餐谱 → 血浆分装 → 不良事件分级 → 术语”连播，整期约 2 分 25 秒。开场、收尾停留和接续使用同一播放时钟，支持暂停与循环。审阅入口：design-studies/ch1-continuous-v11/；正式本地主界面也使用相同模块。参见 docs/development/CH1-CONTINUOUS-20260920.md。尚未部署线上。
+
 ## 当前执行顺序
 
 归档 [#9](https://github.com/laojia-a/home/issues/9) 和开发分线进行。[#10 设置](https://github.com/laojia-a/home/issues/10) 与 [#11 播放器/导航](https://github.com/laojia-a/home/issues/11) 已开始模块拆分，剩余完整生命周期和跨渲染器宿主仍待实现。历史大包缺失不阻塞核心开发，但阻塞完整便携包验收。总任务 [#1](https://github.com/laojia-a/home/issues/1)。

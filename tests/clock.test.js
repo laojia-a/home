@@ -16,5 +16,5 @@ test('long frame is capped and autoplay selects the next scene',()=>{
   const state={scene:0,elapsed:.95,last:1000};
   assert.equal(advanceProgramme(state,4000,scenes,{speed:1,autoplay:true},true),true);
   assert.equal(state.scene,1);
-  assert.equal(state.elapsed,0);
+  assert.ok(Math.abs(state.elapsed-.05)<1e-9);
 });

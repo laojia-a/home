@@ -1,0 +1,7 @@
+{
+  "calculationSource": "CTH src/pages/contract.js calc and getConclusionLines",
+  "calculationSha256": "6346bff3304c811f0ba0ffff833b78ace79f217386ba46376d9c5c7f7da04668",
+  "uppercaseSource": "CTH src/utils/chinese-upper.js",
+  "uppercaseSha256": "1d95ce93a662ea5bd68f75b2cf6dd5f2f64d6273b55717a46faa03798231acf1",
+  "inputs": "Illustrative unit price and case count; 6% rate and 40/30/30 split match current calculator defaults. No real contract."
+}

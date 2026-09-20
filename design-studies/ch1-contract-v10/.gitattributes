@@ -1,0 +1,3 @@
+# Preserve upstream shader strings in the reproducible browser bundle.
+bundle.js linguist-generated=true -whitespace
+cabinet.css linguist-generated=true

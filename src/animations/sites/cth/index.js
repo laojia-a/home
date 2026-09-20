@@ -1,5 +1,10 @@
-import { defineCanvasScene } from "../../contract/canvas-scene.js";
-import { contract, inventory, sample, grades, terms, breakfast } from "./renderers.js";
+import { createProgrammeSeries } from "../../contract/programme-series.js";
+import { drawProcess as contract } from "./scenes/contract/drawing.js";
+import { drawProcess as plasma } from "./scenes/plasma/drawing.js";
+import { drawProcess as sample } from "./scenes/sample-size/drawing.js";
+import { drawProcess as grades } from "./scenes/ctcae/drawing.js";
+import { drawProcess as terms } from "./scenes/terms/drawing.js";
+import { drawProcess as meal } from "./scenes/meal/drawing.js";
 const website = {
   "id": "cth",
   "n": 1,
@@ -7,7 +12,7 @@ const website = {
   "url": "https://cth.jclaw.top",
   "enabled": true,
   "color": "#9dab75",
-  "desc": "合同 / 物资 / 例数 / 分级 / 术语 / 餐谱"
+  "desc": "例数 / 合同金额 / 餐谱 / 血浆分装 / 分级 / 术语"
 };
 const theme = Object.freeze({
   "bg": "#e9e2ce",
@@ -18,13 +23,13 @@ const theme = Object.freeze({
   "line": "#7c815126",
   "light": true
 });
-const scenes = Object.freeze([
-  defineCanvasScene({ id:"cth.contract", channelId:"cth", label:"合同追踪", seconds:10, draw:contract }),
-  defineCanvasScene({ id:"cth.inventory", channelId:"cth", label:"物资盘点", seconds:10.5, draw:inventory }),
-  defineCanvasScene({ id:"cth.sample", channelId:"cth", label:"例数估算", seconds:10, draw:sample }),
-  defineCanvasScene({ id:"cth.grades", channelId:"cth", label:"不良事件分级", seconds:10, draw:grades }),
-  defineCanvasScene({ id:"cth.terms", channelId:"cth", label:"术语检索", seconds:10, draw:terms }),
-  defineCanvasScene({ id:"cth.breakfast", channelId:"cth", label:"餐谱计算", seconds:11, draw:breakfast })
+const scenes = createProgrammeSeries('cth',[
+  {id:'cth.sample',label:'例数估算',section:'研究准备',subtitle:'研究设计 · 例数规划',contentMs:20000,draw:sample},
+  {id:'cth.contract',label:'合同金额与分期',section:'研究准备',subtitle:'费用测算 · 分期安排',contentMs:20000,draw:contract},
+  {id:'cth.breakfast',label:'餐谱计算',section:'执行操作',subtitle:'食材份量 · 供能构成',contentMs:20000,draw:meal},
+  {id:'cth.inventory',label:'血浆分装',section:'执行操作',subtitle:'离心分层 · 待测与备份',contentMs:28000,draw:plasma},
+  {id:'cth.grades',label:'不良事件分级',section:'记录核对',subtitle:'查找条目 · 阅读条件',contentMs:20000,draw:grades},
+  {id:'cth.terms',label:'术语检索',section:'记录核对',subtitle:'选择术语 · 展开层级',contentMs:20000,draw:terms}
 ]);
 const site = Object.freeze({ apiVersion:1, website:Object.freeze(website), theme, scenes });
 export { site };

@@ -1,0 +1,8 @@
+{
+  "source": "https://github.com/laojia-a/1-git-2-cloudflare/blob/66d50252ff4ad9413456fd7651271ccea42db0d5/src/utils/be-stats.js",
+  "sourceCommit": "66d50252ff4ad9413456fd7651271ccea42db0d5",
+  "sourceSha256": "9320ae805fa7257dbf75a23661c86748aeb6ca7747ef36ed4a1f616c26f59e79",
+  "snapshotSha256": "7680c6125365e35d93a1c03b0f2a77bfb433908e110fcba12a3dfda8fa565a1c",
+  "inputsSource": "src/pages/be-estimate.js getState().crossover defaults",
+  "scope": "Existing tool example only, not project-specific planning advice"
+}
