@@ -18,9 +18,9 @@ function drawStage(c,W,H,ms,th,mobile){
   const light=c.createRadialGradient(anchorX,anchorY-40,20,anchorX,anchorY-40,W*.64);
   light.addColorStop(0,'#fffdf129');light.addColorStop(1,'#fffdf100');c.fillStyle=light;c.fillRect(0,0,W,H);
   c.save();c.globalAlpha=1-push;
-  D.heading(c,W,H,'物资盘点',t<2?'逐项查看，数量与标识一一对应':'',th,mobile);c.restore();
+  D.heading(c,W,H,'物资盘点',t<2?'逐项查看，按名称识别物资':'',th,mobile);c.restore();
   const positions=Array.from({length:5},(_,i)=>({x:(i-2)*gap,z:(i-2)*24,index:i}));
-  const names=['采血管','离心管','试剂盒','耗材包','冻存管'],values=[.82,.64,.47,.91,.16];
+  const names=['采血管','离心管','试剂盒','耗材包','冻存管'];
   const height=mobile?195:180,top=-105;
   const left=-2.52*gap,right=2.52*gap;
   function strip(y,z,h,color,stroke){
@@ -38,7 +38,7 @@ function drawStage(c,W,H,ms,th,mobile){
     c.translate(pt.x,pt.y);c.scale(pt.scale,pt.scale);
     // All vessels are already settled. Only the liquid retains a small damped response after travel.
     const settle=t<6?3:Math.max(0,(t-6))*1.5;
-    tube(c,0,0,mobile?48:54,height,values[i],i===4?'#bd886b':'#87a586',1,settle);
+    tube(c,0,0,mobile?48:54,height,.55,'#87a586',1,settle);
     c.restore();
   }
   const faceY=top+height-20;
@@ -48,7 +48,7 @@ function drawStage(c,W,H,ms,th,mobile){
   for(const item of positions){const p=project(item.x,faceY+7,item.z-24);D.ellipse(c,p.x,p.y,12*p.scale,2.5*p.scale,'#596e493d');}
   // Wide labels disappear together as the camera approaches. Reading comes after motion.
   const wideAlpha=1-smooth((t-1.9)/.55);
-  if(wideAlpha>0){c.save();c.globalAlpha=wideAlpha;for(const item of positions){const p=project(item.x,top+height+61,item.z);D.text(c,names[item.index],p.x,p.y,mobile?14:13,th.ink,400,'center');D.text(c,Math.round(values[item.index]*100)+'%',p.x,p.y+29,mobile?21:24,item.index===4?'#a46c52':th.ink,500,'center',true);}c.restore();}
+  if(wideAlpha>0){c.save();c.globalAlpha=wideAlpha;for(const item of positions){const p=project(item.x,top+height+61,item.z);D.text(c,names[item.index],p.x,p.y,mobile?14:13,th.ink,400,'center');}c.restore();}
   const first=smooth((t-3.25)/.4)*(1-smooth((t-4)/.28));
   const second=smooth((t-6.05)/.5);
   const captionAlpha=Math.max(first,second);
@@ -57,11 +57,9 @@ function drawStage(c,W,H,ms,th,mobile){
     const x=anchorX,y=H*.89;
     c.save();c.globalAlpha=captionAlpha;
     D.line(c,x-20,y-27,x+20,y-27,'#6d845d88',1.5);
-    D.text(c,names[selected],x-10,y,mobile?20:23,th.ink,500,'right');
-    D.text(c,Math.round(values[selected]*100)+'%',x+10,y,mobile?29:34,th.ink,500,'left',true);
+    D.text(c,names[selected],x,y,mobile?22:25,th.ink,500,'center');
     c.restore();
   }
-  D.text(c,'示例库存比例 · 不代表实际库存状态',W*.68,H*.94,mobile?11:11,th.muted,400,'center');
   return state;
 }
 export { stageState, drawStage };
