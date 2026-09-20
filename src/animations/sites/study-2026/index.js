@@ -1,5 +1,4 @@
-import { defineCanvasScene } from "../../contract/canvas-scene.js";
-import { reading } from "./renderers.js";
+import { defineNoSignalScene } from "../../shared/no-signal.js";
 const website = {
   "id": "study",
   "n": 7,
@@ -7,7 +6,7 @@ const website = {
   "url": "",
   "enabled": false,
   "color": "#d1bd8d",
-  "desc": "资料预告 · 默认地址未配置"
+  "desc": "无信号 · 未接入"
 };
 const theme = Object.freeze({
   "bg": "#eee3ca",
@@ -19,7 +18,7 @@ const theme = Object.freeze({
   "light": true
 });
 const scenes = Object.freeze([
-  defineCanvasScene({ id:"study.reading", channelId:"study", label:"学习资料预告", seconds:13, draw:reading })
+  defineNoSignalScene({ channelId:"study", channel:7 })
 ]);
 const site = Object.freeze({ apiVersion:1, website:Object.freeze(website), theme, scenes });
 export { site };

@@ -1,5 +1,4 @@
-import { defineCanvasScene } from "../../contract/canvas-scene.js";
-import { documents } from "./renderers.js";
+import { defineNoSignalScene } from "../../shared/no-signal.js";
 const website = {
   "id": "ezctd",
   "n": 4,
@@ -7,7 +6,7 @@ const website = {
   "url": "",
   "enabled": false,
   "color": "#c3a2b6",
-  "desc": "文档预告 · 原测试卡方向延续"
+  "desc": "无信号 · 未接入"
 };
 const theme = Object.freeze({
   "bg": "#ece3e2",
@@ -19,7 +18,7 @@ const theme = Object.freeze({
   "light": true
 });
 const scenes = Object.freeze([
-  defineCanvasScene({ id:"ezctd.documents", channelId:"ezctd", label:"文档预告", seconds:12, draw:documents })
+  defineNoSignalScene({ channelId:"ezctd", channel:4 })
 ]);
 const site = Object.freeze({ apiVersion:1, website:Object.freeze(website), theme, scenes });
 export { site };

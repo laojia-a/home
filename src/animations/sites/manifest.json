@@ -89,10 +89,10 @@
     "entry": "index.js",
     "sceneCount": 1,
     "sceneIds": [
-      "ezctd.documents"
+      "ezctd.no-signal"
     ],
-    "status": "migrated-existing-programmes-no-visual-redesign",
-    "source": "baseline/s10-programme/src/programmes.js",
+    "status": "no-signal",
+    "source": "src/animations/shared/no-signal.js",
     "defaultUrl": "",
     "theme": {
       "bg": "#ece3e2",
@@ -113,10 +113,10 @@
     "entry": "index.js",
     "sceneCount": 1,
     "sceneIds": [
-      "solo.planning"
+      "solo.no-signal"
     ],
-    "status": "migrated-existing-programmes-no-visual-redesign",
-    "source": "baseline/s10-programme/src/programmes.js",
+    "status": "no-signal",
+    "source": "src/animations/shared/no-signal.js",
     "defaultUrl": "",
     "theme": {
       "bg": "#e2e6eb",
@@ -137,10 +137,10 @@
     "entry": "index.js",
     "sceneCount": 1,
     "sceneIds": [
-      "oracle.evidence"
+      "oracle.no-signal"
     ],
-    "status": "migrated-existing-programmes-no-visual-redesign",
-    "source": "baseline/s10-programme/src/programmes.js",
+    "status": "no-signal",
+    "source": "src/animations/shared/no-signal.js",
     "defaultUrl": "",
     "theme": {
       "bg": "#dce4d5",
@@ -161,10 +161,10 @@
     "entry": "index.js",
     "sceneCount": 1,
     "sceneIds": [
-      "study.reading"
+      "study.no-signal"
     ],
-    "status": "migrated-existing-programmes-no-visual-redesign",
-    "source": "baseline/s10-programme/src/programmes.js",
+    "status": "no-signal",
+    "source": "src/animations/shared/no-signal.js",
     "defaultUrl": "",
     "theme": {
       "bg": "#eee3ca",

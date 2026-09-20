@@ -1,5 +1,4 @@
-import { defineCanvasScene } from "../../contract/canvas-scene.js";
-import { evidence } from "./renderers.js";
+import { defineNoSignalScene } from "../../shared/no-signal.js";
 const website = {
   "id": "oracle",
   "n": 6,
@@ -7,7 +6,7 @@ const website = {
   "url": "",
   "enabled": false,
   "color": "#b5c5a4",
-  "desc": "证据预告 · 不生成检索结论"
+  "desc": "无信号 · 未接入"
 };
 const theme = Object.freeze({
   "bg": "#dce4d5",
@@ -19,7 +18,7 @@ const theme = Object.freeze({
   "light": true
 });
 const scenes = Object.freeze([
-  defineCanvasScene({ id:"oracle.evidence", channelId:"oracle", label:"证据预告", seconds:12, draw:evidence })
+  defineNoSignalScene({ channelId:"oracle", channel:6 })
 ]);
 const site = Object.freeze({ apiVersion:1, website:Object.freeze(website), theme, scenes });
 export { site };

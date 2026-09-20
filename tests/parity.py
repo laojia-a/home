@@ -1,4 +1,4 @@
-"""Compare Canvas RGBA frames at equal dimensions, independent of TV shell layout."""
+"""Compare the three unchanged programme channels; CH04-07 intentionally use no-signal scenes."""
 from pathlib import Path
 import asyncio, argparse, json, hashlib, shutil
 from playwright.async_api import async_playwright
@@ -17,7 +17,7 @@ async def main(args):
   results=[]
   for width,height,canvas_width,canvas_height in [(1440,900,1000,580),(390,844,390,750)]:
    for page in pages:await page.set_viewport_size({'width':width,'height':height});await page.evaluate('document.fonts.ready')
-   for ch,count in enumerate([6,3,3,1,1,1,1],1):
+   for ch,count in enumerate([6,3,3],1):
     for scene in range(count):
      for phase in [.05,.25,.55,.9]:
       hashes=[await page.evaluate('([ch,s,p,w,h])=>__seek(ch,s,p,w,h)',[ch,scene,phase,canvas_width,canvas_height]) for page in pages]

@@ -22,6 +22,17 @@ async def main(args):
   for n in [3,6,1,2,5,7,2,4,3]:await page.keyboard.press(str(n))
   await page.wait_for_timeout(450);s=await page.evaluate('S10.snapshot()');assert s['channel']==3 and 'be-workbench' in s['url'] and s['transition'] is None;results.append('rapid channel input preserves final choice and URL')
   await page.keyboard.press('p');await page.wait_for_timeout(480);assert not await page.evaluate('S10.snapshot().power');await page.keyboard.press('1');assert await page.evaluate('S10.snapshot().channel')==3;await page.keyboard.press('p');await page.wait_for_timeout(480);assert await page.evaluate('S10.snapshot().power');results.append('standby guards channel and restores power')
+  for channel in range(4,8):
+   await page.keyboard.press(str(channel));await page.wait_for_timeout(350)
+   assert await page.evaluate('S10.snapshot().signal')=='none'
+   assert not await page.locator('#siteIdentity').is_visible()
+  results.append('CH04-07 show no signal and no speculative station overlay')
+  frame="document.querySelector('#cv7').toDataURL()"
+  frozen=await page.evaluate(frame);await page.wait_for_timeout(220);assert await page.evaluate(frame)==frozen
+  await page.keyboard.press('Space');await page.wait_for_timeout(240);assert await page.evaluate(frame)!=frozen
+  await page.keyboard.press('Space');frozen=await page.evaluate(frame);await page.wait_for_timeout(220);assert await page.evaluate(frame)==frozen
+  results.append('snow freezes when paused and changes after resume')
+  await page.screenshot(path=str(args.artifacts/'no-signal-desktop.png'))
   for w,h in [(360,800),(390,844),(768,1024),(844,390),(1366,768),(1920,1080)]:
    await page.set_viewport_size({'width':w,'height':h});assert await page.evaluate('document.documentElement.scrollWidth<=innerWidth+1');assert await page.locator('#screen').is_visible()
   results.append('six additional responsive viewports remain visible without horizontal overflow')

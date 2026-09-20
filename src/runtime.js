@@ -49,12 +49,12 @@ function updateChrome(){
  screen.classList.toggle('paused',state.paused);
  screen.classList.toggle('power-off',!state.power);
  $('#powerWake').hidden=state.power;
- $('#siteIdentity').hidden=!state.power;
+ $('#siteIdentity').hidden=!state.power||programme().signal==='none';
  $('#siteName').textContent=ch.name;
  $('#siteScene').textContent=programme().label;
  if(mark.dataset.siteId!==ch.id){mark.src=siteMarkDataUrl(ch.id);mark.dataset.siteId=ch.id;}
  $('#mobilePlay').textContent=state.paused?'播放':'暂停';
- $('#canvasAlt').textContent=`${ch.name}，${programme().label}。本地节目示意，不是实时业务数据。`;
+ $('#canvasAlt').textContent=programme().signal==='none'?`${ch.name}，无信号。`:`${ch.name}，${programme().label}。本地节目示意，不是实时业务数据。`;
 }
 function applyPic(){const p=config.pic;$('#crtScan').style.display=p.scan?'block':'none';$('#crtVig').style.display=p.vig?'block':'none';$$('.channel').forEach(s=>s.style.setProperty('--bri',p.bri));document.body.classList.toggle('immersive',p.immersive);state.last=performance.now();drawActive();wake()}
 function startTransition(type,snap,direction=1){state.revision++;state.transition={type,snap,direction,start:performance.now(),duration:type==='tune'?300:450,rev:state.revision};wipe.style.opacity=1;}
@@ -128,4 +128,4 @@ function frame(now){const active=state.power&&!state.paused&&!state.menu&&!docum
 $$('.channel').forEach(s=>s.classList.toggle('on',Number(s.dataset.ch)===1));updateChrome();applyPic();drawActive();requestAnimationFrame(frame);
 managed.load().then(()=>{configReady=true;updateChrome();}).catch(e=>notify(e.message));
 if(loadWarning)setTimeout(()=>notify(loadWarning),800);
-Object.defineProperty(window,'S10',{value:Object.freeze({modules:()=>CHANNELS.map(c=>({id:c.id,name:c.name,scenes:PROGRAMMES[c.n].map(s=>({id:s.id,label:s.label,durationMs:s.durationMs}))})),version:'2.4-front-depth',snapshot:()=>({channel:state.ch,scene:state.scene,label:programme().label,elapsed:state.elapsed,paused:state.paused,pauseReason:state.pauseReason,reducedMotion:reduced,power:state.power,menu:state.menu,transition:state.transition?.type||null,frames:state.fpsFrames,url:currentLink().url,enabled:currentLink().enabled,speed:config.pic.speed,dirty:!!dirty(),immersion:config.pic.immersive})}),writable:false});
+Object.defineProperty(window,'S10',{value:Object.freeze({modules:()=>CHANNELS.map(c=>({id:c.id,name:c.name,scenes:PROGRAMMES[c.n].map(s=>({id:s.id,label:s.label,durationMs:s.durationMs}))})),version:'2.4-front-depth',snapshot:()=>({channel:state.ch,scene:state.scene,label:programme().label,signal:programme().signal||'programme',elapsed:state.elapsed,paused:state.paused,pauseReason:state.pauseReason,reducedMotion:reduced,power:state.power,menu:state.menu,transition:state.transition?.type||null,frames:state.fpsFrames,url:currentLink().url,enabled:currentLink().enabled,speed:config.pic.speed,dirty:!!dirty(),immersion:config.pic.immersive})}),writable:false});
