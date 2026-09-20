@@ -30,7 +30,7 @@ function gradeStage(c,W,H,t,m){
     c.save();c.globalAlpha=visible*(focus?1:1-forward*.70);c.translate(x,y);c.rotate(rotation);c.scale(scale,scale);
     paper(c,0,0,cardW,cardH,focus&&forward>.1);
     text(c,'G'+(index+1),0,cardH*.31,m?39:46,focus?'#4b6b3b':'#748468',500,'center',true);
-    const summaries=[['进食习惯','未改变'],['核对进食情况','或静脉干预'],['摄入不足','或需营养支持等']][index];
+    const summaries=[['食欲下降','进食习惯未改变'],['核对进食条件','或需静脉干预'],['摄入不足；或需','管饲、TPN 或住院']][index];
     summaries.forEach((s,j)=>text(c,s,0,cardH*.63+j*24,m?14:15,'#81906f',400,'center'));
     line(c,-cardW*.34,cardH*.47,cardW*.34,cardH*.47,'#a7b59555',1);c.restore();
   }
