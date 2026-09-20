@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>CH01 · 物资盘点 — 3D 材质样稿 v0</title>
+<link rel="icon" href="data:,"><link rel="stylesheet" href="cabinet.css"><link rel="stylesheet" href="study.css"></head>
+<body data-channel="cth"><main><div class="screenCol"><section id="screen" class="screen" aria-label="物资盘点 3D 静态样稿">
+  <canvas id="sceneCanvas" aria-label="有景深的立体物资：采血管、离心管、试剂盒、耗材包和冻存管"></canvas>
+  <canvas id="originalCanvas" hidden aria-label="原版平面物资动画定格"></canvas>
+  <div class="scene-type" id="sceneType"><h1>物资盘点</h1><p>采样、试剂与耗材</p></div>
+  <div class="site-identity" id="siteIdentity"><img id="siteMark" alt=""><span><strong>临床工具集</strong><small>物资盘点</small></span></div>
+  <div class="material-legend" id="materialLegend"><span>采血管</span><span>离心管</span><span>试剂盒</span><span>耗材包</span><span>冻存管</span></div>
+  <p class="scene-caption" id="sceneCaption">物资示意</p>
+  <div id="studyError" role="alert" hidden></div>
+</section></div></main>
+<aside class="study-dock" aria-label="样稿审阅"><div class="study-note"><b>CH01 / 物资盘点</b><span>3D 材质样稿 · v0</span></div><div class="study-actions"><button id="compare" aria-pressed="false">原版对照</button><button id="depth" aria-pressed="true">景深：开</button><button id="view" aria-pressed="false">放大画面</button></div><p>静态构图审阅 · 尚未替换线上动画</p></aside>
+<script type="module" src="bundle.js"></script></body></html>
