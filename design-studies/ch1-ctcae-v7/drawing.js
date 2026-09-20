@@ -20,24 +20,25 @@ function searchStage(c,W,H,t,m){
 function gradeStage(c,W,H,t,m){
   const opening=p(t,3.4,5.5),lift=p(t,7.2,9),returning=p(t,16.3,18.2),read=p(t,9,10.2)*(1-p(t,15.8,16.7));
   if(!opening)return;
-  const center=W/2,base=H*.44,spread=W*(m?.28:.255),cardW=W*(m?.26:.235),cardH=m?H*.29:H*.33;
+  const center=W/2,base=H*.44,spread=W*.174,cardW=W*.154,cardH=m?H*.29:H*.33;
   const visible=p(t,3.4,4.0);
-  // Three applicable grades open like index leaves. G2 comes forward for reading, then returns.
-  for(const index of [0,2,1]){
-    const delta=index-1,focus=index===1,forward=lift*(1-returning);
-    const x=mix(center,center+delta*spread,opening),y=base-(focus?forward*29:0);
-    const rotation=delta*.10*opening*(1-forward*.4),scale=focus?1+forward*.14:1-forward*.06;
-    c.save();c.globalAlpha=visible*(focus?1:1-forward*.70);c.translate(x,y);c.rotate(rotation);c.scale(scale,scale);
+  // Show all five grade positions. Term-specific unavailable grades remain explicitly marked.
+  for(const index of [0,4,2,3,1]){
+    const delta=index-2,focus=index===1,forward=lift*(1-returning),available=term.grades[index].available;
+    const restingX=mix(center,center+delta*spread,opening);
+    const x=focus?mix(restingX,center,forward):restingX,y=base-(focus?forward*29:0);
+    const rotation=delta*(m?.035:.07)*opening*(1-forward*.4),scale=focus?1+forward*.14:1-forward*.06;
+    c.save();c.globalAlpha=visible*(focus?1:1-forward*.70)*(available?1:.68);c.translate(x,y);c.rotate(rotation);c.scale(scale,scale);
     paper(c,0,0,cardW,cardH,focus&&forward>.1);
-    text(c,'G'+(index+1),0,cardH*.31,m?39:46,focus?'#4b6b3b':'#748468',500,'center',true);
-    const summaries=[['食欲下降','进食习惯未改变'],['核对进食条件','或需静脉干预'],['摄入不足；或需','管饲、TPN 或住院']][index];
-    summaries.forEach((s,j)=>text(c,s,0,cardH*.63+j*24,m?14:15,'#81906f',400,'center'));
+    text(c,'G'+(index+1),0,cardH*.31,m?30:39,focus?'#4b6b3b':'#748468',500,'center',true);
+    const summaries=[['食欲下降','查看完整条件'],['进食 / 干预','展开完整条件'],['摄入 / 干预','查看完整条件'],['—','不适用'],['—','不适用']][index];
+    summaries.forEach((s,j)=>text(c,s,0,cardH*.63+j*(m?23:24),m?12:13,'#81906f',400,'center'));
     line(c,-cardW*.34,cardH*.47,cardW*.34,cardH*.47,'#a7b59555',1);c.restore();
   }
   // Unavailable grades stay visibly unavailable rather than becoming severe-event labels.
   c.save();c.globalAlpha=visible*(1-read*.9);
-  text(c,'G4 —     G5 —',center,H*.835,m?18:18,'#9eaa90',400,'center',true);
-  text(c,'本条目不适用',center,H*.89,m?15:14,'#879578',400,'center');c.restore();
+  text(c,'G1–G5 五级框架',center,H*.835,m?17:18,'#839375',400,'center');
+  text(c,'“恶心”条目的 G4、G5 不适用',center,H*.89,m?14:14,'#879578',400,'center');c.restore();
   c.save();c.globalAlpha=visible;text(c,'恶心 / Nausea',center,H*.30,m?26:31,'#3f5a36',500,'center');c.restore();
   if(read>0)criteria(c,W,H,t,read,m);
   if(returning>.5){c.save();c.globalAlpha=p(t,17.2,18.3);text(c,'按具体条件核对，不直接判级',center,H*.365,m?16:18,'#788c67',400,'center');c.restore();}
