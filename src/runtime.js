@@ -45,9 +45,10 @@ function snapshotCanvas(){const src=canvases[state.ch],c=document.createElement(
 function wake(){state.chromeAt=performance.now();screen.classList.remove('chrome-hidden')}
 function syncChapterCaption(){
  const scene=programme(),phase=scene.presentation?.(state.elapsed*1000)?.phase||'content',caption=$('#siteScene');
- const hidden=scene.signal==='none'||phase==='intro'||phase==='outro';
+ const hidden=current().id==='cth'||scene.signal==='none'||phase==='intro'||phase==='outro';
  if(caption.hidden!==hidden)caption.hidden=hidden;
- if(caption.textContent!==scene.label)caption.textContent=scene.label;
+ const label=hidden?'':scene.label;
+ if(caption.textContent!==label)caption.textContent=label;
  if(screen.dataset.chapterPhase!==phase)screen.dataset.chapterPhase=phase;
 }
 function updateChrome(){
@@ -61,7 +62,6 @@ function updateChrome(){
  mark.hidden=programme().signal==='none';
  syncChapterCaption();
  $('#siteName').textContent=ch.name;
- $('#siteScene').textContent=programme().label;
  if(mark.dataset.siteId!==ch.id){mark.src=siteMarkDataUrl(ch.id);mark.dataset.siteId=ch.id;}
  $('#mobilePlay').textContent=state.paused?'播放':'暂停';
  $('#canvasAlt').textContent=programme().signal==='none'?`${ch.name}，无信号。`:`${ch.name}，${programme().label}。本地节目示意，不是实时业务数据。`;

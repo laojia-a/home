@@ -10,7 +10,7 @@ const cabinet=mountTelevision(screen,Array.from({length:7},(_,i)=>({n:i+1,name:i
 document.querySelector('#siteMark').src=siteMarkDataUrl('cth');
 document.querySelector('.tv-dial').disabled=true;
 document.querySelector('[data-action="menu"]').disabled=true;
-const play=document.querySelector('#play'),seek=document.querySelector('#seek'),status=document.querySelector('#status'),phaseLabel=document.querySelector('#phase'),caption=document.querySelector('#chapterLabel');
+const play=document.querySelector('#play'),seek=document.querySelector('#seek'),status=document.querySelector('#status'),phaseLabel=document.querySelector('#phase');
 const offsets=scenes.map((_,i)=>scenes.slice(0,i).reduce((sum,s)=>sum+s.durationMs,0));
 const total=scenes.reduce((sum,s)=>sum+s.durationMs,0);seek.max=String(total-1);
 const nav=document.querySelector('#chapters');
@@ -27,7 +27,6 @@ function paint(){
   }
   if(!state.power){const c=canvas.getContext('2d');c.save();c.setTransform(1,0,0,1,0,0);c.fillStyle='#132017';c.fillRect(0,0,canvas.width,canvas.height);c.restore();}
   const chapter=scenes[state.scene],phase=chapter.presentation(state.elapsed*1000).phase;
-  const hidden=!state.power||phase==='intro'||phase==='outro';caption.hidden=hidden;caption.textContent=chapter.label;
   document.querySelector('#siteIdentity').hidden=!state.power;
   cabinet.update({ch:1,power:state.power,paused:state.paused,menu:false,pauseReason:state.paused?'user':null});
   document.querySelector('.tv-dial').disabled=true;
